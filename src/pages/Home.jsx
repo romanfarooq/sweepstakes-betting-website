@@ -20,10 +20,10 @@ export default function Home() {
               </div>
               <div className="mt-4 flex justify-between">
                 <button className="rounded-lg bg-green-500 px-4 py-1 text-white hover:bg-green-600">
-                  Bet Yes &#162; 80
+                  Bet Yes 80&#162;
                 </button>
                 <button className="rounded-lg bg-red-500 px-4 py-1 text-white hover:bg-red-600">
-                  Bet No &#162; 62
+                  Bet No 62&#162;
                 </button>
               </div>
             </CardContent>

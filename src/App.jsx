@@ -6,11 +6,14 @@ import Portfolio from "@/pages/Portfolio";
 import Profile from "@/pages/Profile";
 import SignUpForm from "@/pages/SignUpForm";
 import Wallet from "@/pages/Wallet";
+
+
 import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+import { AuthProvider } from "./contexts/authContext";
 
 const router = createBrowserRouter([
   {
@@ -60,5 +63,5 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return <AuthProvider><RouterProvider router={router} /></AuthProvider>
 }

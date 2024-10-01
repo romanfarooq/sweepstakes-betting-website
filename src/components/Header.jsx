@@ -1,8 +1,22 @@
 import NavLinkList from "@/components/NavLinkList";
-import { Button } from "@/components/ui/button";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { doSignInWithGoogle } from "@/firebase/auth";
+import { useAuth } from "@/contexts/authContext";
+import { doSignOut } from "@/firebase/auth";
+import LoggedInButtons from "./LoggedInButtons";
+import LoggedOutButtons from "./LoggedOutButtons";
+
+// import { useAuth } from "@/contexts/authContext";
 
 function Header() {
+  const { userLoggedIn } = useAuth();
+  const navigate = useNavigate();
+
+  function onSignOut() {
+    doSignOut();
+    navigate(0);
+  }
+
   return (
     <div className="flex h-full items-center justify-between border-b border-gray-600 bg-gray-800 bg-primary px-12 py-6 text-white">
       <div className="flex gap-2">
@@ -15,19 +29,7 @@ function Header() {
 
       <div className="flex items-center justify-center gap-10">
         <NavLinkList />
-        <div className="flex items-center justify-center gap-3">
-          <Button className="text-[1rem] text-sky-500 hover:scale-105 hover:text-sky-600 hover:transition-all">
-            Login
-          </Button>
-          <NavLink to="/signup">
-            <Button
-              className="bg-sky-500 text-white hover:scale-105 hover:bg-sky-600 hover:transition-all"
-              variant="secondary"
-            >
-              Sign Up
-            </Button>
-          </NavLink>
-        </div>
+        {userLoggedIn ? <LoggedOutButtons onSignOut={onSignOut} /> : <LoggedInButtons doSignInWithGoogle={doSignInWithGoogle} />}
       </div>
     </div>
   );

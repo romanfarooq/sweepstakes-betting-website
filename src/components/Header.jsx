@@ -1,5 +1,6 @@
 // import React from 'react'
 import { Button } from "@/components/ui/button";
+import {  NavLink} from "react-router-dom";
 // import { CiDark } from "react-icons/ci";
 import {
   DropdownMenu,
@@ -7,25 +8,26 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-// import { Sun, Moon } from "react-icons/wi";
-import { MdOutlineWbSunny, MdOutlineNightlight } from "react-icons/md"; // Import from Material Icons
+import { MdOutlineWbSunny, MdOutlineNightlight } from "react-icons/md";
 
 import { useTheme } from "@/components/ui/ThemeProvider";
+import NavLinkList from "./NavLinkList";
 
 function Header() {
   const { setTheme } = useTheme();
   return (
-    <div className="flex h-full justify-between bg-primary px-12 py-6 text-white">
-      <div>
-        <h1 className="text-xl font-bold">Sweep Stakes</h1>
-      </div>
-      <div className="flex items-center justify-center gap-3">
-        
+    <div className="flex h-full items-center justify-between bg-primary px-12 py-6 text-white">
+      <div className="flex gap-2">
+        <h1 className="text-xl font-bold dark:text-black">Sweep Stakes</h1>
         <span className="relative flex h-3 w-3">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
           <span className="relative inline-flex h-3 w-3 rounded-full bg-sky-500"></span>
         </span>
-        <p className="">Live</p>
+      </div>
+    
+      <div className="flex items-center justify-center gap-10">
+        <NavLinkList />
+        <div className="flex items-center justify-center gap-3">
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -48,13 +50,17 @@ function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <Button className="text-sky-500">
-          Login
-        </Button>
-        <Button className="bg-sky-500 text-white" variant="">
+        <Button className="text-[1rem] text-sky-500 hover:text-sky-600 hover:scale-105 hover:transition-all">Login</Button>
+        <NavLink to="/signup">
+           <Button
+          className="bg-sky-500 text-white hover:bg-sky-600 hover:scale-105 hover:transition-all"
+          variant="secondary"
+        >
           Sign Up
         </Button>
-      </div>
+       </NavLink>
+        </div>
+        </div>
     </div>
   );
 }

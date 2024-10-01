@@ -3,7 +3,12 @@ import { ThemeProvider } from "@/components/ui/ThemeProvider"; // Import your Th
 import AppLayout from "./layouts/AppLayout";
 import AdminLayout from "./layouts/AdminLayout";
 import Dashboard from "./components/Dashboard";
-import Home from "./components/Home";
+import Home from "./pages/Home";
+import SignUpForm from "./pages/SignUpForm";
+import Portfolio from "./pages/Portfolio";
+import { Wallet } from "lucide-react";
+import Profile from "./pages/Profile";
+
 
 const router = createBrowserRouter([
   {
@@ -18,7 +23,24 @@ const router = createBrowserRouter([
         path: "home",
         element: <Home />,
       },
+      {
+        path: "home",
+        element: <Home />,
+      },
+      {
+        path: "Portfolio",
+        element: <Portfolio />,
+      },
+      {
+        path: "wallet",
+        element: <Wallet />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
     ],
+   
   },
   {
     path: "/admin",
@@ -30,6 +52,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+     path: "signup",
+    element: <SignUpForm/>
+  }
 ]);
 
 export default function App() {

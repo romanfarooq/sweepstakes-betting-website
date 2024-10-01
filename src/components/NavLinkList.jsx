@@ -5,7 +5,7 @@ function NavLinkList() {
   return (
    
     <div>
-        <nav className="space-x-6 dark:text-background">
+        <nav className="space-x-6 ">
           <NavLink
             to="/home"
             className="text-lg hover:text-gray-300 transition duration-300"

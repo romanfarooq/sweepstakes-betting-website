@@ -3,10 +3,10 @@ import NavLinkList from './NavLinkList'; // Import your NavLinkList component
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="bg-gray-800 text-white py-8 border-t border-gray-700 p-8">
       <div className="container mx-auto flex flex-wrap justify-between">
         <div className="w-full sm:w-1/3 mb-6 sm:mb-0">
-          <h2 className="text-lg font-bold mb-4">Sweep Stakes</h2>
+          <h2 className="text-lg font-bold mb-4">Sweep Stakes</h2> 
           <p className="text-gray-400">
             Bringing you the best online sweepstakes and prediction market games.
           </p>
@@ -14,7 +14,7 @@ export default function Footer() {
 
         <div className="w-full sm:w-1/3 mb-6 sm:mb-0">
           <h2 className="text-lg font-bold mb-4">Quick Links</h2>
-          <NavLinkList /> {/* Use your NavLinkList component here */}
+          <NavLinkList /> 
         </div>
 
         <div className="w-full sm:w-1/3">

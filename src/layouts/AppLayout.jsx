@@ -7,17 +7,17 @@ export default function AppLayout() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header with fixed height */}
-      <header className="bg-background">
+      <header className="bg-gray-800">
         <Header />
       </header>
       
       {/* Main content (Outlet) grows to fill available space */}
-      <main className="flex-grow bg-background">
+      <main className="flex-grow bg-gray-800">
         <Outlet />
       </main>
       
       {/* Footer with fixed height */}
-      <footer className="h-16 bg-background">
+      <footer className="h-16 bg-gray-800">
         <Footer />
       </footer>
     </div>

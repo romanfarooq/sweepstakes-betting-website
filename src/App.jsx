@@ -1,4 +1,7 @@
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import Dashboard from "@/components/Dashboard";
+import Settings from "@/components/Settings";
+import Reports from "@/components/Reports";
 import AdminLayout from "@/layouts/AdminLayout";
 import AppLayout from "@/layouts/AppLayout";
 import Home from "@/pages/Home";
@@ -6,13 +9,6 @@ import Portfolio from "@/pages/Portfolio";
 import Profile from "@/pages/Profile";
 import SignUpForm from "@/pages/SignUpForm";
 import Wallet from "@/pages/Wallet";
-
-
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
 import { AuthProvider } from "./contexts/authContext";
 
 const router = createBrowserRouter([
@@ -29,11 +25,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "home",
-        element: <Home />,
-      },
-      {
-        path: "Portfolio",
+        path: "portfolio",
         element: <Portfolio />,
       },
       {
@@ -54,14 +46,26 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: <Dashboard />,
       },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+      {
+        path: "reports",
+        element: <Reports />,
+      },
     ],
   },
   {
-    path: "signup",
+    path: "/signup",
     element: <SignUpForm />,
   },
 ]);
 
 export default function App() {
-  return <AuthProvider><RouterProvider router={router} /></AuthProvider>
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 }

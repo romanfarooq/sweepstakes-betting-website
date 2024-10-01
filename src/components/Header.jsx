@@ -1,11 +1,10 @@
-// import React from 'react'
+import NavLinkList from "@/components/NavLinkList";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";
-import NavLinkList from "./NavLinkList";
 
 function Header() {
   return (
-    <div className="bg-gray-800 flex h-full items-center justify-between bg-primary px-12 py-6 text-white border-b border-gray-600">
+    <div className="flex h-full items-center justify-between border-b border-gray-600 bg-gray-800 bg-primary px-12 py-6 text-white">
       <div className="flex gap-2">
         <h1 className="text-xl font-bold">Sweep Stakes</h1>
         <span className="relative flex h-3 w-3">
@@ -13,12 +12,10 @@ function Header() {
           <span className="relative inline-flex h-3 w-3 rounded-full bg-sky-500"></span>
         </span>
       </div>
-     
 
       <div className="flex items-center justify-center gap-10">
         <NavLinkList />
         <div className="flex items-center justify-center gap-3">
-          
           <Button className="text-[1rem] text-sky-500 hover:scale-105 hover:text-sky-600 hover:transition-all">
             Login
           </Button>

@@ -1,14 +1,16 @@
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
-import { ThemeProvider } from "@/components/ui/ThemeProvider"; // Import your ThemeProvider
-import AppLayout from "./layouts/AppLayout";
-import AdminLayout from "./layouts/AdminLayout";
-import Dashboard from "./components/Dashboard";
-import Home from "./pages/Home";
-import SignUpForm from "./pages/SignUpForm";
-import Portfolio from "./pages/Portfolio";
-import { Wallet } from "lucide-react";
-import Profile from "./pages/Profile";
-
+import Dashboard from "@/components/Dashboard";
+import AdminLayout from "@/layouts/AdminLayout";
+import AppLayout from "@/layouts/AppLayout";
+import Home from "@/pages/Home";
+import Portfolio from "@/pages/Portfolio";
+import Profile from "@/pages/Profile";
+import SignUpForm from "@/pages/SignUpForm";
+import Wallet from "@/pages/Wallet";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +42,6 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
     ],
-   
   },
   {
     path: "/admin",
@@ -53,15 +54,11 @@ const router = createBrowserRouter([
     ],
   },
   {
-     path: "signup",
-    element: <SignUpForm/>
-  }
+    path: "signup",
+    element: <SignUpForm />,
+  },
 ]);
 
 export default function App() {
-  return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  );
+  return <RouterProvider router={router} />;
 }

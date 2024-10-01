@@ -3,6 +3,7 @@ import {  doSignInWithGoogle,doSignInWithEmailAndPassword } from "@/firebase/aut
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/authContext';
 import { Navigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 
 
@@ -20,7 +21,9 @@ function SignUpForm() {
    
     if (!isSigningIn) {
       setIsSigningIn(true);
-      await doSignInWithEmailAndPassword(email, password)
+      await doSignInWithEmailAndPassword(email, password).catch((err) => {
+        toast.error(err.message)
+      })
     }
   };
 

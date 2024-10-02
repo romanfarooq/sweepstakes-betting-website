@@ -18,7 +18,7 @@ function Header() {
   }
 
   return (
-    <div className="flex h-full items-center justify-between border-b border-gray-600 bg-gray-800 bg-primary px-12 py-6 text-white">
+    <div className="hidden md:flex h-full items-center justify-between border-b border-gray-600 bg-gray-800 bg-primary px-12 py-6 text-white">
       <div className="flex gap-2">
         <h1 className="text-xl font-bold">Sweep Stakes</h1>
         <span className="relative flex h-3 w-3">

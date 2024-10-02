@@ -17,7 +17,32 @@ export default function Footer() {
         {/* Quick Links */}
         <div className="w-full sm:w-1/3">
           <h2 className="mb-4 text-lg font-bold">Quick Links</h2>
-          <NavLinkList />
+          <nav className="flex flex-wrap gap-4">
+            <NavLink
+              to="/home"
+              className="text-lg transition duration-300 hover:text-gray-300"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/portfolio"
+              className="text-lg transition duration-300 hover:text-gray-300"
+            >
+              Portfolio
+            </NavLink>
+            <NavLink
+              to="/wallet"
+              className="text-lg transition duration-300 hover:text-gray-300"
+            >
+              Wallet
+            </NavLink>
+            <NavLink
+              to="/profile"
+              className="text-lg transition duration-300 hover:text-gray-300"
+            >
+              Profile
+            </NavLink>
+          </nav>
         </div>
 
         {/* Follow Us */}

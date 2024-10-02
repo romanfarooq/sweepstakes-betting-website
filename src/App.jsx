@@ -4,6 +4,7 @@ import Settings from "@/components/Settings";
 import Reports from "@/components/Reports";
 import AdminLayout from "@/layouts/AdminLayout";
 import AppLayout from "@/layouts/AppLayout";
+import Event from "@/pages/Event";
 import Home from "@/pages/Home";
 import Portfolio from "@/pages/Portfolio";
 import Profile from "@/pages/Profile";
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "portfolio",
+        path: "event",
+        element: <Event />,
+      },
+      {
+        path: "Portfolio",
         element: <Portfolio />,
       },
       {

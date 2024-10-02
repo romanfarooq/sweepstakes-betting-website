@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import MobileHeader from "@/components/MobileHeader";
 import { Outlet } from "react-router-dom";
 
 export default function AppLayout() {
@@ -8,6 +9,7 @@ export default function AppLayout() {
       {/* Header with fixed height */}
       <header className="bg-gray-800">
         <Header />
+        <MobileHeader />
       </header>
 
       {/* Main content (Outlet) grows to fill available space */}

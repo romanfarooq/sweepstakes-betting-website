@@ -1,5 +1,5 @@
-import NavLinkList from "@/components/NavLinkList";
-import { Link } from "react-router-dom";
+// import NavLinkList from "@/components/NavLinkList";
+import { Link, NavLink } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaDiscord, FaYoutube, FaTwitter, FaReddit } from "react-icons/fa";
 
 export default function Footer() {

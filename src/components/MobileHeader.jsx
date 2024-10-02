@@ -1,19 +1,35 @@
-import { Button } from "@/components/ui/button";
+
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { AlignJustify, LogOut } from "lucide-react";
+import { AlignJustify } from "lucide-react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import NavLinkList from "./NavLinkList";
+import { useAuth } from "@/contexts/authContext";
+import LoggedOutButtons from "./LoggedOutButtons";
+import LoggedInButtons from "./LoggedInButtons";
+import { doSignOut } from "@/firebase/auth";
+import { doSignInWithGoogle } from "@/firebase/auth";
+import { Button } from "./ui/button";
+
 
 export default function MobileHeader() {
+  const { userLoggedIn } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+   function onSignOut() {
+    doSignOut();
+    navigate(0);
+  }
 
   function handleOpen() {
     setIsOpen(true);
+
   }
 
   function handleClose() {
@@ -41,49 +57,55 @@ export default function MobileHeader() {
               </SheetTitle>
             </div>
 
-            <nav className="mt-6 flex flex-col gap-y-8 text-center">
+            <nav className="mt-6 flex flex-col gap-y-8 text-center text-sm">
               <NavLink
                 to="/home"
-                className="text-2xl transition duration-300 hover:text-gray-300"
+                className="text-lg transition duration-300 hover:text-gray-300"
                 onClick={handleClose}
               >
                 Home
               </NavLink>
-              <NavLink
-                to="/portfolio"
-                className="text-2xl transition duration-300 hover:text-gray-300"
-                onClick={handleClose}
-              >
-                Portfolio
-              </NavLink>
+              
               <NavLink
                 to="/wallet"
-                className="text-2xl transition duration-300 hover:text-gray-300"
+                className="text-lg transition duration-300 hover:text-gray-300"
                 onClick={handleClose}
               >
                 Wallet
               </NavLink>
               <NavLink
                 to="/profile"
-                className="text-2xl transition duration-300 hover:text-gray-300"
+                className="text-lg transition duration-300 hover:text-gray-300"
                 onClick={handleClose}
               >
                 Profile
               </NavLink>
+              <NavLink
+                to="/portfolio"
+                className="text-lg transition duration-300 hover:text-gray-300"
+                onClick={handleClose}
+              >
+                Portfolio
+              </NavLink>
+              <NavLink
+                to="/terms"
+                className="text-lg transition duration-300 hover:text-gray-300"
+                onClick={handleClose}
+              >
+                Terms of Use
+              </NavLink>
+             {userLoggedIn &&  <Button
+                className="text-lg transition duration-300 hover:text-gray-300"
+                onClick={() => { handleClose(); onSignOut()}}
+              >
+                Log Out
+              </Button>}
             </nav>
 
             <div className="mx-auto mt-auto flex flex-col gap-2 p-4">
-              <Button className="text-[1rem] text-sky-500 hover:scale-105 hover:text-sky-600 hover:transition-all">
-                Login
-              </Button>
-              <NavLink to="/signup">
-                <Button
-                  className="bg-sky-500 text-white hover:scale-105 hover:bg-sky-600 hover:transition-all"
-                  variant="secondary"
-                >
-                  Sign Up
-                </Button>
-              </NavLink>
+               <div className="flex  items-center justify-center gap-10">
+        {userLoggedIn ? <LoggedOutButtons onSignOut={onSignOut} /> : <LoggedInButtons doSignInWithGoogle={doSignInWithGoogle} />}
+      </div>
             </div>
           </SheetContent>
         </Sheet>

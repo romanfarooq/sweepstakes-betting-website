@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -9,17 +8,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useNavigate } from "react-router-dom";
+import DepositWithDrawBtn from "./DepositWithDrawBtn";
 
 function LoggedOutButtons({ onSignOut }) {
   const navigate = useNavigate();
 
   return (
     <div className="flex items-center justify-between gap-5">
-      <div className="space-x-4">
-        <Button className="bg-sky-500 hover:bg-sky-400 transition-all bg-opacity-60">Deposit</Button>
-        <Button className="bg-red-500 hover:bg-red-600 transition-all bg-opacity-70">Withdraw</Button>
-      </div>
-
+       <DepositWithDrawBtn/>
       <div className="flex cursor-pointer flex-col items-center justify-between gap-2 text-sm">
         <DropdownMenu className="">
           <DropdownMenuTrigger>
@@ -28,7 +24,7 @@ function LoggedOutButtons({ onSignOut }) {
               <AvatarFallback>User</AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-[10rem] mr-5 border-gray-600">
+          <DropdownMenuContent className="mr-5 w-[10rem] border-gray-600">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem onSelect={() => navigate("profile")}>

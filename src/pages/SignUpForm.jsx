@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 
 
 function SignUpForm() {
-  const { userLoggedIn } = useAuth();
+  const { userLoggedIn,loading } = useAuth();
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

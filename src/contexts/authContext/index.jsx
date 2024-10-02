@@ -36,7 +36,6 @@ export function AuthProvider({ children }) {
         currentUser,
         userLoggedIn,
         loading,
-
     }
 
     return (

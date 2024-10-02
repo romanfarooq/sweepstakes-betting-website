@@ -1,6 +1,7 @@
 import Dashboard from "@/components/Dashboard";
 import AdminLayout from "@/layouts/AdminLayout";
 import AppLayout from "@/layouts/AppLayout";
+import Event from "@/pages/Event";
 import Home from "@/pages/Home";
 import Portfolio from "@/pages/Portfolio";
 import Profile from "@/pages/Profile";
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <Home />,
+      },
+      {
+        path: "event",
+        element: <Event />,
       },
       {
         path: "Portfolio",

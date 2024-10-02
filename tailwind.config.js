@@ -6,6 +6,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      keyframes: {
+        bounceUpDown: {
+          "0%, 100%": { transform: "translateY(0)" }, // Start at initial position
+          "25%": { transform: "translateY(-2px)" }, // Move up 5px
+          "75%": { transform: "translateY(2px)" }, // Move down 5px
+        },
+      },
+      animation: {
+        "bounce-updown": "bounceUpDown 0.8s ease-in-out infinite", // 1s duration
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

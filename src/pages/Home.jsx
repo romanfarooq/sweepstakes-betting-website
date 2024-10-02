@@ -27,7 +27,7 @@ export default function Home() {
                     className="text-base font-semibold leading-tight text-white hover:cursor-pointer hover:underline"
                     onClick={() => navigate("/event")}
                   >
-                    Will Israel invade Lebanon?
+                    Israel military response against Iran by Friday?
                   </CardTitle>
                 </div>
                 <HalfDoughnutChart percentage={88} />

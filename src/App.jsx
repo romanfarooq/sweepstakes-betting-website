@@ -1,6 +1,8 @@
 import Dashboard from "@/components/Dashboard";
 import Reports from "@/components/Reports";
 import Settings from "@/components/Settings";
+import TermsUses from "@/components/TermsUses";
+import AuthProvider from "@/contexts/AuthContext";
 import AdminLayout from "@/layouts/AdminLayout";
 import AppLayout from "@/layouts/AppLayout";
 import Event from "@/pages/Event";
@@ -16,7 +18,6 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import { AuthProvider } from "./contexts/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "terms",
+        element: <TermsUses />,
       },
     ],
   },

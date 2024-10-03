@@ -1,7 +1,6 @@
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import Dashboard from "@/components/Dashboard";
-import Settings from "@/components/Settings";
 import Reports from "@/components/Reports";
+import Settings from "@/components/Settings";
 import AdminLayout from "@/layouts/AdminLayout";
 import AppLayout from "@/layouts/AppLayout";
 import Event from "@/pages/Event";
@@ -10,8 +9,14 @@ import Portfolio from "@/pages/Portfolio";
 import Profile from "@/pages/Profile";
 import SignUpForm from "@/pages/SignUpForm";
 import Wallet from "@/pages/Wallet";
-import { AuthProvider } from "./contexts/authContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
+import { AuthProvider } from "./contexts/authContext";
 
 const router = createBrowserRouter([
   {
@@ -68,11 +73,15 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 export default function App() {
   return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-      <Toaster position="top-right"/>
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+        <Toaster position="top-right" />
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }

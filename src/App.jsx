@@ -12,6 +12,7 @@ import SignUpForm from "@/pages/SignUpForm";
 import Wallet from "@/pages/Wallet";
 import { AuthProvider } from "./contexts/authContext";
 import { Toaster } from "react-hot-toast";
+import TermsUses from "./components/TermsUses";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "terms",
+        element: <TermsUses />,
       },
     ],
   },

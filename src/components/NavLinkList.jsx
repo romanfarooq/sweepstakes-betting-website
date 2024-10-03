@@ -28,6 +28,12 @@ function NavLinkList() {
         >
           Profile
         </NavLink>
+        <NavLink
+          to="/terms"
+          className="text-lg transition duration-300 hover:text-gray-300"
+        >
+          Terms & Uses
+        </NavLink>
       </nav>
     </div>
   );

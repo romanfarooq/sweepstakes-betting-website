@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 function LoggedInButtons({doSignInWithGoogle}) {
   return (
-     <div className="flex flex-col items-center justify-center gap-3 ">
+     <div className="flex flex-col  sm:flex-row items-center justify-center gap-3 ">
             <Button
               onClick={() => doSignInWithGoogle()}
               className="text-[1rem] text-sky-500 hover:scale-105 hover:text-sky-600 hover:transition-all"

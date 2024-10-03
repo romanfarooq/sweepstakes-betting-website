@@ -88,7 +88,7 @@ export default function MobileHeader() {
               className="text-lg transition duration-300 hover:text-gray-300"
               onClick={handleClose}
             >
-              Terms of Use
+              Terms & Uses
             </NavLink>
 
             {userLoggedIn && (

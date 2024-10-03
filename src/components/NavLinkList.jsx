@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function NavLinkList() {
   return (
     <div>
-      <nav className="space-x-6">
+      <nav className="space-x-6 whitespace-nowrap">
         <NavLink
           to="/home"
           className="text-lg transition duration-300 hover:text-gray-300"

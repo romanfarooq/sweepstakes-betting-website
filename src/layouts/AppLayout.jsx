@@ -13,7 +13,7 @@ export default function AppLayout() {
       </header>
 
       {/* Main content (Outlet) grows to fill available space */}
-      <main className="flex-grow bg-gray-800">
+      <main className="flex-grow bg-gray-800 text-gray-200">
         <Outlet />
       </main>
 

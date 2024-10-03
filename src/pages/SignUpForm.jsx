@@ -41,8 +41,8 @@ function SignUpForm() {
 
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-800">
-      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-gray-800 p-8 sm:p-0">
+      <div className="w-full max-w-md bg-gray-100 p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
 
         <form onSubmit={onSubmit}>
@@ -55,7 +55,7 @@ function SignUpForm() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+              className="w-full px-3 bg-gray-50 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               required
             />
           </div>
@@ -69,7 +69,7 @@ function SignUpForm() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+              className="w-full px-3 py-2 bg-gray-50 border rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
               required
             />
           </div>

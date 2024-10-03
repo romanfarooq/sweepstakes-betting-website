@@ -10,10 +10,10 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-600 bg-gray-800 px-8 py-20 text-white">
-      <div className="container mx-auto flex flex-wrap justify-between space-y-8 sm:space-y-0">
+    <footer className="border-t border-gray-600 bg-gray-800 px-8 py-8 text-white md:pb-10 md:pt-20">
+      <div className="container mx-auto flex flex-col justify-between space-y-8 md:flex-row md:space-y-0">
         {/* Company Info */}
-        <div className="w-full sm:w-1/3">
+        <div className="w-full md:w-1/3 md:pr-2">
           <h2 className="mb-4 text-lg font-bold">Sweep Stakes</h2>
           <p className="text-gray-400">
             Bringing you the best online sweepstakes and prediction market
@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
 
         {/* Quick Links */}
-        <div className="w-full sm:w-1/3">
+        <div className="w-full md:w-1/3">
           <h2 className="mb-4 text-lg font-bold">Quick Links</h2>
           <nav className="flex flex-wrap gap-4">
             <NavLink
@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
 
         {/* Follow Us */}
-        <div className="w-full sm:w-1/3">
+        <div className="w-full md:w-1/3">
           <h2 className="mb-4 text-lg font-bold">Follow Us</h2>
           <div className="flex space-x-4 text-gray-400">
             <Link to="/facebook" className="hover:text-gray-200">

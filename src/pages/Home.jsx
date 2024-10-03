@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function Home() {
   const navigate = useNavigate();
   return (
+ 
     <div className="grid w-full grid-cols-1 gap-3 p-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:px-40 2xl:py-20">
       {Array(12)
         .fill(0)
@@ -53,6 +54,7 @@ export default function Home() {
             </CardContent>
           </Card>
         ))}
-    </div>
+      </div>
+    
   );
 }

@@ -179,19 +179,28 @@ export default function Portfolio() {
         <div className="mb-6">
           <nav className="flex gap-4 sm:gap-8">
             <button
-              className={`text-gray-300 hover:text-white ${activeTab === "Positions" ? "border-b-2 border-white font-bold text-white" : ""}`}
+              className={cn("text-gray-300 hover:text-white", {
+                "border-b-2 border-white font-bold text-white":
+                  activeTab === "Positions",
+              })}
               onClick={() => setActiveTab("Positions")}
             >
               Positions
             </button>
             <button
-              className={`text-gray-300 hover:text-white ${activeTab === "OpenOrders" ? "border-b-2 border-white font-bold text-white" : ""}`}
+              className={cn("text-gray-300 hover:text-white", {
+                "border-b-2 border-white font-bold text-white":
+                  activeTab === "OpenOrders",
+              })}
               onClick={() => setActiveTab("OpenOrders")}
             >
               Open Orders
             </button>
             <button
-              className={`text-gray-300 hover:text-white ${activeTab === "History" ? "border-b-2 border-white font-bold text-white" : ""}`}
+              className={cn("text-gray-300 hover:text-white", {
+                "border-b-2 border-white font-bold text-white":
+                  activeTab === "History",
+              })}
               onClick={() => setActiveTab("History")}
             >
               History
@@ -339,7 +348,14 @@ export default function Portfolio() {
                       </TableCell>
                       <TableCell className="border border-gray-600 p-3 sm:p-6">
                         <p
-                          className={`rounded-xl p-[0.5px] text-center ${order.status.toLowerCase() == "active" ? "bg-green-300 text-sm text-green-800" : ""} p-1 text-center ${order.status.toLowerCase() == "pending" ? "bg-sky-300 text-sm text-sky-800" : ""} p-1 text-center ${order.status.toLowerCase() == "completed" ? "bg-red-300 text-sm text-red-800" : ""}`}
+                          className={cn("rounded-xl p-[0.5px] text-center", {
+                            "bg-green-300 text-sm text-green-800":
+                              order.status.toLowerCase() === "active",
+                            "bg-sky-300 text-sm text-sky-800":
+                              order.status.toLowerCase() === "pending",
+                            "bg-red-300 text-sm text-red-800":
+                              order.status.toLowerCase() === "completed",
+                          })}
                         >
                           {order.status}
                         </p>
@@ -413,7 +429,14 @@ export default function Portfolio() {
                       </TableCell>
                       <TableCell className="border border-gray-600 p-3 sm:p-6">
                         <p
-                          className={`rounded-xl p-[0.5px] text-center ${record.status.toLowerCase() == "active" ? "bg-green-300 text-sm text-green-800" : ""} p-1 text-center ${record.status.toLowerCase() == "pending" ? "bg-sky-300 text-sm text-sky-800" : ""} p-1 text-center ${record.status.toLowerCase() == "completed" ? "bg-red-300 text-sm text-red-800" : ""}`}
+                          className={cn("rounded-xl p-[0.5px] text-center", {
+                            "bg-green-300 text-sm text-green-800":
+                              record.status.toLowerCase() === "active",
+                            "bg-sky-300 text-sm text-sky-800":
+                              record.status.toLowerCase() === "pending",
+                            "bg-red-300 text-sm text-red-800":
+                              record.status.toLowerCase() === "completed",
+                          })}
                         >
                           {record.status}
                         </p>

@@ -1,14 +1,10 @@
-// import React from "react";
-
-function Reports() {
+export default function Reports() {
   return (
     <div>
-      <h1 className="text-3xl font-semibold mb-4">Reports</h1>
-      <div className="bg-white p-6 rounded-lg shadow">
+      <h1 className="mb-4 text-3xl font-semibold">Reports</h1>
+      <div className="rounded-lg bg-white p-6 shadow">
         <p>Reports and analytics will go here.</p>
       </div>
     </div>
   );
 }
-
-export default Reports;

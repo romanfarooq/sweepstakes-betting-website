@@ -4,16 +4,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { AlignJustify, BadgeDollarSign } from "lucide-react"; // Import the BadgeDollarSign icon
+import { AlignJustify, BadgeDollarSign } from "lucide-react";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "@/contexts/authContext";
-import LoggedOutButtons from "./LoggedOutButtons";
-import LoggedInButtons from "./LoggedInButtons";
+import { useAuth } from "@/contexts/AuthContext";
 import { doSignOut } from "@/firebase/auth";
 import { doSignInWithGoogle } from "@/firebase/auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import DepositWithDrawBtn from "./DepositWithDrawBtn";
+import LoggedInButtons from "@/components/LoggedInButtons";
+import DepositWithDrawBtn from "@/components/DepositWithDrawBtn";
+import { Button } from "./ui/button";
 
 export default function MobileHeader() {
   const { userLoggedIn } = useAuth();
@@ -35,7 +35,6 @@ export default function MobileHeader() {
 
   return (
     <div className="flex h-16 items-center justify-between px-4 text-white md:hidden">
-      {/* Hamburger Menu */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
           <AlignJustify
@@ -45,13 +44,13 @@ export default function MobileHeader() {
           />
         </SheetTrigger>
         <SheetContent
-          className="flex w-full flex-col justify-between border-none bg-gray-800 text-white"
+          className="flex h-full w-full flex-col justify-between overflow-y-auto border-none bg-gray-800 text-white"
           side="left"
         >
           <div className="flex items-center gap-2">
-            <SheetTitle className="flex-1 text-center text-3xl font-extrabold text-white sm:text-4xl">
-              <BadgeDollarSign className="inline-block mr-2 h-6 w-6" /> {/* Icon next to the title */}
-              Sweep Stakes
+            <SheetTitle className="flex flex-1 items-center justify-center text-3xl font-extrabold text-white sm:text-4xl">
+              <BadgeDollarSign className="mr-2 inline-block size-8 pt-1" />
+              <span> Sweep Stakes</span>
             </SheetTitle>
           </div>
 
@@ -84,17 +83,6 @@ export default function MobileHeader() {
             >
               Portfolio
             </NavLink>
-            {userLoggedIn && (
-              <p
-                className="text-lg transition duration-300 hover:text-gray-300"
-                onClick={() => {
-                  handleClose();
-                  onSignOut();
-                }}
-              >
-                Log Out
-              </p>
-            )}
             <NavLink
               to="/terms"
               className="text-lg transition duration-300 hover:text-gray-300"
@@ -102,6 +90,18 @@ export default function MobileHeader() {
             >
               Terms of Use
             </NavLink>
+
+            {userLoggedIn && (
+              <Button
+                className="mx-auto w-48 bg-gray-600 bg-opacity-60 text-white transition-all hover:bg-gray-500 sm:w-auto"
+                onClick={() => {
+                  handleClose();
+                  onSignOut();
+                }}
+              >
+                Log Out
+              </Button>
+            )}
           </nav>
 
           <div className="mx-auto mt-auto flex flex-col gap-2 p-4">
@@ -116,11 +116,10 @@ export default function MobileHeader() {
         </SheetContent>
       </Sheet>
 
-      {/* Heading in the center and Avatar on the right */}
-      <div className="flex flex-1 justify-between items-center">
-        <h1 className="text-3xl font-bold text-center flex-1">
-          <BadgeDollarSign className="inline-block mr-2 h-6 w-6" /> {/* Icon next to the title */}
-          Sweep Stakes
+      <div className="flex flex-1 items-center justify-between">
+        <h1 className="flex flex-1 items-center justify-center text-2xl font-bold">
+          <BadgeDollarSign className="mr-2 inline-block size-8" />
+          <span> Sweep Stakes</span>
         </h1>
         {userLoggedIn && (
           <Avatar className="ml-2">

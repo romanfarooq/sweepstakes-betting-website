@@ -1,27 +1,25 @@
-// import React from 'react'
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 
-
-function LoggedInButtons({doSignInWithGoogle}) {
+function LoggedInButtons({ doSignInWithGoogle }) {
+  const navigate = useNavigate();
   return (
-     <div className="flex flex-col items-center justify-center gap-3 ">
-            <Button
-              onClick={() => doSignInWithGoogle()}
-              className="text-[1rem] text-sky-500 hover:scale-105 hover:text-sky-600 hover:transition-all"
-            >
-              Login
-            </Button>
-            <NavLink to="/signup">
-              <Button
-                className="bg-sky-500 text-white hover:scale-105 hover:bg-sky-600 hover:transition-all"
-                variant="secondary"
-              >
-                Sign Up
-              </Button>
-            </NavLink>
-          </div>
-  )
+    <div className="flex flex-col items-center justify-center gap-3 md:flex-row">
+      <Button
+        onClick={() => doSignInWithGoogle()}
+        className="text-base text-sky-500 hover:scale-105 hover:text-sky-600 hover:transition-all"
+      >
+        Login
+      </Button>
+      <Button
+        className="bg-sky-500 text-white hover:scale-105 hover:bg-sky-600 hover:transition-all"
+        variant="secondary"
+        onClick={() => navigate("/signup")}
+      >
+        Sign Up
+      </Button>
+    </div>
+  );
 }
 
-export default LoggedInButtons
+export default LoggedInButtons;

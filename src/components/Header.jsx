@@ -1,14 +1,10 @@
+import LoggedInButtons from "@/components/LoggedInButtons";
+import LoggedOutButtons from "@/components/LoggedOutButtons";
 import NavLinkList from "@/components/NavLinkList";
-import { Link, useNavigate } from "react-router-dom";
-import { doSignInWithGoogle } from "@/firebase/auth";
-import { useAuth } from "@/contexts/authContext";
-import { doSignOut } from "@/firebase/auth";
-import LoggedInButtons from "./LoggedInButtons";
-import LoggedOutButtons from "./LoggedOutButtons";
+import { useAuth } from "@/contexts/AuthContext";
+import { doSignInWithGoogle, doSignOut } from "@/firebase/auth";
 import { BadgeDollarSign } from "lucide-react";
-
-
-// import { useAuth } from "@/contexts/authContext";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   const { userLoggedIn } = useAuth();
@@ -20,16 +16,14 @@ function Header() {
   }
 
   return (
-    <div className="hidden h-full items-center justify-between border-b border-gray-600 bg-gray-800 bg-primary px-12 py-6 text-white md:flex md:gap-6">
-      <Link 
-      to="/home" 
-      className="flex items-center text-lg md:text-xl lg:text-2xl font-bold"
-    >
-      <BadgeDollarSign className="mr-2 h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7" /> {/* Responsive icon size */}
-      Sweep Stakes
-    </Link>
-
-
+    <div className="hidden h-full items-center justify-between border-b border-gray-600 bg-gray-800 bg-primary px-6 py-6 text-white md:flex md:gap-6 lg:px-12">
+      <Link
+        to="/home"
+        className="flex items-center justify-center text-xl font-bold lg:text-2xl xl:text-3xl"
+      >
+        <BadgeDollarSign className="mr-2 size-7 lg:size-10" />
+        <span> Sweep Stakes</span>
+      </Link>
       <div className="flex items-center justify-center gap-10">
         <NavLinkList />
         {userLoggedIn ? (

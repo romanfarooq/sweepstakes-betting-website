@@ -1,16 +1,23 @@
-// import NavLinkList from "@/components/NavLinkList";
 import { Link, NavLink } from "react-router-dom";
-import { FaFacebookF, FaInstagram, FaDiscord, FaYoutube, FaTwitter, FaReddit } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaDiscord,
+  FaYoutube,
+  FaTwitter,
+  FaReddit,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 px-8 py-20 text-white border-t border-gray-600">
+    <footer className="border-t border-gray-600 bg-gray-800 px-8 py-20 text-white">
       <div className="container mx-auto flex flex-wrap justify-between space-y-8 sm:space-y-0">
         {/* Company Info */}
         <div className="w-full sm:w-1/3">
           <h2 className="mb-4 text-lg font-bold">Sweep Stakes</h2>
           <p className="text-gray-400">
-            Bringing you the best online sweepstakes and prediction market games.
+            Bringing you the best online sweepstakes and prediction market
+            games.
           </p>
         </div>
 

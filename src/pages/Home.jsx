@@ -30,7 +30,7 @@ export default function Home() {
   if (isError) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <p className="text-white">
+        <p className="text-center text-white">
           Oops! Something went wrong. Please try again later.
         </p>
       </div>

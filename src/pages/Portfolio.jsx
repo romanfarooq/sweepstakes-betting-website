@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -256,9 +257,18 @@ export default function Portfolio() {
                         {position.totalValue}
                       </TableCell>
                       <TableCell className="border border-gray-600 p-3 sm:p-6">
-                        <p className={`text-center p-[0.5px] rounded-xl ${position.status.toLowerCase() == 'active' ? "bg-green-300 text-green-800 text-sm" : ""}
-                         text-center p-1 ${position.status.toLowerCase() == 'pending' ? "bg-sky-300 text-sky-800 text-sm" : ""}
-                         text-center p-1 ${position.status.toLowerCase() == 'completed' ? "bg-red-300 text-red-800 text-sm" : ""}`}>{position.status}</p>
+                        <p
+                          className={cn("rounded-xl p-[0.5px] text-center", {
+                            "bg-green-300 text-sm text-green-800":
+                              position.status.toLowerCase() === "active",
+                            "bg-sky-300 text-sm text-sky-800":
+                              position.status.toLowerCase() === "pending",
+                            "bg-red-300 text-sm text-red-800":
+                              position.status.toLowerCase() === "completed",
+                          })}
+                        >
+                          {position.status}
+                        </p>
                       </TableCell>
                     </TableRow>
                   ))
@@ -327,10 +337,12 @@ export default function Portfolio() {
                       <TableCell className="border border-gray-600 p-3 sm:p-6">
                         {order.expiration}
                       </TableCell>
-                        <TableCell className="border border-gray-600 p-3 sm:p-6">
-                        <p className={`text-center p-[0.5px] rounded-xl ${order.status.toLowerCase() == 'active' ? "bg-green-300 text-green-800 text-sm" : ""}
-                         text-center p-1 ${order.status.toLowerCase() == 'pending' ? "bg-sky-300 text-sky-800 text-sm" : ""}
-                         text-center p-1 ${order.status.toLowerCase() == 'completed' ? "bg-red-300 text-red-800 text-sm" : ""}`}>{order.status}</p>
+                      <TableCell className="border border-gray-600 p-3 sm:p-6">
+                        <p
+                          className={`rounded-xl p-[0.5px] text-center ${order.status.toLowerCase() == "active" ? "bg-green-300 text-sm text-green-800" : ""} p-1 text-center ${order.status.toLowerCase() == "pending" ? "bg-sky-300 text-sm text-sky-800" : ""} p-1 text-center ${order.status.toLowerCase() == "completed" ? "bg-red-300 text-sm text-red-800" : ""}`}
+                        >
+                          {order.status}
+                        </p>
                       </TableCell>
                     </TableRow>
                   ))
@@ -399,10 +411,12 @@ export default function Portfolio() {
                       <TableCell className="border border-gray-600 p-3 sm:p-6">
                         {record.date}
                       </TableCell>
-                       <TableCell className="border border-gray-600 p-3 sm:p-6">
-                        <p className={`text-center p-[0.5px] rounded-xl ${record.status.toLowerCase() == 'active' ? "bg-green-300 text-green-800 text-sm" : ""}
-                         text-center p-1 ${record.status.toLowerCase() == 'pending' ? "bg-sky-300 text-sky-800 text-sm" : ""}
-                         text-center p-1 ${record.status.toLowerCase() == 'completed' ? "bg-red-300 text-red-800 text-sm" : ""}`}>{record.status}</p>
+                      <TableCell className="border border-gray-600 p-3 sm:p-6">
+                        <p
+                          className={`rounded-xl p-[0.5px] text-center ${record.status.toLowerCase() == "active" ? "bg-green-300 text-sm text-green-800" : ""} p-1 text-center ${record.status.toLowerCase() == "pending" ? "bg-sky-300 text-sm text-sky-800" : ""} p-1 text-center ${record.status.toLowerCase() == "completed" ? "bg-red-300 text-sm text-red-800" : ""}`}
+                        >
+                          {record.status}
+                        </p>
                       </TableCell>
                     </TableRow>
                   ))

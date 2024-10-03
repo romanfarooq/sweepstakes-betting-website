@@ -113,7 +113,25 @@ export default function Portfolio() {
       price: "$300",
       quantity: "2",
       totalValue: "$600",
+      status: "Pending",
+    },
+    {
+      market: "BNB/USD",
+      side: "Buy",
+      outcome: "BNB",
+      price: "$300",
+      quantity: "2",
+      totalValue: "$600",
       status: "Active",
+    },
+    {
+      market: "BNB/USD",
+      side: "Buy",
+      outcome: "BNB",
+      price: "$300",
+      quantity: "2",
+      totalValue: "$600",
+      status: "Completed",
     },
   ];
 
@@ -239,7 +257,9 @@ export default function Portfolio() {
                         {position.totalValue}
                       </TableCell>
                       <TableCell className="border border-gray-600 p-3 sm:p-6">
-                        {position.status}
+                        <p className={`text-center p-[0.5px] rounded-xl ${position.status.toLowerCase() == 'active' ? "bg-green-300 text-green-800 text-sm" : ""}
+                         text-center p-1 ${position.status.toLowerCase() == 'pending' ? "bg-sky-300 text-sky-800 text-sm" : ""}
+                         text-center p-1 ${position.status.toLowerCase() == 'completed' ? "bg-red-300 text-red-800 text-sm" : ""}`}>{position.status}</p>
                       </TableCell>
                     </TableRow>
                   ))
@@ -308,8 +328,10 @@ export default function Portfolio() {
                       <TableCell className="border border-gray-600 p-3 sm:p-6">
                         {order.expiration}
                       </TableCell>
-                      <TableCell className="border border-gray-600 p-3 sm:p-6">
-                        {order.status}
+                        <TableCell className="border border-gray-600 p-3 sm:p-6">
+                        <p className={`text-center p-[0.5px] rounded-xl ${order.status.toLowerCase() == 'active' ? "bg-green-300 text-green-800 text-sm" : ""}
+                         text-center p-1 ${order.status.toLowerCase() == 'pending' ? "bg-sky-300 text-sky-800 text-sm" : ""}
+                         text-center p-1 ${order.status.toLowerCase() == 'completed' ? "bg-red-300 text-red-800 text-sm" : ""}`}>{order.status}</p>
                       </TableCell>
                     </TableRow>
                   ))
@@ -378,8 +400,10 @@ export default function Portfolio() {
                       <TableCell className="border border-gray-600 p-3 sm:p-6">
                         {record.date}
                       </TableCell>
-                      <TableCell className="border border-gray-600 p-3 sm:p-6">
-                        {record.status}
+                       <TableCell className="border border-gray-600 p-3 sm:p-6">
+                        <p className={`text-center p-[0.5px] rounded-xl ${record.status.toLowerCase() == 'active' ? "bg-green-300 text-green-800 text-sm" : ""}
+                         text-center p-1 ${record.status.toLowerCase() == 'pending' ? "bg-sky-300 text-sky-800 text-sm" : ""}
+                         text-center p-1 ${record.status.toLowerCase() == 'completed' ? "bg-red-300 text-red-800 text-sm" : ""}`}>{record.status}</p>
                       </TableCell>
                     </TableRow>
                   ))

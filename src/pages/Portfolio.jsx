@@ -15,13 +15,12 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"; // Importing Shadcn Table components
+} from "@/components/ui/table";
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("OpenOrders");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
-
 
   const handleModal = (type) => {
     setModalType(type);
@@ -118,11 +117,11 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-gray-800 py-20 px-4 sm:px-8 text-gray-100">
+    <div className="flex min-h-screen flex-col items-center bg-gray-800 px-4 py-20 text-gray-100 sm:px-8">
       <div className="w-full max-w-5xl">
-        <div className="mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4 sm:gap-8 text-white">
-            <Card className="w-full sm:w-72 rounded-lg bg-gradient-to-r from-sky-700 via-sky-600 to-sky-800 p-6 text-white">
+        <div className="mb-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <div className="flex items-center gap-4 text-white sm:gap-8">
+            <Card className="w-full rounded-lg bg-gradient-to-r from-sky-700 via-sky-600 to-sky-800 p-6 text-white sm:w-72">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold">
                   Portfolio
@@ -132,7 +131,7 @@ export default function Portfolio() {
                 <p className="text-2xl font-bold">$0.00</p>
               </CardContent>
             </Card>
-            <Card className="w-full sm:w-72 rounded-lg bg-gradient-to-r from-teal-500 to-blue-500 p-6 text-white">
+            <Card className="w-full rounded-lg bg-gradient-to-r from-teal-500 to-blue-500 p-6 text-white sm:w-72">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold">Cash</CardTitle>
               </CardHeader>
@@ -141,15 +140,15 @@ export default function Portfolio() {
               </CardContent>
             </Card>
           </div>
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
             <Button
-              className="bg-black px-4 py-2 text-white w-full sm:w-auto"
+              className="w-full bg-black px-4 py-2 text-white sm:w-auto"
               onClick={() => handleModal("Deposit")}
             >
               Deposit
             </Button>
             <Button
-              className="bg-white px-4 py-2 text-black w-full sm:w-auto"
+              className="w-full bg-white px-4 py-2 text-black sm:w-auto"
               onClick={() => handleModal("Withdraw")}
             >
               Withdraw
@@ -187,25 +186,25 @@ export default function Portfolio() {
             <Table className="overflow-hidden rounded-lg border border-gray-600">
               <TableHeader>
                 <TableRow className="bg-gray-700 font-semibold text-white">
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Market
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Side
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Outcome
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Price
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Quantity
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Total Value
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Status
                   </TableHead>
                 </TableRow>
@@ -251,28 +250,28 @@ export default function Portfolio() {
             <Table className="overflow-hidden rounded-lg border border-gray-600">
               <TableHeader>
                 <TableRow className="bg-gray-700 font-semibold text-white">
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Market
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Side
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Outcome
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Price
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Filled
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Total
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Expiration
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Status
                   </TableHead>
                 </TableRow>
@@ -321,28 +320,28 @@ export default function Portfolio() {
             <Table className="overflow-hidden rounded-lg border border-gray-600">
               <TableHeader>
                 <TableRow className="bg-gray-700 font-semibold text-white">
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Market
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Side
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Outcome
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Price
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Filled
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Total
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Date
                   </TableHead>
-                  <TableHead className="border border-gray-600 p-3 sm:p-6 text-lg font-bold text-white">
+                  <TableHead className="border border-gray-600 p-3 text-lg font-bold text-white sm:p-6">
                     Status
                   </TableHead>
                 </TableRow>
@@ -392,14 +391,24 @@ export default function Portfolio() {
 
       {/* Modal for Deposit and Withdraw */}
       <Dialog open={isModalOpen} onOpenChange={() => setIsModalOpen(false)}>
-        <DialogContent className="bg-gray-800 rounded-lg p-6">
+        <DialogContent className="rounded-lg bg-gray-800 p-6">
           <DialogTitle className="text-lg font-semibold text-white">
             {modalType}
           </DialogTitle>
           <DialogDescription className="mt-2 text-gray-400">
             {/* Add input fields and buttons for Deposit or Withdraw here */}
-            <Input placeholder={modalType === "Deposit" ? "Amount to Deposit" : "Amount to Withdraw"} className="mb-4" />
-            <Button className="bg-green-600 text-white" onClick={() => console.log(`${modalType} submitted!`)}>
+            <Input
+              placeholder={
+                modalType === "Deposit"
+                  ? "Amount to Deposit"
+                  : "Amount to Withdraw"
+              }
+              className="mb-4"
+            />
+            <Button
+              className="bg-green-600 text-white"
+              onClick={() => console.log(`${modalType} submitted!`)}
+            >
               Submit
             </Button>
           </DialogDescription>

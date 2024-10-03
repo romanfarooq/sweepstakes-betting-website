@@ -58,7 +58,7 @@ export default function Event() {
   };
 
   return (
-    <div className="container flex px-10 md:px-16 py-10">
+    <div className="container flex px-10 py-10 md:px-16">
       {/* Main Event Card */}
       <div className="w-[70%] text-white">
         <div className="mb-2 flex items-center justify-between">

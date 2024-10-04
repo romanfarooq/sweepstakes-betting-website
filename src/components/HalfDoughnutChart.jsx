@@ -33,7 +33,7 @@ export default function HalfDoughnutChart({ percentage }) {
       <Doughnut data={data} options={options} />
       <div className="absolute inset-0 top-10 flex flex-col items-center justify-center">
         <span className="text-sm font-semibold text-white">{percentage}%</span>
-        <span className="text-sm text-gray-300">chance</span>{" "}
+        <span className="text-sm text-gray-300">chance</span>
       </div>
     </div>
   );

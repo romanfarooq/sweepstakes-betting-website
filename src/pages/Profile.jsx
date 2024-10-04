@@ -47,35 +47,35 @@ const ProfileSettings = () => {
               <TabsList className="grid w-full grid-cols-2 bg-gray-800 lg:grid-cols-5">
                 <TabsTrigger
                   value="profile"
-                  className="data-[state=active]:bg-sky-700"
+                  className="data-[state=active]:bg-sky-700 data-[state=active]:text-white"
                 >
                   <User className="mr-2 h-4 w-4" />
                   Profile
                 </TabsTrigger>
                 <TabsTrigger
                   value="account"
-                  className="data-[state=active]:bg-sky-700"
+                  className="data-[state=active]:bg-sky-700 data-[state=active]:text-white"
                 >
                   <Lock className="mr-2 h-4 w-4" />
                   Account
                 </TabsTrigger>
                 <TabsTrigger
                   value="notifications"
-                  className="data-[state=active]:bg-sky-700"
+                  className="data-[state=active]:bg-sky-700 data-[state=active]:text-white"
                 >
                   <Bell className="mr-2 h-4 w-4" />
                   Notifications
                 </TabsTrigger>
                 <TabsTrigger
                   value="appearance"
-                  className="data-[state=active]:bg-sky-700"
+                  className="data-[state=active]:bg-sky-700 data-[state=active]:text-white"
                 >
                   <Palette className="mr-2 h-4 w-4" />
                   Appearance
                 </TabsTrigger>
                 <TabsTrigger
                   value="security"
-                  className="data-[state=active]:bg-sky-700"
+                  className="data-[state=active]:bg-sky-700 data-[state=active]:text-white"
                 >
                   <Shield className="mr-2 h-4 w-4" />
                   Security

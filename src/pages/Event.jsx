@@ -8,7 +8,7 @@ export default function Event() {
   const [amount, setAmount] = useState(0);
 
   return (
-    <div className="flex flex-col gap-10 px-10 py-10 md:px-14 lg:flex-row">
+    <div className="flex flex-col gap-10 px-10 py-10 justify-between md:px-14 lg:flex-row">
       {/* Main Event Card */}
       <div className="lg:w-[70%] text-white">
         <div className="mb-2 flex items-center justify-between">

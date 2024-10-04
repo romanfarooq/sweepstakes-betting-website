@@ -1,94 +1,41 @@
+import LineChart from "@/components/LineChart";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-} from "chart.js";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-);
+import { BsCurrencyDollar } from "react-icons/bs";
+import { LuClock4 } from "react-icons/lu";
 
 export default function Event() {
   const [amount, setAmount] = useState(0);
 
-  const data = {
-    labels: ["Oct 1", "Oct 2", "Oct 3", "Oct 4", "Oct 5"],
-    datasets: [
-      {
-        data: [75, 60, 45, 34, 34], // Updated values to reflect the example
-        fill: false,
-        borderColor: "#1f9cf7", // Matching the chart line color
-        tension: 0.1,
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      tooltip: {
-        mode: "index",
-        intersect: false,
-      },
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 75,
-        grid: { display: false },
-        ticks: { display: false },
-      },
-      x: {
-        grid: { display: false },
-      },
-    },
-    elements: {
-      point: { radius: 0 }, // Hides points on the line chart
-    },
-  };
-
   return (
-    <div className="container flex px-10 py-10 md:px-16">
+    <div className="flex flex-col gap-10 px-10 py-10 md:px-14 lg:flex-row">
       {/* Main Event Card */}
-      <div className="w-[70%] text-white">
+      <div className="lg:w-[70%] text-white">
         <div className="mb-2 flex items-center justify-between">
           <div className="flex items-center">
-            <img
-              src="/src/assets/will-israel-enter-lebanon.webp"
-              alt="Event Image"
-              className="mr-2 h-20 w-20 rounded-md object-cover"
-            />
             <div>
-              <p className="text-base font-semibold">
+              <p className="pb-1 text-3xl font-semibold">
                 Israel military response against Iran by Friday?
               </p>
-              <span className="text-xs text-gray-400">Oct 4, 2024</span>
+              <div className="flex space-x-2 text-base text-gray-400">
+                <p className="flex items-center space-x-1">
+                  <LuClock4 />
+                  <span>Oct 4, 2024</span>
+                </p>
+                <p className="flex items-center space-x-1">
+                  <BsCurrencyDollar />
+                  <span>5,073,203 Vol.</span>
+                </p>
+              </div>
             </div>
           </div>
-          <div className="text-gray-400">$117,065 Vol.</div>
         </div>
 
-        {/* Chart */}
-        <Line data={data} options={options} />
-
-        <div className="mt-4 flex justify-between text-blue-400">
-          <span className="text-2xl font-semibold">34% chance</span>
-          <span className="text-red-500">▼ 38%</span>
-        </div>
+        <LineChart />
       </div>
 
       {/* Buy / Sell Card */}
-      <div className="ml-10 mt-4 rounded-lg border border-gray-600 p-4 text-white shadow-md">
+      <div className="mt-4 rounded-lg border border-gray-600 p-4 text-white shadow-md">
         {/* Buy / Sell tabs */}
         <div className="mb-4 flex items-center justify-start border-b border-gray-600">
           <Button className="rounded-l-md text-white">Buy</Button>

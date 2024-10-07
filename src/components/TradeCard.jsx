@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Card, CardContent } from "@/components/ui/card";
-import { Label } from "./ui/label";
 import { cn } from "@/lib/utils";
-import { Input } from "./ui/input";
+import { Input } from "@/component/ui/input";
+import { Label } from "@/component/ui/label";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function TradeCard({ hoveredData }) {
   const [amount, setAmount] = useState(0);
@@ -13,7 +13,7 @@ export default function TradeCard({ hoveredData }) {
   const handleInputChange = (e) => {
     const value = Number(e.target.value.replace(/[^0-9]/g, "")); // Remove non-numeric characters
     if (!isNaN(value) && value >= 0) {
-      setAmount(Number(value));
+      setAmount(value);
     } else if (e.target.value === "") {
       setAmount(0); // Reset to 0 if input is empty
     }

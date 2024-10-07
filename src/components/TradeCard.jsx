@@ -1,11 +1,23 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { Label } from "./ui/label";
+import { cn } from "@/lib/utils";
+import { Input } from "./ui/input";
 
 export default function TradeCard({ hoveredData }) {
   const [amount, setAmount] = useState(0);
-  console.log(hoveredData);
+  const [selectedBet, setSelectedBet] = useState("yes");
+
+  const handleInputChange = (e) => {
+    const value = Number(e.target.value.replace(/[^0-9]/g, "")); // Remove non-numeric characters
+    if (!isNaN(value) && value >= 0) {
+      setAmount(Number(value));
+    } else if (e.target.value === "") {
+      setAmount(0); // Reset to 0 if input is empty
+    }
+  };
 
   return (
     <Card className="mt-4 border border-gray-600 bg-gray-800 text-white shadow-md">
@@ -27,44 +39,76 @@ export default function TradeCard({ hoveredData }) {
 
         {/* Buy Tab Content */}
         <TabsContent value="buy">
-          <CardContent>
-            <div className="mb-4 flex items-center justify-between">
-              <div className="flex gap-2">
-                <Button className="bg-green-600 px-4 py-2 text-white">
+          <CardContent className="p-4">
+            <div className="flex flex-col items-start justify-between gap-2">
+              <Label className="text-base">Outcome</Label>
+              <div className="flex w-full gap-2">
+                <Button
+                  className={cn(
+                    "group flex-1 items-center justify-center rounded-sm py-6 text-base",
+                    selectedBet === "yes"
+                      ? "bg-[#22c55e] text-white"
+                      : "bg-gray-700 text-gray-400",
+                  )}
+                  onClick={() => setSelectedBet("yes")}
+                >
                   Yes 34¢
                 </Button>
-                <Button className="bg-slate-700 px-4 py-2 text-slate-400">
+                <Button
+                  className={cn(
+                    "group flex-1 items-center justify-center rounded-sm py-6 text-base",
+                    selectedBet === "no"
+                      ? "bg-red-600 text-white"
+                      : "bg-gray-700 text-gray-400",
+                  )}
+                  onClick={() => setSelectedBet("no")}
+                >
                   No 66¢
                 </Button>
               </div>
-              <Button className="text-slate-400">
-                <i className="icon-refresh" />
-              </Button>
             </div>
 
-            <div className="mb-4 flex items-center justify-between">
-              <Button onClick={() => setAmount(amount - 1)}>-</Button>
-              <input
-                type="number"
-                value={amount}
-                onChange={(e) => setAmount(Number(e.target.value))}
-                className="w-full bg-slate-900 px-4 py-2 text-center text-white"
-              />
-              <Button onClick={() => setAmount(amount + 1)}>+</Button>
+            <div className="my-10 flex flex-col items-start justify-between gap-2">
+              <Label className="text-base">Amount</Label>
+              <div className="flex w-full items-center">
+                <Button
+                  className="h-12 rounded-r-none bg-gray-700"
+                  onClick={() =>
+                    setAmount((prevAmount) => Math.max(0, prevAmount - 10))
+                  }
+                >
+                  -
+                </Button>
+                <div className="relative flex w-full items-center bg-slate-900 text-white">
+                  <span className="absolute px-2">$</span>
+                  <Input
+                    type="text"
+                    value={amount}
+                    onChange={handleInputChange}
+                    className="h-12 w-full rounded-none border-none bg-slate-900 text-center text-white [appearance:textfield] focus-visible:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                  />
+                </div>
+                <Button
+                  className="h-12 rounded-l-none bg-slate-700"
+                  onClick={() => setAmount((prevAmount) => prevAmount + 10)}
+                >
+                  +
+                </Button>
+              </div>
             </div>
 
-            <Button className="mb-4 w-full bg-blue-500 py-2 text-white">
+            <Button className="mb-4 w-full bg-blue-500 py-5 text-base text-white">
               Log In
             </Button>
-            <div className="text-center text-slate-400">
-              <p>
-                Avg price: <span className="text-slate-100">0.0¢</span>
+            <div className="text-center text-slate-400 md:text-sm xl:text-base">
+              <p className="flex justify-between">
+                Avg price: <span className="text-blue-500">0.0¢</span>
               </p>
-              <p>
+              <p className="flex justify-between">
                 Shares: <span className="text-slate-100">0.00</span>
               </p>
-              <p>
-                Potential return:{" "}
+              <p className="flex justify-between">
+                Potential return:
                 <span className="text-green-500">$0.00 (0.00%)</span>
               </p>
             </div>
@@ -73,41 +117,72 @@ export default function TradeCard({ hoveredData }) {
 
         {/* Sell Tab Content */}
         <TabsContent value="sell">
-          <CardContent>
-            <div className="mb-4 flex items-center justify-between">
-              <div className="flex gap-2">
-                <Button className="bg-green-600 px-4 py-2 text-white">
+          <CardContent className="p-4">
+            <div className="flex flex-col items-start justify-between gap-2">
+              <Label className="text-base">Outcome</Label>
+              <div className="flex w-full gap-2">
+                <Button
+                  className={cn(
+                    "group flex-1 items-center justify-center rounded-sm py-6 text-base",
+                    selectedBet === "yes"
+                      ? "bg-[#22c55e] text-white"
+                      : "bg-gray-700 text-gray-400",
+                  )}
+                  onClick={() => setSelectedBet("yes")}
+                >
                   Yes 34¢
                 </Button>
-                <Button className="bg-slate-700 px-4 py-2 text-slate-400">
-                  No 64¢
+                <Button
+                  className={cn(
+                    "group flex-1 items-center justify-center rounded-sm py-6 text-base",
+                    selectedBet === "no"
+                      ? "bg-red-600 text-white"
+                      : "bg-gray-700 text-gray-400",
+                  )}
+                  onClick={() => setSelectedBet("no")}
+                >
+                  No 66¢
                 </Button>
               </div>
-              <Button className="text-slate-400">
-                <i className="icon-refresh" />
-              </Button>
             </div>
 
-            <div className="mb-4 flex items-center justify-between">
-              <Button onClick={() => setAmount(amount - 1)}>-</Button>
-              <input
-                type="number"
-                value={amount}
-                onChange={(e) => setAmount(Number(e.target.value))}
-                className="w-full bg-slate-900 px-4 py-2 text-center text-white"
-              />
-              <Button onClick={() => setAmount(amount + 1)}>+</Button>
+            <div className="my-10 flex flex-col items-start justify-between gap-2">
+              <Label className="text-base">Shares</Label>
+              <div className="flex w-full items-center">
+                <Button
+                  className="h-12 rounded-r-none bg-gray-700"
+                  onClick={() =>
+                    setAmount((prevAmount) => Math.max(0, prevAmount - 10))
+                  }
+                >
+                  -
+                </Button>
+                <div className="flex w-full items-center bg-slate-900 text-white">
+                  <Input
+                    type="text"
+                    value={amount}
+                    onChange={handleInputChange}
+                    className="h-12 w-full rounded-none border-none bg-slate-900 text-center text-white [appearance:textfield] focus-visible:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                  />
+                </div>
+                <Button
+                  className="h-12 rounded-l-none bg-slate-700"
+                  onClick={() => setAmount((prevAmount) => prevAmount + 10)}
+                >
+                  +
+                </Button>
+              </div>
             </div>
 
-            <Button className="mb-4 w-full bg-blue-500 py-2 text-white">
+            <Button className="mb-4 w-full bg-blue-500 py-5 text-base text-white">
               Log In
             </Button>
-            <div className="text-center text-slate-400">
-              <p>
-                Avg price: <span className="text-slate-100">0.0¢</span>
+            <div className="text-center text-slate-400 md:text-sm xl:text-base">
+              <p className="flex justify-between">
+                Avg price: <span className="text-blue-400">0.0¢</span>
               </p>
-              <p>
-                Est. amount received:{" "}
+              <p className="flex justify-between">
+                Est. amount received:
                 <span className="text-slate-100">$0.00</span>
               </p>
             </div>

@@ -270,7 +270,7 @@ export default function Event() {
   );
 
   return (
-    <div className="flex flex-col justify-between gap-10 px-10 py-10 md:px-14 lg:flex-row">
+    <div className="flex flex-col justify-between gap-10 p-5 sm:p-10 lg:flex-row">
       <div className="text-white lg:w-[70%]">
         <div className="mb-2 flex items-center justify-between">
           <div className="flex items-center">

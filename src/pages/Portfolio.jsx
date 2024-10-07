@@ -78,85 +78,92 @@ export default function Portfolio() {
   );
 
   return (
-    <div className="mx-40 py-10">
+     <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 md:py-10">
       <AmountPortfolioWallet />
-      <div className="flex flex-col">
-        <div className="mx-auto flex w-4/6 items-center justify-between gap-6 py-12">
+      <div className="flex flex-col mt-8">
+        <div className="w-full">
           <Tabs defaultValue="positions" className="w-full">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4 sm:gap-6">
               <div>
-                <TabsList className="grid w-full grid-cols-2 bg-gray-900 lg:grid-cols-5">
-                  <TabsTrigger className="data-[state=active]:bg-sky-700 data-[state=active]:text-white" value="positions">Positions</TabsTrigger>
-                  <TabsTrigger className="data-[state=active]:bg-sky-700 data-[state=active]:text-white" value="openOrders">Open Orders</TabsTrigger>
-                  <TabsTrigger className="data-[state=active]:bg-sky-700 data-[state=active]:text-white" value="history">History</TabsTrigger>
+                <TabsList className="grid grid-cols-3 bg-gray-900 h-full">
+                  <TabsTrigger className="data-[state=active]:bg-sky-700 data-[state=active]:text-white py-2 text-sm sm:text-base" value="positions">Positions</TabsTrigger>
+                  <TabsTrigger className="data-[state=active]:bg-sky-700 data-[state=active]:text-white py-2 text-sm sm:text-base" value="openOrders">Open Orders</TabsTrigger>
+                  <TabsTrigger className="data-[state=active]:bg-sky-700 data-[state=active]:text-white py-2 text-sm sm:text-base" value="history">History</TabsTrigger>
                 </TabsList>
               </div>
-              <div className="self-end flex items-center justify-between gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <Input
-                  className="w-72 bg-gray-900"
+                  className="w-full sm:w-72 bg-gray-900"
                   placeholder="Search..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  onKeyPress={handleSearch} // Call handleSearch on key press
+                  onKeyPress={handleSearch}
                 />
-                <Button
-                  className="flex items-center justify-center bg-sky-800 text-white rounded px-4 py-2 transition duration-300 ease-in-out hover:bg-sky-600"
-                  onClick={handleSearch} // Call handleSearch on button click
+                {/* <Button
+                  className="w-full sm:w-auto flex items-center justify-center bg-sky-800 text-white rounded px-4 py-2 transition duration-300 ease-in-out hover:bg-sky-600"
+                  onClick={handleSearch}
                 >
-                  <IoMdSearch className="text-xl" />
-                </Button>
+                  <IoMdSearch className="text-xl mr-2" />
+                  <span className="sm:hidden">Search</span>
+                </Button> */}
               </div>
             </div>
             <TabsContent value="positions">
-              <Table className="border border-gray-500 rounded-lg overflow-hidden">
-                <TableCaption>A list of your recent invoices.</TableCaption>
-                <TableHeader>
-                  <TableRow className="bg-gray-800">
-                    <TableHead className="w-[120px]">Invoice</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Name</TableHead>
-                    <TableHead className="w-[140px]">Payment Method</TableHead>
-                    <TableHead className="text-right w-[120px]">Amount</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRows data={filteredPositions} />
-                </TableBody>
-              </Table>
+              <div className="overflow-x-auto">
+                <Table className="w-full border border-gray-500 rounded-lg overflow-hidden">
+                  <TableCaption>A list of your recent invoices.</TableCaption>
+                  <TableHeader>
+                    <TableRow className="bg-gray-800">
+                      <TableHead className="w-[120px]">Invoice</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Name</TableHead>
+                      <TableHead className="w-[140px]">Payment Method</TableHead>
+                      <TableHead className="text-right w-[120px]">Amount</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRows data={filteredPositions} />
+                  </TableBody>
+                </Table>
+              </div>
             </TabsContent>
             <TabsContent value="openOrders">
-              <Table className="border border-gray-500 rounded-lg overflow-hidden">
-                <TableCaption>A list of your open orders.</TableCaption>
-                <TableHeader>
-                  <TableRow className="bg-gray-800">
-                    <TableHead className="w-[120px]">Order ID</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Name</TableHead>
-                    <TableHead className="w-[140px]">Payment Method</TableHead>
-                    <TableHead className="text-right w-[120px]">Amount</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRows data={filteredOpenOrders} />
-                </TableBody>
-              </Table>
+              <div className="overflow-x-auto">
+                <Table className="w-full border border-gray-500 rounded-lg overflow-hidden">
+                  <TableCaption>A list of your open orders.</TableCaption>
+                  <TableHeader>
+                    <TableRow className="bg-gray-800">
+                      <TableHead className="w-[120px]">Order ID</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Name</TableHead>
+                      <TableHead className="w-[140px]">Payment Method</TableHead>
+                      <TableHead className="text-right w-[120px]">Amount</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRows data={filteredOpenOrders} />
+                  </TableBody>
+                </Table>
+              </div>
             </TabsContent>
             <TabsContent value="history">
-              <Table className="border border-gray-500 rounded-lg overflow-hidden">
-                <TableCaption>Your transaction history.</TableCaption>
-                <TableHeader>
-                  <TableRow className="bg-gray-800">
-                    <TableHead className="w-[120px]">History ID</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Name</TableHead>
-                    <TableHead className="w-[140px]">Payment Method</TableHead>
-                    <TableHead className="text-right w-[120px]">Amount</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRows data={filteredHistory} />
-                </TableBody>
-              </Table>
+              <div className="overflow-x-auto">
+                <Table className="w-full border border-gray-500 rounded-lg overflow-hidden">
+                  <TableCaption>Your transaction history.</TableCaption>
+                  <TableHeader>
+                    <TableRow className="bg-gray-800">
+                      <TableHead className="w-[120px]">History ID</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Name</TableHead>
+                      <TableHead className="w-[140px]">Payment Method</TableHead>
+                      <TableHead className="text-right w-[120px]">Amount</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRows data={filteredHistory} />
+                  </TableBody>
+                </Table>
+              </div>
             </TabsContent>
           </Tabs>
         </div>

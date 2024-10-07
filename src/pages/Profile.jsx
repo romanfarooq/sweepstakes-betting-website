@@ -44,10 +44,10 @@ const ProfileSettings = () => {
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="profile" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-gray-800 lg:grid-cols-5">
+              <TabsList className="grid h-full w-full gap-4 bg-gray-800 py-6 sm:gap-0 sm:py-0 md:grid-cols-2 lg:grid-cols-5">
                 <TabsTrigger
                   value="profile"
-                  className="data-[state=active]:bg-sky-700 data-[state=active]:text-white"
+                  className="data-[state=active]:w-full data-[state=active]:bg-sky-700 data-[state=active]:text-white"
                 >
                   <User className="mr-2 h-4 w-4" />
                   Profile

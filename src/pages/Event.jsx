@@ -270,7 +270,7 @@ export default function Event() {
   );
 
   return (
-    <div className="flex flex-col justify-between gap-10 p-5 sm:p-10 lg:flex-row">
+    <div className="flex flex-col justify-between gap-10 p-5 sm:p-10 lg:flex-row 2xl:gap-40 2xl:px-40 2xl:py-20">
       <div className="text-white lg:w-[70%]">
         <div className="mb-2 flex items-center justify-between">
           <div className="flex items-center">
@@ -305,7 +305,9 @@ export default function Event() {
         </div>
         <Line data={data} ref={chartRef} options={options} />
       </div>
-      <TradeCard hoveredData={hoveredData} />
+      <div className="flex items-center lg:w-[30%]">
+        <TradeCard hoveredData={hoveredData} />
+      </div>
     </div>
   );
 }

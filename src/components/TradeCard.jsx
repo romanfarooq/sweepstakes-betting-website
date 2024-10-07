@@ -20,7 +20,7 @@ export default function TradeCard({ hoveredData }) {
   };
 
   return (
-    <Card className="mt-4 border border-gray-600 bg-gray-800 text-white shadow-md">
+    <Card className="mt-4 w-full border border-gray-600 bg-gray-800 text-white shadow-md">
       <Tabs className="p-1" defaultValue="buy">
         <TabsList className="mt-2 flex justify-start gap-5 rounded-none border-b border-gray-100 border-opacity-20 bg-gray-800 px-2 py-5 shadow-none">
           <TabsTrigger

@@ -6,27 +6,31 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { calculateBetPercentages } from "@/lib/calculatePercentage";
 
 export default function Home() {
   const navigate = useNavigate();
 
   const { isPending, isError, data } = useQuery({
     queryKey: ["today_matches"],
-    queryFn: () => axios.get("/api/today_matches").then((res) => res.data),
+    queryFn: () => axios.get("/matches").then((res) => res.data),
   });
 
-  function convertToAmPm(time24) {
-    const [hours, minutes] = time24.split(":");
-    const date = new Date();
-    date.setHours(hours, minutes);
+function convertToAmPm(timeString) {
+  // Parse the time string into a Date object
+  const [hours, minutes, seconds] = timeString.split(":").map(Number);
+  const date = new Date();
+  date.setHours(hours);
+  date.setMinutes(minutes);
+  date.setSeconds(seconds);
 
-    return date.toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    });
-  }
-
+  // Convert to AM/PM format
+  return date.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+}
   if (isError) {
     return (
       <div className="flex h-screen items-center justify-center">
@@ -44,7 +48,8 @@ export default function Home() {
   return (
  
     <div className="grid w-full grid-cols-1 gap-3 p-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:px-40 2xl:py-20">
-      {data?.map((match, idx) => (
+      {data?.map((match, idx) => {
+        const yesPercentage = calculateBetPercentages(match);
         <Card
           key={idx}
           className="min-h-40 w-full flex-col rounded-md border-none bg-gray-700 shadow-lg 2xl:min-h-60"
@@ -55,9 +60,9 @@ export default function Home() {
                 className="text-balance text-sm font-semibold leading-tight text-white hover:cursor-pointer hover:underline 2xl:text-base"
                 onClick={() => navigate("/event")}
               >
-                {`Will ${match.team1} win against ${match.team2} in the match at ${convertToAmPm(match.match_time)}?"`}
+                {`Will ${match.home_team} win against ${match.away_team} in the match at ${convertToAmPm(match.match_time)}?"`}
               </CardTitle>
-              <HalfDoughnutChart percentage={Math.floor(Math.random() * 100)} />
+             <HalfDoughnutChart percentage={Math.floor(yesPercentage)} />
             </div>
             <div className="mt-4 flex gap-2">
               <Button
@@ -69,7 +74,7 @@ export default function Home() {
               </Button>
               <Button
                 className="group flex flex-1 items-center justify-center space-x-2 rounded-sm bg-red-600 bg-opacity-30 text-red-500 hover:bg-red-600 hover:bg-opacity-100 hover:text-white 2xl:py-6"
-                onClick={() => navigate("/event")}
+                onClick={() => navigate("/event/:eventId")}
               >
                 <span>Bet No</span>
                 <FaAngleDoubleDown className="group-hover:animate-bounce-updown" />
@@ -77,7 +82,7 @@ export default function Home() {
             </div>
           </CardContent>
         </Card>
-      ))}
+      })}
     </div>
   );
 }

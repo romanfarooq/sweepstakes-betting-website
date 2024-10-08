@@ -67,14 +67,22 @@ export default function Home() {
             <div className="mt-4 flex gap-2">
               <Button
                 className="group flex flex-1 items-center justify-center space-x-2 rounded-sm bg-[#22c55e] bg-opacity-30 text-[#22c55e] hover:bg-[#22c55e] hover:bg-opacity-100 hover:text-white 2xl:py-6"
-                onClick={() => navigate(`/event/${match.id}`)}
+                onClick={() =>
+                  navigate(`/event/${match.id}`, {
+                    state: { bet: "yes" },
+                  })
+                }
               >
                 <span>Bet Yes</span>
                 <FaAngleDoubleUp className="group-hover:animate-bounce-updown" />
               </Button>
               <Button
                 className="group flex flex-1 items-center justify-center space-x-2 rounded-sm bg-red-600 bg-opacity-30 text-red-500 hover:bg-red-600 hover:bg-opacity-100 hover:text-white 2xl:py-6"
-                onClick={() => navigate(`/event/${match.id}`)}
+                onClick={() =>
+                  navigate(`/event/${match.id}`, {
+                    state: { bet: "no" },
+                  })
+                }
               >
                 <span>Bet No</span>
                 <FaAngleDoubleDown className="group-hover:animate-bounce-updown" />

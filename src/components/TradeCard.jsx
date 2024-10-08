@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export default function TradeCard({ hoveredData }) {
+export default function TradeCard({ latestData: { yes, no }, bet }) {
   const [amount, setAmount] = useState(0);
-  const [selectedBet, setSelectedBet] = useState("yes");
+  const [selectedBet, setSelectedBet] = useState(bet);
 
   const handleInputChange = (e) => {
     const value = Number(e.target.value.replace(/[^0-9]/g, "")); // Remove non-numeric characters
@@ -52,7 +52,7 @@ export default function TradeCard({ hoveredData }) {
                   )}
                   onClick={() => setSelectedBet("yes")}
                 >
-                  Yes 34¢
+                  Yes {yes}¢
                 </Button>
                 <Button
                   className={cn(
@@ -63,7 +63,7 @@ export default function TradeCard({ hoveredData }) {
                   )}
                   onClick={() => setSelectedBet("no")}
                 >
-                  No 66¢
+                  No {no}¢
                 </Button>
               </div>
             </div>

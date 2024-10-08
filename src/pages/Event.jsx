@@ -12,6 +12,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { LuClock4 } from "react-icons/lu";
+import { useLocation, useParams } from "react-router-dom";
 
 ChartJS.register(
   CategoryScale,
@@ -132,6 +133,10 @@ const transformData = (backendData) => {
 };
 
 export default function Event() {
+  const { id } = useParams();
+  const { state } = useLocation();
+  const bet = state?.bet || "yes";
+
   const chartRef = useRef(null);
   const data = useMemo(() => transformData(backendData), [backendData]);
   const backendDataLength = backendData.length;
@@ -245,8 +250,13 @@ export default function Event() {
         x: {
           ticks: {
             autoSkip: false,
-            callback: (value, index) =>
-              index % 8 === 0 ? data.labels[index].split(",")[0] : "",
+            callback: (value, index) => {
+              if (data.labels.length <= 8) {
+                return data.labels[index].split(",")[1];
+              } else {
+                return index % 8 === 0 ? data.labels[index].split(",")[0] : "";
+              }
+            },
             maxRotation: 0,
             minRotation: 0,
           },
@@ -306,7 +316,7 @@ export default function Event() {
         <Line data={data} ref={chartRef} options={options} />
       </div>
       <div className="flex items-center lg:w-[30%]">
-        <TradeCard hoveredData={hoveredData} />
+        <TradeCard latestData={initialData} bet={bet} />
       </div>
     </div>
   );

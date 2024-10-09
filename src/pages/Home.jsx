@@ -94,7 +94,7 @@ export default function Home() {
             <CardContent className="flex h-full flex-col justify-between p-3">
               <div className="flex items-center justify-between gap-2">
                 <CardTitle
-                  className="text-balance text-sm font-semibold leading-tight text-white hover:cursor-pointer hover:underline 2xl:text-base"
+                  className="text-balance text-sm font-semibold text-white hover:cursor-pointer hover:underline 2xl:text-base"
                   onClick={() => navigate(`/event/${match.id}`)}
                 >
                   {`Will ${match.home_team} win against ${match.away_team} in the match at ${convertToAmPm(match.match_time)}?"`}

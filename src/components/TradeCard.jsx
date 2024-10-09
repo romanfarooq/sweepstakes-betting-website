@@ -10,14 +10,27 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
   const [amount, setAmount] = useState(0);
   const [selectedBet, setSelectedBet] = useState(bet);
 
-  const handleInputChange = (e) => {
+  const avgPrice = selectedBet === "yes" ? yes : selectedBet === "no" ? no : 0;
+  const shares = calculateShares(avgPrice);
+  const potentialReturn = calculatePotentialReturnPercent(shares);
+
+  function handleInputChange(e) {
     const value = Number(e.target.value.replace(/[^0-9]/g, "")); // Remove non-numeric characters
     if (!isNaN(value) && value >= 0) {
       setAmount(value);
     } else if (e.target.value === "") {
       setAmount(0); // Reset to 0 if input is empty
     }
-  };
+  }
+
+  function calculateShares(value) {
+    return (amount / (value / 100)).toFixed(2);
+  }
+
+  function calculatePotentialReturnPercent(share) {
+    if (share === 0 || amount === 0) return "0.00";
+    return Math.ceil((share / amount) * 100 - 100);
+  }
 
   return (
     <Card className="mt-4 w-full border border-gray-600 bg-gray-800 text-white shadow-md">
@@ -102,14 +115,18 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
             </Button>
             <div className="text-center text-slate-400 md:text-sm xl:text-base">
               <p className="flex justify-between">
-                Avg price: <span className="text-blue-500">0.0¢</span>
+                Avg price:
+                <span className="text-blue-500">
+                  {selectedBet === "yes" ? yes : selectedBet === "no" ? no : 0}
+                </span>
               </p>
               <p className="flex justify-between">
-                Shares: <span className="text-slate-100">0.00</span>
+                Shares:
+                <span className="text-slate-100">{shares}</span>
               </p>
               <p className="flex justify-between">
                 Potential return:
-                <span className="text-green-500">$0.00 (0.00%)</span>
+                <span className="text-green-500">{`$${shares} (${potentialReturn}%)`}</span>
               </p>
             </div>
           </CardContent>

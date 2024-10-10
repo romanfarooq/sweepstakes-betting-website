@@ -1,47 +1,96 @@
-// import axios from "@/api/axiosInstance";
+import axios from "@/api/axiosInstance";
 import CardSkeleton from "@/components/CardSkeleton";
 import HalfDoughnutChart from "@/components/HalfDoughnutChart";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-// import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { calculateBetPercentages } from "@/lib/calculatePercentage";
+import { calculateBetPercentages, convertToAmPm } from "@/lib/utils";
 
 const data = [
   {
     id: 1,
-    home_team: "New Zealand Breakers",
-    away_team: "Philadelphia 76ers",
-    match_time: "04:10:00.000000",
-    total_yes_bets: 7,
-    total_no_bets: 9,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
   },
   {
     id: 2,
-    home_team: "Memphis Grizzlies",
-    away_team: "Dallas Mavericks",
-    match_time: "05:05:00.000000",
-    total_yes_bets: 4,
-    total_no_bets: 5,
+    home_team: "Orlando Magic",
+    away_team: "San Antonio Spurs",
+    match_time: "05:10:00",
+    total_yes_bets: 0,
+    total_no_bets: 0,
+    variations: [
+      {
+        timestamp: "2024-10-09 21:23:59.366943",
+        yes: 0,
+        no: 0,
+      },
+    ],
   },
   {
     id: 3,
-    home_team: "Oklahoma City Thunder",
-    away_team: "San Antonio Spurs",
-    match_time: "05:05:00.000000",
-    total_yes_bets: 3,
-    total_no_bets: 2,
+    home_team: "Houston Rockets",
+    away_team: "Oklahoma City Thunder",
+    match_time: "05:10:00",
+    total_yes_bets: 0,
+    total_no_bets: 0,
+    variations: [
+      {
+        timestamp: "2024-10-09 21:24:02.639427",
+        yes: 0,
+        no: 0,
+      },
+    ],
   },
   {
     id: 4,
-    home_team: "Houston Rockets",
-    away_team: "Utah Jazz",
-    match_time: "06:05:00.000000",
-    total_yes_bets: 3,
-    total_no_bets: 2,
+    home_team: "Golden State Warriors",
+    away_team: "Sacramento Kings",
+    match_time: "07:40:00",
+    total_yes_bets: 0,
+    total_no_bets: 0,
+    variations: [
+      {
+        timestamp: "2024-10-09 21:24:05.372258",
+        yes: 0,
+        no: 0,
+      },
+    ],
   },
 ];
+
 const isPending = false;
 const isError = false;
 
@@ -49,25 +98,10 @@ export default function Home() {
   const navigate = useNavigate();
 
   // const { isPending, isError, data } = useQuery({
-  //   queryKey: ["today_matches"],
+  //   queryKey: ["matches"],
   //   queryFn: () => axios.get("/matches").then((res) => res.data),
   // });
 
-  function convertToAmPm(timeString) {
-    // Parse the time string into a Date object
-    const [hours, minutes, seconds] = timeString.split(":").map(Number);
-    const date = new Date();
-    date.setHours(hours);
-    date.setMinutes(minutes);
-    date.setSeconds(seconds);
-
-    // Convert to AM/PM format
-    return date.toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    });
-  }
   if (isError) {
     return (
       <div className="flex h-screen items-center justify-center">

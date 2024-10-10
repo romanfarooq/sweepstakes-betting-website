@@ -5,6 +5,7 @@ import { CiSettings } from "react-icons/ci";
 import { Input } from "@/components/ui/input";
 
 
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,7 +22,7 @@ export default function UpperNavigationBar() {
         <div className="flex w-3/12">
           <Input
             placeholder="Search here...."
-            className="border-indigo-900 bg-indigo-900 px-5 py-6 outline-none placeholder:text-indigo-300"
+            className="border-indigo-900 bg-indigo-900 px-5 py-5 outline-none placeholder:text-indigo-300"
           />
         </div>
         <div className="flex gap-4 text-2xl cursor-pointer">

@@ -1,6 +1,6 @@
 import Dashboard from "@/components/Dashboard";
 import Reports from "@/components/Reports";
-import Settings from "@/components/Settings";
+import Users from "./components/Users";
 import TermsUses from "@/components/TermsUses";
 import AuthProvider from "@/contexts/AuthContext";
 import AdminLayout from "@/layouts/AdminLayout";
@@ -67,8 +67,8 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "settings",
-        element: <Settings />,
+        path: "users",
+        element: <Users />,
       },
       {
         path: "reports",

@@ -36,6 +36,8 @@
     scrollbar-width: thin;
     scrollbar-color: #4b5563 #1f2937; /* bg-gray-600 for thumb, bg-gray-800 for track */
     scroll-behavior: smooth; /* Smooth scrolling */
+    /* overflow-x: hidden; Hide horizontal scrollbar */
+    
   }
 
   *::-webkit-scrollbar {

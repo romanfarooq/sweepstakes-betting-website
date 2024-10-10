@@ -12,9 +12,16 @@ export default {
           "25%": { transform: "translateY(-2px)" }, // Move up 5px
           "75%": { transform: "translateY(2px)" }, // Move down 5px
         },
+        swing: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(10deg)' },
+          '50%': { transform: 'rotate(-10deg)' },
+          '75%': { transform: 'rotate(5deg)' },
+        },
       },
       animation: {
         "bounce-updown": "bounceUpDown 0.8s ease-in-out infinite", // 1s duration
+        "swing": 'swing 1s ease-in-out infinite',
       },
       borderRadius: {
         lg: "var(--radius)",

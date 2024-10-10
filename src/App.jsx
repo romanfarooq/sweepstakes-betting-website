@@ -18,6 +18,10 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+import ActiveUsers from "./components/ActiveUsers";
+import BannedUsers from "./components/BannedUsers";
+import EmailUnverifiedUsers from "./components/EmailUnverifiedUsers";
+import MobileUnverified from "./components/MobileUnverified";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +73,26 @@ const router = createBrowserRouter([
       {
         path: "users",
         element: <Users />,
+        children: [
+          {index: true, element: <Navigate to="active" replace={true} />},
+          {
+            path: 'active',
+            element: <ActiveUsers/>
+          },
+          {
+            path: 'banned',
+            element: <BannedUsers/>
+          },
+          {
+            path: 'email-unverified',
+            element: <EmailUnverifiedUsers/>
+          },
+          {
+            path: 'mobile-unverified',
+            element: <MobileUnverified/>
+          },
+          
+        ]
       },
       {
         path: "reports",

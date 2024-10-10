@@ -4,9 +4,19 @@ import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import { IoIosPeople } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
+import ResueableAccordion from "./ResueableAccordion";
 
 
 // import Logo from "./Logo";
+
+const sampleAccordionData = {
+  title: "Manage Betters",
+  items: [
+    { name: "Home", href: "/" },
+    { name: "Dashboard", href: "/dashboard" },
+    { name: "Profile", href: "/profile" },
+  ],
+};
 
 export default function SideNavigationBar() {
     console.log(NavLink)
@@ -30,7 +40,7 @@ export default function SideNavigationBar() {
           className={({isActive}) => `flex items-center gap-2 p-3 w-full text-white ${isActive ? 'bg-indigo-900' : ''}`}
         >
           <IoIosPeople />
-         <span>Manage Betters</span>
+         <ResueableAccordion title={sampleAccordionData.title} items={sampleAccordionData.items}/>
         </NavLink>
       </div>
     </div>

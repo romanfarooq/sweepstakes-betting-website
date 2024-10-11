@@ -37,7 +37,6 @@
     scrollbar-color: #4b5563 #1f2937; /* bg-gray-600 for thumb, bg-gray-800 for track */
     scroll-behavior: smooth; /* Smooth scrolling */
     /* overflow-x: hidden; Hide horizontal scrollbar */
-    
   }
 
   *::-webkit-scrollbar {
@@ -55,34 +54,26 @@
   }
 
   /* Custom scrollbar styles */
-.custom-scrollbar {
-  overflow-y: hidden; /* Hide vertical scrollbar by default */
-  overflow-x: scroll; /* Allow horizontal scrolling */
-  position: relative; /* Make it a positioning context for the scrollbar */
-}
+  .custom-scrollbar {
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    scrollbar-color: #1d4ed8 #172554; /* Scrollbar color */
+    scrollbar-width: thin; /* Make the scrollbar width very thin */
+  }
 
-.custom-scrollbar:hover {
-  overflow-y: auto; /* Show scrollbar on hover */
-}
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px; /* Make the scrollbar width very thin */
+    height: 5px; /* Make the horizontal scrollbar height very thin */
+  }
 
-.custom-scrollbar::-webkit-scrollbar {
-  width: 5px; /* Width of the scrollbar */
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.2s; /* Transition for smooth appearance */
-}
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #4b5563; /* Thumb color */
+    border-radius: 0.25rem; /* Rounded corners */
+  }
 
-.custom-scrollbar:hover::-webkit-scrollbar {
-  opacity: 1; /* Show scrollbar on hover */
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #4b5563; /* Thumb color */
-  border-radius: 0.25rem; /* Rounded corners */
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background-color: #1f2937; /* Track color */
-}
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #1f2937; /* Track color */
+  }
 }
 
 .active {

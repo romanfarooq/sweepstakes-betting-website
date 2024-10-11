@@ -1,4 +1,4 @@
-import Dashboard from "@/components/Dashboard";
+import Dashboard from "@/pages/Dashboard";
 import Reports from "@/components/Reports";
 import Users from "./components/Users";
 import TermsUses from "@/components/TermsUses";

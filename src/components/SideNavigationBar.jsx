@@ -1,7 +1,9 @@
-import Logo from "./Logo";
-import ResueableAccordion from "./ResueableAccordion";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import Logo from "./Logo";
 import { IoHomeOutline } from "react-icons/io5";
+import ResueableAccordion from "./ResueableAccordion";
+import { MdNotStarted } from "react-icons/md";
 import { AiOutlineSpotify } from "react-icons/ai";
 import { LuFileSpreadsheet } from "react-icons/lu";
 import { CiBank } from "react-icons/ci";
@@ -55,7 +57,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">
+        <p className="p-3 text-sm font-semibold text-indigo-200">
           BET SETUP
         </p>
         <div className="w-full">
@@ -73,7 +75,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">
+        <p className="p-3 text-sm font-semibold text-indigo-200">
           MANAGE BETS
         </p>
         <div className="w-full">
@@ -91,7 +93,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">
+        <p className="p-3 text-sm font-semibold text-indigo-200">
           MANAGE FINANCE
         </p>
         <div className="w-full">
@@ -109,7 +111,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">
+        <p className="p-3 text-sm font-semibold text-indigo-200">
           SUPPORT & REPORT
         </p>
         <div className="w-full">
@@ -127,7 +129,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">
+        <p className="p-3 text-sm font-semibold text-indigo-200">
           SETTINGS
         </p>
         <div className="w-full">
@@ -140,7 +142,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">EXTRA</p>
+        <p className="p-3 text-sm font-semibold text-indigo-200">EXTRA</p>
         <div className="w-full">
           <ResueableAccordion
             title={"Extra"}

@@ -89,6 +89,1131 @@ const data = [
       },
     ],
   },
+  {
+    id: 5,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+
+  {
+    id: 6,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+
+  {
+    id: 7,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+
+  {
+    id: 8,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+
+  {
+    id: 10,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  
+  {
+    id: 11,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 12,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
+  {
+    id: 14,
+    home_team: "Washington Wizards",
+    away_team: "New York Knicks",
+    match_time: "04:40:00",
+    total_yes_bets: 3,
+    total_no_bets: 3,
+    variations: [
+      {
+        timestamp: "2024-10-09 20:52:53.382354",
+        yes: 25.0,
+        no: 75.0,
+      },
+      {
+        timestamp: "2024-10-09 20:53:29.386398",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:16:46.200119",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:23:54.966020",
+        yes: 50.0,
+        no: 50.0,
+      },
+      {
+        timestamp: "2024-10-09 21:43:22.070133",
+        yes: 50.0,
+        no: 50.0,
+      },
+    ],
+  },
 ];
 
 const isPending = false;

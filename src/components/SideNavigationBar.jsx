@@ -1,9 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
-import { IoHomeOutline } from "react-icons/io5";
 import ResueableAccordion from "./ResueableAccordion";
-import { MdNotStarted } from "react-icons/md";
+import { NavLink } from "react-router-dom";
+import { IoHomeOutline } from "react-icons/io5";
 import { AiOutlineSpotify } from "react-icons/ai";
 import { LuFileSpreadsheet } from "react-icons/lu";
 import { CiBank } from "react-icons/ci";
@@ -15,9 +13,6 @@ import { CiBoxList } from "react-icons/ci";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineSettingsOverscan } from "react-icons/md";
 import { MdOutlineBugReport } from "react-icons/md";
-
-
-
 
 const sampleAccordionData = {
   title: "Manage Betters",
@@ -31,7 +26,7 @@ const sampleAccordionData = {
 
 export default function SideNavigationBar() {
   return (
-    <div className="flex flex-col gap-4 items-start bg-indigo-950 text-white">
+    <div className="custom-scrollbar hidden flex-col items-start gap-4 bg-indigo-950 text-white md:flex">
       <div className="px-3 py-6">
         <Logo />
       </div>
@@ -41,7 +36,7 @@ export default function SideNavigationBar() {
           to="dashboard"
           className={({ isActive }) =>
             `flex w-full items-center gap-2 px-3 py-3 text-white ${
-              isActive ? "bg-indigo-800 border-l-4 border-indigo-400" : ""
+              isActive ? "border-l-4 border-indigo-400 bg-indigo-800" : ""
             }`
           }
           style={{ textDecoration: "none" }}
@@ -60,7 +55,9 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">BET SETUP</p>
+        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">
+          BET SETUP
+        </p>
         <div className="w-full">
           <ResueableAccordion
             title={"Sports Config"}
@@ -110,7 +107,6 @@ export default function SideNavigationBar() {
           />
         </div>
       </div>
-     
 
       <div className="w-full">
         <p className="px-6 py-3 text-sm font-semibold text-indigo-200">
@@ -131,7 +127,9 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">SETTINGS</p>
+        <p className="px-6 py-3 text-sm font-semibold text-indigo-200">
+          SETTINGS
+        </p>
         <div className="w-full">
           <ResueableAccordion
             title={"System Settings"}

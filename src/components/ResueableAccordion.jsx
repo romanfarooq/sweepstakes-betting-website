@@ -1,4 +1,9 @@
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { NavLink } from "react-router-dom";
 import { FaRegCircleDot } from "react-icons/fa6";
 
@@ -12,7 +17,7 @@ const ResueableAccordion = ({ title, items, titleIcon }) => {
         >
           <div className="flex w-full items-center gap-3">
             {titleIcon}
-            <span className="text-sm font-medium">{title}</span>
+            <span className="text-left text-sm font-medium">{title}</span>
           </div>
         </AccordionTrigger>
         <AccordionContent className="bg-indigo-800 p-0">

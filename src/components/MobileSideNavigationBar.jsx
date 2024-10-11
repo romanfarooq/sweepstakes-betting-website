@@ -53,7 +53,7 @@ export default function MobileSideNavigationBar() {
   }
 
   return (
-    <main className="flex flex-grow flex-col bg-indigo-50 md:hidden">
+    <main className="flex flex-grow flex-col bg-indigo-50 lg:hidden">
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetContent
           side="left"

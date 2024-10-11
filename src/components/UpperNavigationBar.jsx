@@ -14,7 +14,7 @@ import {
 
 export default function UpperNavigationBar() {
   return (
-    <main className="hidden flex-grow flex-col bg-indigo-50 md:flex">
+    <main className="hidden flex-grow flex-col bg-indigo-50 lg:flex">
       <div className="w-full bg-indigo-950 text-white">
         <div className="flex items-center justify-between p-4">
           <div className="flex w-3/12">

@@ -28,9 +28,9 @@ const sampleAccordionData = {
 
 export default function SideNavigationBar() {
   return (
-    <div className="custom-scrollbar hidden flex-col items-start gap-4 bg-indigo-950 text-white md:flex">
+    <div className="custom-scrollbar hidden w-1/4 flex-col items-start gap-4 bg-indigo-950 text-white lg:flex">
       <div className="px-3 py-6">
-        <Logo />
+        <Logo  />
       </div>
 
       <div className="flex w-full flex-col items-start text-white">
@@ -57,9 +57,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="p-3 text-sm font-semibold text-indigo-200">
-          BET SETUP
-        </p>
+        <p className="p-3 text-sm font-semibold text-indigo-200">BET SETUP</p>
         <div className="w-full">
           <ResueableAccordion
             title={"Sports Config"}
@@ -75,9 +73,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="p-3 text-sm font-semibold text-indigo-200">
-          MANAGE BETS
-        </p>
+        <p className="p-3 text-sm font-semibold text-indigo-200">MANAGE BETS</p>
         <div className="w-full">
           <ResueableAccordion
             title={"Manage Bets"}
@@ -129,9 +125,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="p-3 text-sm font-semibold text-indigo-200">
-          SETTINGS
-        </p>
+        <p className="p-3 text-sm font-semibold text-indigo-200">SETTINGS</p>
         <div className="w-full">
           <ResueableAccordion
             title={"System Settings"}

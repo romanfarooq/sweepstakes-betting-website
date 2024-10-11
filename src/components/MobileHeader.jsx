@@ -10,10 +10,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { doSignOut } from "@/firebase/auth";
 import { doSignInWithGoogle } from "@/firebase/auth";
+import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import LoggedInButtons from "@/components/LoggedInButtons";
 import DepositWithDrawBtn from "@/components/DepositWithDrawBtn";
-import { Button } from "./ui/button";
 
 export default function MobileHeader() {
   const { userLoggedIn } = useAuth();

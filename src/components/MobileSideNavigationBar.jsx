@@ -1,21 +1,35 @@
 import Logo from "./Logo";
 import ResueableAccordion from "./ResueableAccordion";
-import { useState } from "react"; // Import useState from React
+import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { AlignJustify } from "lucide-react";
+import { CgGames } from "react-icons/cg";
+import { GiWorld } from "react-icons/gi";
+import { CiBoxList } from "react-icons/ci";
+import { BsTicketDetailed } from "react-icons/bs";
 import { IoHomeOutline } from "react-icons/io5";
 import { AiOutlineSpotify } from "react-icons/ai";
 import { LuFileSpreadsheet } from "react-icons/lu";
-import { CiBank } from "react-icons/ci";
-import { IoIosPeople } from "react-icons/io";
-import { CgGames } from "react-icons/cg";
-import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
-import { BsTicketDetailed } from "react-icons/bs";
-import { CiBoxList } from "react-icons/ci";
+import { CiBank, CiSettings } from "react-icons/ci";
 import { IoSettingsOutline } from "react-icons/io5";
-import { MdOutlineSettingsOverscan } from "react-icons/md";
 import { MdOutlineBugReport } from "react-icons/md";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { MdOutlineSettingsOverscan } from "react-icons/md";
+import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
+import {
+  IoIosArrowDropdown,
+  IoIosNotificationsOutline,
+  IoIosPeople,
+} from "react-icons/io";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const sampleAccordionData = {
   title: "Manage Betters",
@@ -41,13 +55,6 @@ export default function MobileSideNavigationBar() {
   return (
     <main className="flex flex-grow flex-col bg-indigo-50 md:hidden">
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger asChild>
-          <AlignJustify
-            className="cursor-pointer"
-            size={24}
-            onClick={handleOpen}
-          />
-        </SheetTrigger>
         <SheetContent
           side="left"
           className="custom-scrollbar flex h-full w-full flex-col items-start gap-4 bg-indigo-950 text-white"
@@ -130,8 +137,7 @@ export default function MobileSideNavigationBar() {
                 title={"Deposits"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<LiaFileInvoiceDollarSolid className="h-5 w-5" />}
-                isOpen={isOpen} // Pass isOpen to the ResueableAccordion
-                setIsOpen={setIsOpen} // Pass setIsOpen to the ResueableAccordion
+                onClick={handleClose}
               />
               <ResueableAccordion
                 title={"Withdrawals"}
@@ -195,6 +201,53 @@ export default function MobileSideNavigationBar() {
           </div>
         </SheetContent>
       </Sheet>
+      <div className="w-full bg-indigo-950 text-white">
+        <div className="flex items-center justify-between px-8 py-4">
+          <div className="mr-4 flex cursor-pointer text-2xl">
+            <AlignJustify
+              className="cursor-pointer"
+              size={24}
+              onClick={handleOpen}
+            />
+          </div>
+          <div className="flex w-full">
+            <Input
+              placeholder="Search here...."
+              className="border-indigo-900 bg-indigo-900 px-5 py-5 outline-none placeholder:text-indigo-300"
+            />
+          </div>
+        </div>
+        <div className="flex items-center justify-between px-8 pb-5">
+          <div className="flex gap-5">
+            <GiWorld className="size-6" />
+            <IoIosNotificationsOutline className="size-6 animate-swing" />
+            <CiSettings className="size-6" />
+          </div>
+          <div className="text-base">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex cursor-pointer items-center gap-1">
+                <span>admin</span>
+                <IoIosArrowDropdown />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-indigo-950">
+                <DropdownMenuLabel className="cursor-pointer">
+                  My Account
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="cursor-pointer hover:bg-indigo-900 focus:bg-indigo-900">
+                  Profile
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer hover:bg-indigo-900 focus:bg-indigo-900">
+                  Password
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer hover:bg-indigo-900 focus:bg-indigo-900">
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </div>
+      </div>
       <Outlet />
     </main>
   );

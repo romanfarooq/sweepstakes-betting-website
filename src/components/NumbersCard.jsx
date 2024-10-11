@@ -10,7 +10,7 @@ export default function NumbersCard({
 }) {
   return (
     
-      <article className={`py-6 px-3 flex items-center justify-between bg-white rounded-md border ${borderColor} cursor-pointer`}>
+      <article className={`py-6 px-3 flex items-center justify-between bg-white rounded-md ${borderColor} cursor-pointer`}>
         <div className="flex gap-5 items-center">
             <div className={`${iconBgColor} p-3 ${textColor} text-3xl rounded-lg`}>{icon}</div>
             <div>

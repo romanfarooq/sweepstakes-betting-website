@@ -23,7 +23,7 @@ export default function Dashboard() {
           icon={<IoIosPeople />}
           textColor="text-indigo-600"
           iconBgColor="bg-indigo-100"
-          borderColor="border-indigo-700"
+          borderColor="border border-indigo-700"
         />
         <NumbersCard
           title="Active Bettors"
@@ -31,7 +31,7 @@ export default function Dashboard() {
           icon={<IoPeopleOutline />}
           textColor="text-green-600"
           iconBgColor="bg-green-100"
-          borderColor="border-green-700"
+          borderColor="border border-green-700"
         />
         <NumbersCard
           title="Email Unverified Bettors"
@@ -39,7 +39,7 @@ export default function Dashboard() {
           icon={<AiOutlineMail />}
           textColor="text-red-600"
           iconBgColor="bg-red-100"
-          borderColor="border-red-700"
+          borderColor="border border-red-700"
         />
         <NumbersCard
           title="Mobile Unverified Bettors"
@@ -47,8 +47,97 @@ export default function Dashboard() {
           icon={<BiMessage />}
           textColor="text-orange-600"
           iconBgColor="bg-orange-100"
-          borderColor="border-orange-500"
+          borderColor="border border-orange-500"
         />
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div className="p-4 space-y-3 bg-white rounded-md">
+        <h2 className="text-xl font-bold text-indigo-950">Deposits</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+          <NumbersCard
+          title="Mobile Unverified Bettors"
+          totalBettors={0}
+          icon={<BiMessage />}
+          textColor="text-orange-600"
+          iconBgColor="bg-orange-100"
+          // borderColor="border-orange-500"
+        />
+          
+       
+          <NumbersCard
+          title="Mobile Unverified Bettors"
+          totalBettors={0}
+          icon={<BiMessage />}
+          textColor="text-orange-600"
+          iconBgColor="bg-orange-100"
+          // borderColor="border-orange-500"
+        />
+       
+        
+          <NumbersCard
+          title="Mobile Unverified Bettors"
+          totalBettors={0}
+          icon={<BiMessage />}
+          textColor="text-orange-600"
+          iconBgColor="bg-orange-100"
+          // borderColor="border-orange-500"
+        />
+         
+          <NumbersCard
+          title="Mobile Unverified Bettors"
+          totalBettors={0}
+          icon={<BiMessage />}
+          textColor="text-orange-600"
+          iconBgColor="bg-orange-100"
+          // borderColor="border-orange-500"
+        />
+      </div>
+      </div>
+      <div className="p-6 space-y-5 bg-white rounded-md">
+        <h2 className="text-xl font-bold text-indigo-950">Withdrawls</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+          <NumbersCard
+          title="Mobile Unverified Bettors"
+          totalBettors={0}
+          icon={<BiMessage />}
+          textColor="text-orange-600"
+          iconBgColor="bg-orange-100"
+          // borderColor="border-orange-500"
+        />
+          </div>
+          <div>
+          <NumbersCard
+          title="Mobile Unverified Bettors"
+          totalBettors={0}
+          icon={<BiMessage />}
+          textColor="text-orange-600"
+          iconBgColor="bg-orange-100"
+          // borderColor="border-orange-500"
+        />
+          </div>
+          <div>
+          <NumbersCard
+          title="Mobile Unverified Bettors"
+          totalBettors={0}
+          icon={<BiMessage />}
+          textColor="text-orange-600"
+          iconBgColor="bg-orange-100"
+          // borderColor="border-orange-500"
+        />
+          </div>
+          <div>
+          <NumbersCard
+          title="Mobile Unverified Bettors"
+          totalBettors={0}
+          icon={<BiMessage />}
+          textColor="text-orange-600"
+          iconBgColor="bg-orange-100"
+          // borderColor="border-orange-500"
+        />
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   );

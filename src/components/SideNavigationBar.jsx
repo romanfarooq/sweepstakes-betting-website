@@ -1,51 +1,53 @@
-// import React from 'react'
-
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
-import { IoIosPeople } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
 import ResueableAccordion from "./ResueableAccordion";
+import { MdNotStarted } from "react-icons/md";
 
-
-// import Logo from "./Logo";
 
 const sampleAccordionData = {
   title: "Manage Betters",
   items: [
-    { name: "Home", href: "/" },
-    { name: "Dashboard", href: "/dashboard" },
-    { name: "Profile", href: "/profile" },
+    { name: "Active Betters", href: "active" },
+    { name: "Banned Betters", href: "banned" },
+    { name: "Email Unverified", href: "email-unverified" },
+    { name: "Mobile Unverified", href: "mobile-unverified" },
   ],
 };
 
 export default function SideNavigationBar() {
-    console.log(NavLink)
-
   return (
-    <div className="flex h-screen w-72 flex-col items-center bg-indigo-950 text-white">
+    <div className="flex h-screen flex-col items-start bg-indigo-950 text-white">
       <div className="px-3 py-6">
         <Logo />
       </div>
 
-      <div className="flex w-full flex-col items-center text-white">
+      <div className="flex w-full flex-col items-start text-white">
         <NavLink
           to="dashboard"
-          className={({isActive}) => `flex items-center gap-2 p-3 w-full text-white ${isActive ? 'bg-indigo-900' : ''}`}
+          className={({ isActive }) =>
+            `flex w-full items-center gap-2 py-3 px-6 text-white ${
+              isActive ? "bg-indigo-900" : ""
+            }`
+          }
+          style={{ textDecoration: "none" }}
         >
-          <IoHomeOutline />
+          <IoHomeOutline className="w-5 h-5" />
           <span>Dashboard</span>
         </NavLink>
-        <NavLink
-          to="users"
-          className={({isActive}) => `flex items-center gap-2 p-3 w-full text-white ${isActive ? 'bg-indigo-900' : ''}`}
-        >
-          <IoIosPeople />
-         <ResueableAccordion title={sampleAccordionData.title} items={sampleAccordionData.items}/>
-        </NavLink>
+          
+        <div className="w-full">
+          <ResueableAccordion
+            title={sampleAccordionData.title}
+            items={sampleAccordionData.items}
+          />
+        </div>
+      </div>
+
+      <div>
+        <p>BET SETUP</p>
       </div>
     </div>
   );
 }
-
-
-

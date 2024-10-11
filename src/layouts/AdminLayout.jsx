@@ -5,14 +5,13 @@ import { Outlet } from "react-router-dom"
 
 export default function AdminLayout() {
   return (
-    <div className="flex">
-      <nav className="flex">
+    <div className="flex h-screen">
+      <div className="flex-shrink-0 w-1/6">
         <SideNavigationBar/>
-       
-      </nav>
-      <main className="flex flex-col bg-indigo-50 w-screen">
-      <UpperNavigationBar/>
-        <Outlet/>
+      </div>
+      <main className="flex flex-col flex-grow bg-indigo-50">
+        <UpperNavigationBar />
+        <Outlet />
       </main>
     </div>
   )

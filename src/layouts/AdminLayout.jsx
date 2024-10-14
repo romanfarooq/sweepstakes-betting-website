@@ -4,7 +4,7 @@ import UpperNavigationBar from "@/components/UpperNavigationBar";
 
 export default function AdminLayout() {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex">
       <SideNavigationBar />
       <MobileSideNavigationBar />
       <UpperNavigationBar />

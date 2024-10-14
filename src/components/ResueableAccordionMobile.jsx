@@ -1,14 +1,15 @@
 import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
 } from "@/components/ui/accordion";
-import { NavLink } from "react-router-dom";
-import { FaRegCircleDot } from "react-icons/fa6";
+import { SheetDescription } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { FaRegCircleDot } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
-const ResueableAccordion = ({ title, items, titleIcon }) => {
+const ResueableAccordionMobile = ({ title, items, titleIcon, onClick }) => {
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value={title} className="border-b-0">
@@ -18,10 +19,12 @@ const ResueableAccordion = ({ title, items, titleIcon }) => {
         >
           <div className="flex w-full items-center gap-3">
             {titleIcon}
-            <span className="text-left text-sm font-medium">{title}</span>
+            <SheetDescription className="text-left text-sm font-medium text-white">
+              {title}
+            </SheetDescription>
           </div>
         </AccordionTrigger>
-        <AccordionContent className="p-0">
+        <AccordionContent className="p-0" onClick={onClick}>
           <div className="flex flex-col justify-start text-sm">
             {items.map((item, index) => (
               <NavLink
@@ -48,4 +51,4 @@ const ResueableAccordion = ({ title, items, titleIcon }) => {
   );
 };
 
-export default ResueableAccordion;
+export default ResueableAccordionMobile;

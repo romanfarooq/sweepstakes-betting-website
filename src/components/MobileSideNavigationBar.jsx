@@ -1,5 +1,6 @@
-import Logo from "./Logo";
-import ResueableAccordion from "./ResueableAccordion";
+import Logo from "@/components/Logo";
+import ResueableAccordionMobile from "@/components/ResueableAccordionMobile";
+import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { AlignJustify } from "lucide-react";
@@ -21,7 +22,12 @@ import {
   IoIosPeople,
 } from "react-icons/io";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -55,6 +61,55 @@ export default function MobileSideNavigationBar() {
   return (
     <main className="flex flex-grow flex-col bg-indigo-50 lg:hidden">
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <div className="w-full bg-indigo-950 text-white">
+          <div className="flex items-center justify-between px-8 py-4">
+            <SheetTrigger asChild>
+              <div className="mr-4 flex cursor-pointer text-2xl">
+                <AlignJustify
+                  className="cursor-pointer"
+                  size={24}
+                  onClick={handleOpen}
+                />
+              </div>
+            </SheetTrigger>
+            <div className="flex w-full">
+              <Input
+                placeholder="Search here...."
+                className="border-indigo-900 bg-indigo-900 px-5 py-5 outline-none placeholder:text-indigo-300"
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-between px-8 pb-5">
+            <div className="flex gap-5">
+              <GiWorld className="size-6" />
+              <IoIosNotificationsOutline className="size-6 animate-swing" />
+              <CiSettings className="size-6" />
+            </div>
+            <div className="text-base">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex cursor-pointer items-center gap-1">
+                  <span>admin</span>
+                  <IoIosArrowDropdown />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-indigo-950">
+                  <DropdownMenuLabel className="cursor-pointer">
+                    My Account
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="cursor-pointer hover:bg-indigo-900 focus:bg-indigo-900">
+                    Profile
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer hover:bg-indigo-900 focus:bg-indigo-900">
+                    Password
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer hover:bg-indigo-900 focus:bg-indigo-900">
+                    Logout
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </div>
+        </div>
         <SheetContent
           side="left"
           className="custom-scrollbar flex h-full w-full flex-col items-start gap-4 bg-indigo-950 text-white"
@@ -67,19 +122,22 @@ export default function MobileSideNavigationBar() {
             <NavLink
               to="dashboard"
               className={({ isActive }) =>
-                `flex w-full items-center gap-2 px-3 py-3 text-white ${
-                  isActive ? "border-l-4 border-indigo-400 bg-indigo-800" : ""
-                }`
+                cn(
+                  "flex w-full items-center gap-2 p-3 text-white hover:bg-indigo-600",
+                  {
+                    "border-l-4 border-indigo-400 bg-indigo-800": isActive,
+                  },
+                )
               }
               onClick={handleClose}
               style={{ textDecoration: "none" }}
             >
               <IoHomeOutline className="h-5 w-5" />
-              <span className="text-sm">Dashboard</span>
+              <SheetTitle className="text-sm text-white">Dashboard</SheetTitle>
             </NavLink>
 
             <div className="w-full">
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={sampleAccordionData.title}
                 items={sampleAccordionData.items}
                 titleIcon={<IoIosPeople className="h-5 w-5" />}
@@ -89,17 +147,17 @@ export default function MobileSideNavigationBar() {
           </div>
 
           <div className="w-full">
-            <p className="p-3 text-sm font-semibold text-indigo-200">
+            <SheetTitle className="p-3 text-sm font-semibold text-indigo-200">
               BET SETUP
-            </p>
+            </SheetTitle>
             <div className="w-full">
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Sports Config"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<AiOutlineSpotify className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Manage Games"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<CgGames className="h-5 w-5" />}
@@ -109,17 +167,17 @@ export default function MobileSideNavigationBar() {
           </div>
 
           <div className="w-full">
-            <p className="p-3 text-sm font-semibold text-indigo-200">
+            <SheetTitle className="p-3 text-sm font-semibold text-indigo-200">
               MANAGE BETS
-            </p>
+            </SheetTitle>
             <div className="w-full">
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Manage Bets"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<LuFileSpreadsheet className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Declare Outcomes"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<LuFileSpreadsheet className="h-5 w-5" />}
@@ -129,17 +187,17 @@ export default function MobileSideNavigationBar() {
           </div>
 
           <div className="w-full">
-            <p className="p-3 text-sm font-semibold text-indigo-200">
+            <SheetTitle className="p-3 text-sm font-semibold text-indigo-200">
               MANAGE FINANCE
-            </p>
+            </SheetTitle>
             <div className="w-full">
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Deposits"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<LiaFileInvoiceDollarSolid className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Withdrawals"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<CiBank className="h-5 w-5" />}
@@ -149,17 +207,17 @@ export default function MobileSideNavigationBar() {
           </div>
 
           <div className="w-full">
-            <p className="p-3 text-sm font-semibold text-indigo-200">
+            <SheetTitle className="p-3 text-sm font-semibold text-indigo-200">
               SUPPORT & REPORT
-            </p>
+            </SheetTitle>
             <div className="w-full">
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Support Tickets"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<BsTicketDetailed className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Reports"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<CiBoxList className="h-5 w-5" />}
@@ -169,11 +227,11 @@ export default function MobileSideNavigationBar() {
           </div>
 
           <div className="w-full">
-            <p className="p-3 text-sm font-semibold text-indigo-200">
+            <SheetTitle className="p-3 text-sm font-semibold text-indigo-200">
               SETTINGS
-            </p>
+            </SheetTitle>
             <div className="w-full">
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"System Settings"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<IoSettingsOutline className="h-5 w-5" />}
@@ -183,15 +241,17 @@ export default function MobileSideNavigationBar() {
           </div>
 
           <div className="w-full">
-            <p className="p-3 text-sm font-semibold text-indigo-200">EXTRA</p>
+            <SheetTitle className="p-3 text-sm font-semibold text-indigo-200">
+              EXTRA
+            </SheetTitle>
             <div className="w-full">
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Extra"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<MdOutlineSettingsOverscan className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordion
+              <ResueableAccordionMobile
                 title={"Report & Request"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<MdOutlineBugReport className="h-5 w-5" />}
@@ -201,53 +261,6 @@ export default function MobileSideNavigationBar() {
           </div>
         </SheetContent>
       </Sheet>
-      <div className="w-full bg-indigo-950 text-white">
-        <div className="flex items-center justify-between px-8 py-4">
-          <div className="mr-4 flex cursor-pointer text-2xl">
-            <AlignJustify
-              className="cursor-pointer"
-              size={24}
-              onClick={handleOpen}
-            />
-          </div>
-          <div className="flex w-full">
-            <Input
-              placeholder="Search here...."
-              className="border-indigo-900 bg-indigo-900 px-5 py-5 outline-none placeholder:text-indigo-300"
-            />
-          </div>
-        </div>
-        <div className="flex items-center justify-between px-8 pb-5">
-          <div className="flex gap-5">
-            <GiWorld className="size-6" />
-            <IoIosNotificationsOutline className="size-6 animate-swing" />
-            <CiSettings className="size-6" />
-          </div>
-          <div className="text-base">
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex cursor-pointer items-center gap-1">
-                <span>admin</span>
-                <IoIosArrowDropdown />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-indigo-950">
-                <DropdownMenuLabel className="cursor-pointer">
-                  My Account
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer hover:bg-indigo-900 focus:bg-indigo-900">
-                  Profile
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-indigo-900 focus:bg-indigo-900">
-                  Password
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-indigo-900 focus:bg-indigo-900">
-                  Logout
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </div>
-      </div>
       <Outlet />
     </main>
   );

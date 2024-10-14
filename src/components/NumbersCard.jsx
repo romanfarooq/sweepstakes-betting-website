@@ -9,18 +9,24 @@ export default function NumbersCard({
   borderColor,
   border = false,
   hover = false,
-  hoverEffect
+  hoverEffect,
 }) {
   return (
-      <article className={`py-6 px-3 flex items-center justify-between bg-white rounded-md ${border && borderColor} cursor-pointer ${hover && hoverEffect}`}>
-        <div className="flex gap-5 items-center">
-            <div className={`${iconBgColor} p-3 ${textColor} text-3xl rounded-lg`}>{icon}</div>
-            <div>
-                <h3 className="text-base font-semibold text-indigo-950">{title}</h3>
-                <p className="text-xl font-extrabold text-indigo-950">{totalBettors}</p>
-            </div>
+    <article
+      className={`flex items-center justify-between rounded-md bg-white px-4 py-5 ${border && borderColor} cursor-pointer ${hover && hoverEffect}`}
+    >
+      <div className="flex items-center gap-5">
+        <div className={`${iconBgColor} p-3 ${textColor} rounded-lg text-3xl`}>
+          {icon}
         </div>
-        <p><HiOutlineChevronRight/></p>
-      </article>
+        <div>
+          <h3 className="text-base font-semibold text-slate-700">{title}</h3>
+          <p className="text-2xl font-bold text-slate-700">{totalBettors}</p>
+        </div>
+      </div>
+      <p>
+        <HiOutlineChevronRight />
+      </p>
+    </article>
   );
 }

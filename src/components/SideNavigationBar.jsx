@@ -26,7 +26,7 @@ export default function SideNavigationBar() {
   return (
     <div className="custom-scrollbar fixed left-0 top-0 hidden h-screen w-1/5 flex-col items-start gap-4 overflow-y-auto bg-indigo-950 text-white lg:flex">
       <div className="px-3 py-6">
-        <Logo />
+        <Logo href="/admin/dashboard" />
       </div>
 
       <div className="flex w-full flex-col items-start text-white">

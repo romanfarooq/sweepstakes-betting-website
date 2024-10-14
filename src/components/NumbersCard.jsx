@@ -7,10 +7,12 @@ export default function NumbersCard({
   textColor,
   iconBgColor,
   borderColor,
+  border = false,
+  hover = false,
+  hoverEffect
 }) {
   return (
-    
-      <article className={`py-6 px-3 flex items-center justify-between bg-white rounded-md ${borderColor} cursor-pointer`}>
+      <article className={`py-6 px-3 flex items-center justify-between bg-white rounded-md ${border && borderColor} cursor-pointer ${hover && hoverEffect}`}>
         <div className="flex gap-5 items-center">
             <div className={`${iconBgColor} p-3 ${textColor} text-3xl rounded-lg`}>{icon}</div>
             <div>
@@ -19,8 +21,6 @@ export default function NumbersCard({
             </div>
         </div>
         <p><HiOutlineChevronRight/></p>
-        
       </article>
-    
   );
 }

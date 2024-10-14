@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { HiOutlineChevronRight } from "react-icons/hi";
 
 export default function NumbersCard({
@@ -13,10 +14,16 @@ export default function NumbersCard({
 }) {
   return (
     <article
-      className={`flex items-center justify-between rounded-md bg-white px-4 py-5 ${border && borderColor} cursor-pointer ${hover && hoverEffect}`}
+      className={cn(
+        "flex cursor-pointer items-center justify-between rounded-md bg-white px-4 py-5",
+        {
+          [borderColor]: border,
+          [hoverEffect]: hover,
+        },
+      )}
     >
       <div className="flex items-center gap-5">
-        <div className={`${iconBgColor} p-3 ${textColor} rounded-lg text-3xl`}>
+        <div className={cn("rounded-lg p-3 text-3xl", iconBgColor, textColor)}>
           {icon}
         </div>
         <div>

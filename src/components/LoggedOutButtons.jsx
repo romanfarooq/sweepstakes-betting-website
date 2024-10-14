@@ -17,7 +17,7 @@ function LoggedOutButtons({ onSignOut }) {
     <div className="flex items-center justify-between gap-5">
       <DepositWithDrawBtn />
       <div className="flex cursor-pointer flex-col items-center justify-between gap-2 text-sm">
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger>
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" />

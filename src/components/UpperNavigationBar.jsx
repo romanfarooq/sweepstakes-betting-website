@@ -28,7 +28,7 @@ export default function UpperNavigationBar() {
             <IoIosNotificationsOutline className="animate-swing" />
             <CiSettings />
             <div className="text-base">
-              <DropdownMenu className="">
+              <DropdownMenu modal={false}>
                 <DropdownMenuTrigger className="flex cursor-pointer items-center gap-1">
                   <span>admin</span>
                   <IoIosArrowDropdown />

@@ -43,8 +43,9 @@ export default function MobileHeader() {
           />
         </SheetTrigger>
         <SheetContent
-          className="flex h-full w-full flex-col justify-between overflow-y-auto border-none bg-gray-800 text-white"
           side="left"
+          aria-describedby={undefined}
+          className="flex h-full w-full flex-col justify-between overflow-y-auto border-none bg-gray-800 text-white"
         >
           <div className="flex items-center gap-2">
             <SheetTitle

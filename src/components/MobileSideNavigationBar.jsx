@@ -1,5 +1,5 @@
 import Logo from "@/components/Logo";
-import ResueableAccordionMobile from "@/components/ResueableAccordionMobile";
+import ResueableAccordion from "@/components/ResueableAccordion";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -103,6 +103,7 @@ export default function MobileSideNavigationBar() {
         </div>
         <SheetContent
           side="left"
+          aria-describedby={undefined}
           className="custom-scrollbar flex h-full w-full flex-col items-start gap-4 bg-indigo-950 text-white"
         >
           <div className="px-3 py-6">
@@ -128,7 +129,7 @@ export default function MobileSideNavigationBar() {
             </NavLink>
 
             <div className="w-full">
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={sampleAccordionData.title}
                 items={sampleAccordionData.items}
                 titleIcon={<IoIosPeople className="h-5 w-5" />}
@@ -142,13 +143,13 @@ export default function MobileSideNavigationBar() {
               BET SETUP
             </SheetTitle>
             <div className="w-full">
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Sports Config"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<AiOutlineSpotify className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Manage Games"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<CgGames className="h-5 w-5" />}
@@ -162,13 +163,13 @@ export default function MobileSideNavigationBar() {
               MANAGE BETS
             </SheetTitle>
             <div className="w-full">
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Manage Bets"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<LuFileSpreadsheet className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Declare Outcomes"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<LuFileSpreadsheet className="h-5 w-5" />}
@@ -182,13 +183,13 @@ export default function MobileSideNavigationBar() {
               MANAGE FINANCE
             </SheetTitle>
             <div className="w-full">
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Deposits"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<LiaFileInvoiceDollarSolid className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Withdrawals"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<CiBank className="h-5 w-5" />}
@@ -202,13 +203,13 @@ export default function MobileSideNavigationBar() {
               SUPPORT & REPORT
             </SheetTitle>
             <div className="w-full">
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Support Tickets"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<BsTicketDetailed className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Reports"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<CiBoxList className="h-5 w-5" />}
@@ -222,7 +223,7 @@ export default function MobileSideNavigationBar() {
               SETTINGS
             </SheetTitle>
             <div className="w-full">
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"System Settings"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<IoSettingsOutline className="h-5 w-5" />}
@@ -236,13 +237,13 @@ export default function MobileSideNavigationBar() {
               EXTRA
             </SheetTitle>
             <div className="w-full">
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Extra"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<MdOutlineSettingsOverscan className="h-5 w-5" />}
                 onClick={handleClose}
               />
-              <ResueableAccordionMobile
+              <ResueableAccordion
                 title={"Report & Request"}
                 items={sampleAccordionData.items} // Replace with actual items
                 titleIcon={<MdOutlineBugReport className="h-5 w-5" />}

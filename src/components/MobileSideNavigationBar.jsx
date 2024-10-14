@@ -115,9 +115,9 @@ export default function MobileSideNavigationBar() {
               to="dashboard"
               className={({ isActive }) =>
                 cn(
-                  "flex w-full items-center gap-2 p-3 text-white hover:bg-indigo-600",
+                  "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
                   {
-                    "border-l-4 border-indigo-400 bg-indigo-800": isActive,
+                    "border-indigo-400 bg-indigo-800": isActive,
                   },
                 )
               }
@@ -134,6 +134,7 @@ export default function MobileSideNavigationBar() {
                 items={sampleAccordionData.items}
                 titleIcon={<IoIosPeople className="h-5 w-5" />}
                 onClick={handleClose}
+                manageBettors={true}
               />
             </div>
           </div>

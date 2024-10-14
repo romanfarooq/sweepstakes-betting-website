@@ -8,7 +8,13 @@ import { NavLink } from "react-router-dom";
 import { FaRegCircleDot } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 
-const ResueableAccordion = ({ title, items, titleIcon, onClick = null }) => {
+const ResueableAccordion = ({
+  title,
+  items,
+  titleIcon,
+  onClick = null,
+  manageBettors = false,
+}) => {
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value={title} className="border-b-0">
@@ -16,7 +22,11 @@ const ResueableAccordion = ({ title, items, titleIcon, onClick = null }) => {
           className="flex w-full justify-between p-3 text-white hover:bg-indigo-600"
           style={{ textDecoration: "none" }}
         >
-          <div className="flex w-full items-center gap-3">
+          <div
+            className={cn("flex w-full items-center gap-3", {
+              "ml-1": manageBettors,
+            })}
+          >
             {titleIcon}
             <span className="text-left text-sm font-medium">{title}</span>
           </div>

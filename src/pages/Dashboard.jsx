@@ -1,9 +1,9 @@
-import { IoIosPeople } from "react-icons/io";
-import { IoPeopleOutline } from "react-icons/io5";
+import DepositAndWithdrawReport from "@/components/DepositAndWithdrawReport";
+import NumbersCard from "@/components/NumbersCard";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiMessage } from "react-icons/bi";
-
-import NumbersCard from "@/components/NumbersCard";
+import { IoIosPeople } from "react-icons/io";
+import { IoPeopleOutline } from "react-icons/io5";
 import { BsTicketDetailed } from "react-icons/bs";
 
 export default function Dashboard() {
@@ -190,6 +190,8 @@ export default function Dashboard() {
           borderColor="border border-orange-500"
         />
       </div>
+
+      <DepositAndWithdrawReport />
     </div>
   );
 }

@@ -17,7 +17,7 @@ function Header() {
   }
 
   return (
-    <div className="hidden h-full items-center justify-between border-b border-gray-600 bg-gray-800 bg-primary px-6 py-6 text-white md:flex md:gap-6 lg:px-12">
+    <div className="hidden h-full items-center justify-between border-b border-gray-600 px-6 py-6 text-white md:flex md:gap-6 lg:px-12">
       <Logo />
       <div className="flex items-center justify-center gap-10">
         <NavLinkList />

@@ -10,7 +10,8 @@ import { IoIosPeople } from "react-icons/io";
 import { IoHomeOutline, IoSettingsOutline } from "react-icons/io5";
 import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { LuFileSpreadsheet } from "react-icons/lu";
-import { MdOutlineBugReport, MdOutlineSettingsOverscan } from "react-icons/md";
+import { PiVirus } from "react-icons/pi";
+
 
 const ManageBettersAccordionLinks = {
   title: "Manage Betters",
@@ -103,7 +104,7 @@ const ReportAccordionLinks = {
 
 export default function SideNavigationBar() {
   return (
-    <div className="custom-scrollbar fixed left-0 top-0 hidden h-screen w-1/5 flex-col items-start gap-4 overflow-y-auto bg-indigo-950 text-white lg:flex">
+    <div className="custom-scrollbar fixed left-0 top-0 hidden h-screen w-1/5 xl:w-1/6 flex-col items-start gap-4 overflow-y-auto bg-indigo-950 text-white lg:flex">
       <div className="px-3 py-6">
         <Logo href="/admin/dashboard" />
       </div>
@@ -219,6 +220,20 @@ export default function SideNavigationBar() {
         >
           <IoSettingsOutline className="h-5 w-5" />
           <span className="text-sm">System Settings</span>
+        </NavLink>
+        <NavLink
+          to="request-report"
+          className={({ isActive }) =>
+            cn(
+              "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
+              {
+                "border-indigo-400 bg-indigo-800": isActive,
+              },
+            )
+          }
+        >
+          <PiVirus className="h-5 w-5" />
+          <span className="text-sm">Report & Request</span>
         </NavLink>
 
       </div>

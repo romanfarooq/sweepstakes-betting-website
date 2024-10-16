@@ -62,6 +62,7 @@ import ReportLoginHistory from "@/components/ReportLoginHistory";
 import ReportNotificationHistory from "@/components/ReportNotificationHistory";
 import ReportReferalCommission from "@/components/ReportReferalCommission";
 import SystemSettings from "@/components/SystemSettings";
+import RequestReportIssues from "@/components/RequestReportIssues";
 
 const router = createBrowserRouter([
   {
@@ -331,6 +332,10 @@ const router = createBrowserRouter([
       {
         path: "system-settings",
         element: <SystemSettings/>,
+      },
+      {
+        path: "request-report",
+        element: <RequestReportIssues/>,
       },
     ],
   },

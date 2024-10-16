@@ -35,13 +35,91 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const sampleAccordionData = {
+const ManageBettersAccordionLinks = {
   title: "Manage Betters",
   items: [
     { name: "Active Betters", href: "users/active" },
     { name: "Banned Betters", href: "users/banned" },
-    { name: "Email Unverified", href: "users/email-unverified" },
-    { name: "Mobile Unverified", href: "users/mobile-unverified" },
+    { name: "With Balance", href: "users/with-balance" },
+    { name: "All Bettors", href: "users/all-bettors" },
+    { name: "Send Notifications", href: "users/send-notifications" },
+  ],
+};
+
+const SportsConfigAccordionLinks = {
+  title: "Sports Config",
+  items: [
+    { name: "Manage Categories", href: "categories" },
+    { name: "Manage Leagues", href: "leagues" },
+    { name: "Manage Teams", href: "teams" },
+  ],
+};
+
+const ManageGamesAccordionLinks = {
+  title: "Manage Games",
+  items: [
+    { name: "Running Games", href: "games/running" },
+    { name: "Upcomming Games", href: "games/upcomming" },
+    { name: "Ended Games", href: "games/ended" },
+    { name: "All Games", href: "games/all" },
+  ],
+};
+const ManageBetsAccordionLinks = {
+  title: "Manage Bets",
+  items: [
+    { name: "Pending Bets", href: "bet/pending" },
+    { name: "Won Bets", href: "bet/won" },
+    { name: "Lose Bets", href: "bet/lose" },
+    { name: "Refunded Bets", href: "bet/refunded" },
+    { name: "All Bets", href: "bet/all" },
+  ],
+};
+
+const DeclareOutcomesAccordionLinks = {
+  title: "Declare Outcomes",
+  items: [
+    { name: "Pending Outcomes", href: "match/market/pending-outcomes" },
+    { name: "Declared Outcomes", href: "match/market/declared-outcomes" },
+  ],
+};
+
+const DepositsAccordionLinks = {
+  title: "Deposits",
+  items: [
+    { name: "Pending Deposits", href: "deposit/pending" },
+    { name: "Approved Deposits", href: "deposit/approved" },
+    { name: "Successful Deposits", href: "deposit/successful" },
+    { name: "Rejected Deposits", href: "deposit/rejected" },
+    { name: "Initiated Deposits", href: "deposit/initiated" },
+    { name: "All Deposits", href: "deposit/all" },
+  ],
+};
+
+const WithdrawlsAccordionLinks = {
+  title: "Withdrawls",
+  items: [
+    { name: "Pending Withdrawls", href: "withdrawl/pending" },
+    { name: "Approved Withdrwals", href: "withdrawl/approved" },
+    { name: "Rejected Withdrwals", href: "withdrawl/rejected" },
+    { name: "All Withdrwals", href: "withdrawl/all" },
+  ],
+};
+const SupportTicketAccordionLinks = {
+  title: "Support Ticket",
+  items: [
+    { name: "Pending Ticket", href: "ticket/pending" },
+    { name: "Closed Ticket", href: "ticket/closed" },
+    { name: "Answered Ticket", href: "ticket/answered" },
+    { name: "All Ticket", href: "ticket/all" },
+  ],
+};
+const ReportAccordionLinks = {
+  title: "Report",
+  items: [
+    { name: "Transaction History", href: "report/transaction" },
+    { name: "Login History", href: "report/login/history" },
+    { name: "Notification History", href: "report/notification/history" },
+    { name: "Referral Commisions", href: "report/referal/commission" },
   ],
 };
 
@@ -130,8 +208,8 @@ export default function MobileSideNavigationBar() {
 
             <div className="w-full">
               <ResueableAccordion
-                title={sampleAccordionData.title}
-                items={sampleAccordionData.items}
+                title={ManageBettersAccordionLinks.title}
+                items={ManageBettersAccordionLinks.items}
                 titleIcon={<IoIosPeople className="h-5 w-5" />}
                 onClick={handleClose}
                 manageBettors={true}
@@ -145,14 +223,14 @@ export default function MobileSideNavigationBar() {
             </SheetTitle>
             <div className="w-full">
               <ResueableAccordion
-                title={"Sports Config"}
-                items={sampleAccordionData.items} // Replace with actual items
+                title={SportsConfigAccordionLinks.title}
+                items={SportsConfigAccordionLinks.items} // Replace with actual items
                 titleIcon={<AiOutlineSpotify className="h-5 w-5" />}
                 onClick={handleClose}
               />
               <ResueableAccordion
-                title={"Manage Games"}
-                items={sampleAccordionData.items} // Replace with actual items
+                title={ManageGamesAccordionLinks.title}
+                items={ManageGamesAccordionLinks.items} // Replace with actual items
                 titleIcon={<CgGames className="h-5 w-5" />}
                 onClick={handleClose}
               />
@@ -165,14 +243,14 @@ export default function MobileSideNavigationBar() {
             </SheetTitle>
             <div className="w-full">
               <ResueableAccordion
-                title={"Manage Bets"}
-                items={sampleAccordionData.items} // Replace with actual items
+                title={ManageBetsAccordionLinks.title}
+                items={ManageBetsAccordionLinks.items} // Replace with actual items
                 titleIcon={<LuFileSpreadsheet className="h-5 w-5" />}
                 onClick={handleClose}
               />
               <ResueableAccordion
-                title={"Declare Outcomes"}
-                items={sampleAccordionData.items} // Replace with actual items
+                title={DeclareOutcomesAccordionLinks.title}
+                items={DeclareOutcomesAccordionLinks.items} // Replace with actual items
                 titleIcon={<LuFileSpreadsheet className="h-5 w-5" />}
                 onClick={handleClose}
               />
@@ -185,14 +263,14 @@ export default function MobileSideNavigationBar() {
             </SheetTitle>
             <div className="w-full">
               <ResueableAccordion
-                title={"Deposits"}
-                items={sampleAccordionData.items} // Replace with actual items
+                title={DepositsAccordionLinks.title}
+                items={DepositsAccordionLinks.items} // Replace with actual items
                 titleIcon={<LiaFileInvoiceDollarSolid className="h-5 w-5" />}
                 onClick={handleClose}
               />
               <ResueableAccordion
-                title={"Withdrawals"}
-                items={sampleAccordionData.items} // Replace with actual items
+                title={WithdrawlsAccordionLinks.title}
+                items={WithdrawlsAccordionLinks.items} // Replace with actual items
                 titleIcon={<CiBank className="h-5 w-5" />}
                 onClick={handleClose}
               />
@@ -205,14 +283,14 @@ export default function MobileSideNavigationBar() {
             </SheetTitle>
             <div className="w-full">
               <ResueableAccordion
-                title={"Support Tickets"}
-                items={sampleAccordionData.items} // Replace with actual items
+                title={SupportTicketAccordionLinks.title}
+                items={SupportTicketAccordionLinks.items} // Replace with actual items
                 titleIcon={<BsTicketDetailed className="h-5 w-5" />}
                 onClick={handleClose}
               />
               <ResueableAccordion
-                title={"Reports"}
-                items={sampleAccordionData.items} // Replace with actual items
+                title={ReportAccordionLinks.title}
+                items={ReportAccordionLinks.items} // Replace with actual items
                 titleIcon={<CiBoxList className="h-5 w-5" />}
                 onClick={handleClose}
               />
@@ -224,32 +302,36 @@ export default function MobileSideNavigationBar() {
               SETTINGS
             </SheetTitle>
             <div className="w-full">
-              <ResueableAccordion
-                title={"System Settings"}
-                items={sampleAccordionData.items} // Replace with actual items
-                titleIcon={<IoSettingsOutline className="h-5 w-5" />}
+              <NavLink
                 onClick={handleClose}
-              />
-            </div>
-          </div>
-
-          <div className="w-full">
-            <SheetTitle className="p-3 text-sm font-semibold text-indigo-200">
-              EXTRA
-            </SheetTitle>
-            <div className="w-full">
-              <ResueableAccordion
-                title={"Extra"}
-                items={sampleAccordionData.items} // Replace with actual items
-                titleIcon={<MdOutlineSettingsOverscan className="h-5 w-5" />}
+                to="system-settings"
+                className={({ isActive }) =>
+                  cn(
+                    "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
+                    {
+                      "border-indigo-400 bg-indigo-800": isActive,
+                    },
+                  )
+                }
+              >
+                <IoSettingsOutline className="h-5 w-5" />
+                <span className="text-sm">System Settings</span>
+              </NavLink>
+              <NavLink
                 onClick={handleClose}
-              />
-              <ResueableAccordion
-                title={"Report & Request"}
-                items={sampleAccordionData.items} // Replace with actual items
-                titleIcon={<MdOutlineBugReport className="h-5 w-5" />}
-                onClick={handleClose}
-              />
+                to="request-report"
+                className={({ isActive }) =>
+                  cn(
+                    "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
+                    {
+                      "border-indigo-400 bg-indigo-800": isActive,
+                    },
+                  )
+                }
+              >
+                <IoSettingsOutline className="h-5 w-5" />
+                <span className="text-sm">Report & Request</span>
+              </NavLink>
             </div>
           </div>
         </SheetContent>

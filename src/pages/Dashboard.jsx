@@ -1,4 +1,5 @@
 import DepositAndWithdrawReport from "@/components/DepositAndWithdrawReport";
+import TransactionsReport from "@/components/TransactionsReport";
 import NumbersCard from "@/components/NumbersCard";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiMessage } from "react-icons/bi";
@@ -191,7 +192,10 @@ export default function Dashboard() {
         />
       </div>
 
-      <DepositAndWithdrawReport />
+      <div className="flex flex-col gap-6 lg:flex-row">
+        <DepositAndWithdrawReport />
+        <TransactionsReport />
+      </div>
     </div>
   );
 }

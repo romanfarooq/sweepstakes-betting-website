@@ -1,9 +1,9 @@
-import axios from "@/api/axiosInstance";
+// import axios from "@/api/axiosInstance";
 import CardSkeleton from "@/components/CardSkeleton";
 import HalfDoughnutChart from "@/components/HalfDoughnutChart";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { calculateBetPercentages, convertToAmPm } from "@/lib/utils";

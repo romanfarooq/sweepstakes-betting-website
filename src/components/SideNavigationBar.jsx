@@ -1,20 +1,16 @@
-import React from "react";
+import Logo from "@/components/Logo";
+import ResueableAccordion from "@/components/ResueableAccordion";
+import { cn } from "@/lib/utils";
 import { NavLink } from "react-router-dom";
-import Logo from "./Logo";
-import { IoHomeOutline } from "react-icons/io5";
-import ResueableAccordion from "./ResueableAccordion";
-import { MdNotStarted } from "react-icons/md";
 import { AiOutlineSpotify } from "react-icons/ai";
-import { LuFileSpreadsheet } from "react-icons/lu";
-import { CiBank } from "react-icons/ci";
-import { IoIosPeople } from "react-icons/io";
-import { CgGames } from "react-icons/cg";
-import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { BsTicketDetailed } from "react-icons/bs";
-import { CiBoxList } from "react-icons/ci";
-import { IoSettingsOutline } from "react-icons/io5";
-import { MdOutlineSettingsOverscan } from "react-icons/md";
-import { MdOutlineBugReport } from "react-icons/md";
+import { CgGames } from "react-icons/cg";
+import { CiBank, CiBoxList } from "react-icons/ci";
+import { IoIosPeople } from "react-icons/io";
+import { IoHomeOutline, IoSettingsOutline } from "react-icons/io5";
+import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
+import { LuFileSpreadsheet } from "react-icons/lu";
+import { MdOutlineBugReport, MdOutlineSettingsOverscan } from "react-icons/md";
 
 const sampleAccordionData = {
   title: "Manage Betters",
@@ -28,20 +24,22 @@ const sampleAccordionData = {
 
 export default function SideNavigationBar() {
   return (
-    <div className="custom-scrollbar hidden flex-col items-start gap-4 bg-indigo-950 text-white md:flex">
+    <div className="custom-scrollbar fixed left-0 top-0 hidden h-screen w-1/5 flex-col items-start gap-4 overflow-y-auto bg-indigo-950 text-white lg:flex">
       <div className="px-3 py-6">
-        <Logo />
+        <Logo href="/admin/dashboard" />
       </div>
 
       <div className="flex w-full flex-col items-start text-white">
         <NavLink
           to="dashboard"
           className={({ isActive }) =>
-            `flex w-full items-center gap-2 px-3 py-3 text-white ${
-              isActive ? "border-l-4 border-indigo-400 bg-indigo-800" : ""
-            }`
+            cn(
+              "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
+              {
+                "border-indigo-400 bg-indigo-800": isActive,
+              },
+            )
           }
-          style={{ textDecoration: "none" }}
         >
           <IoHomeOutline className="h-5 w-5" />
           <span className="text-sm">Dashboard</span>
@@ -52,14 +50,13 @@ export default function SideNavigationBar() {
             title={sampleAccordionData.title}
             items={sampleAccordionData.items}
             titleIcon={<IoIosPeople className="h-5 w-5" />}
+            manageBettors={true}
           />
         </div>
       </div>
 
       <div className="w-full">
-        <p className="p-3 text-sm font-semibold text-indigo-200">
-          BET SETUP
-        </p>
+        <p className="p-3 text-sm font-semibold text-indigo-200">BET SETUP</p>
         <div className="w-full">
           <ResueableAccordion
             title={"Sports Config"}
@@ -74,10 +71,9 @@ export default function SideNavigationBar() {
         </div>
       </div>
 
+      {/* Other sections remain unchanged */}
       <div className="w-full">
-        <p className="p-3 text-sm font-semibold text-indigo-200">
-          MANAGE BETS
-        </p>
+        <p className="p-3 text-sm font-semibold text-indigo-200">MANAGE BETS</p>
         <div className="w-full">
           <ResueableAccordion
             title={"Manage Bets"}
@@ -129,9 +125,7 @@ export default function SideNavigationBar() {
       </div>
 
       <div className="w-full">
-        <p className="p-3 text-sm font-semibold text-indigo-200">
-          SETTINGS
-        </p>
+        <p className="p-3 text-sm font-semibold text-indigo-200">SETTINGS</p>
         <div className="w-full">
           <ResueableAccordion
             title={"System Settings"}

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CreditCard, RefreshCw, Info, Copy, Check } from "lucide-react";
 import { toast } from "react-hot-toast";
+import { cn } from "@/lib/utils";
 
 const Wallet = () => {
   const [address] = useState("0x3538F7B63F30C82fC4aAb3aA2401D4AD0bf9ICB1");
@@ -127,7 +128,10 @@ const Wallet = () => {
             >
               <CardContent className="flex items-center justify-center py-6">
                 <div
-                  className={`h-10 w-10 rounded-full bg-${item.color}-500 mr-3 flex items-center justify-center bg-opacity-20`}
+                  className={cn(
+                    "mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-opacity-20",
+                    `bg-${item.color}-500`,
+                  )}
                 >
                   <CreditCard className={`text-${item.color}-500`} size={24} />
                 </div>

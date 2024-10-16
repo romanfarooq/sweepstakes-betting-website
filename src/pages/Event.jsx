@@ -333,7 +333,7 @@ export default function Event() {
                 {isLoading ? (
                   <Skeleton className="h-8 w-72" /> // Skeleton for title
                 ) : (
-                  `Will ${match.home_team} win against ${match.away_team} in the match at ${convertToAmPm(match.match_time)}?"`
+                  `Will ${match.home_team} win against ${match.away_team}?"`
                 )}
               </p>
               <div className="flex space-x-2 text-base text-gray-400">

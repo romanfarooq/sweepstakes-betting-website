@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { calculateBetPercentages, convertToAmPm } from "@/lib/utils";
+import { LuClock4 } from "react-icons/lu";
+import { BsCurrencyDollar } from "react-icons/bs";
 
 const data = [
   {
@@ -1256,7 +1258,7 @@ export default function Home() {
                   className="text-balance text-sm font-semibold text-white hover:cursor-pointer hover:underline 2xl:text-base"
                   onClick={() => navigate(`/event/${match.id}`)}
                 >
-                  {`Will ${match.home_team} win against ${match.away_team} in the match at ${convertToAmPm(match.match_time)}?"`}
+                  {`Will ${match.home_team} win against ${match.away_team}?`}
                 </CardTitle>
                 <HalfDoughnutChart percentage={Math.floor(yes_percentage)} />
               </div>
@@ -1283,6 +1285,16 @@ export default function Home() {
                   <span>Bet No</span>
                   <FaAngleDoubleDown className="group-hover:animate-bounce-updown" />
                 </Button>
+              </div>
+              <div className="flex mt-2 justify-between text-xs text-gray-400">
+                <p className="flex items-center space-x-1">
+                  <LuClock4 />
+                  <span>Oct 4, 2024</span>
+                </p>
+                <p className="flex items-center space-x-1">
+                  <BsCurrencyDollar />
+                  <span>5,073,203 Vol.</span>
+                </p>
               </div>
             </CardContent>
           </Card>

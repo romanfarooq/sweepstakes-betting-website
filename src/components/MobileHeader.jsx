@@ -1,19 +1,18 @@
+import DepositWithDrawBtn from "@/components/DepositWithDrawBtn";
+import LoggedInButtons from "@/components/LoggedInButtons";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AlignJustify, BadgeDollarSign } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { doSignInWithGoogle, doSignOut } from "@/firebase/auth";
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { AlignJustify, BadgeDollarSign } from "lucide-react";
-import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
-import { doSignOut } from "@/firebase/auth";
-import { doSignInWithGoogle } from "@/firebase/auth";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import LoggedInButtons from "@/components/LoggedInButtons";
-import DepositWithDrawBtn from "@/components/DepositWithDrawBtn";
 
 export default function MobileHeader() {
   const { userLoggedIn } = useAuth();
@@ -44,11 +43,15 @@ export default function MobileHeader() {
           />
         </SheetTrigger>
         <SheetContent
-          className="flex h-full w-full flex-col justify-between overflow-y-auto border-none bg-gray-800 text-white"
           side="left"
+          aria-describedby={undefined}
+          className="flex h-full w-full flex-col justify-between overflow-y-auto border-none bg-gray-800 text-white"
         >
           <div className="flex items-center gap-2">
-            <SheetTitle className="flex flex-1 items-center justify-center text-3xl font-extrabold text-white sm:text-4xl">
+            <SheetTitle
+              className="flex flex-1 cursor-pointer items-center justify-center text-3xl font-extrabold text-white sm:text-4xl"
+              onClick={handleClose}
+            >
               <BadgeDollarSign className="mr-2 inline-block size-8 pt-1" />
               <span> Sweep Stakes</span>
             </SheetTitle>

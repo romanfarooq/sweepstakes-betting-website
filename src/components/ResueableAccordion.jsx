@@ -47,7 +47,7 @@ const ResueableAccordion = ({
                 }
                 style={{ textDecoration: "none" }}
               >
-                <FaRegCircleDot className="h-3 w-3" />
+                <FaRegCircleDot className="h-2 w-2 ml-5" />
                 <span>{item.name}</span>
               </NavLink>
             ))}

@@ -1,14 +1,60 @@
-import Dashboard from "@/pages/Dashboard";
-import Users from "./Users";
+import AllBets from "@/components/AllBets";
+import AllBettors from "@/components/AllBettors";
+import AllDeposits from "@/components/AllDeposits";
+import AllGames from "@/components/AllGames";
+import AllTicket from "@/components/AllTicket";
+import AllWithdrawls from "@/components/AllWithdrawls";
+import AnswerTicket from "@/components/AnswerTicket";
+import ApprovedDeposits from "@/components/ApprovedDeposits";
+import ApprovedWithdrawls from "@/components/ApprovedWithdrawls";
+import BannedUsers from "@/components/BannedUsers";
+import BetParent from "@/components/BetParent";
+import ClosedTicket from "@/components/ClosedTicket";
+import DecalredOutcomes from "@/components/DecalredOutcomes";
+import DepositParent from "@/components/DepositParent";
+import EndedGames from "@/components/EndedGames";
+import InitiatedDeposits from "@/components/InitiatedDeposits";
+import LoseBets from "@/components/LoseBets";
+import OutcomesParent from "@/components/OutcomesParent";
+import PendingBets from "@/components/PendingBets";
+import PendingDeposits from "@/components/PendingDeposits";
+import PendingOutcomes from "@/components/PendingOutcomes";
+import PendingTicket from "@/components/PendingTicket";
+import PendingWithdrawls from "@/components/PendingWithdrawls";
+import RefundedBets from "@/components/RefundedBets";
+import RejectedDeposits from "@/components/RejectedDeposits";
+import RejectedWithdrawls from "@/components/RejectedWithdrawls";
+import ReportLoginHistory from "@/components/ReportLoginHistory";
+import ReportNotificationHistory from "@/components/ReportNotificationHistory";
+import ReportParent from "@/components/ReportParent";
+import ReportReferalCommission from "@/components/ReportReferalCommission";
+import RequestReportIssues from "@/components/RequestReportIssues";
+import RunningGames from "@/components/RunningGames";
+import RunningGamesParent from "@/components/RunningGamesParent";
+import SendNotifcations from "@/components/SendNotifcations";
+import SuccessfulDeposits from "@/components/SuccessfulDeposits";
+import SupportTicketParent from "@/components/SupportTicketParent";
+import SystemSettings from "@/components/SystemSettings";
 import TermsUses from "@/components/TermsUses";
+import TransactionReport from "@/components/TransactionReport";
+import UpcommingGames from "@/components/UpcommingGames";
+import WithBalance from "@/components/WithBalance";
+import WithDrawlParent from "@/components/WithDrawlParent";
+import WonBets from "@/components/WonBets";
 import AuthProvider from "@/contexts/AuthContext";
 import AdminLayout from "@/layouts/AdminLayout";
 import AppLayout from "@/layouts/AppLayout";
+import ActiveUsers from "@/pages/ActiveUsers";
+import Dashboard from "@/pages/Dashboard";
 import Event from "@/pages/Event";
 import Home from "@/pages/Home";
+import ManageCategories from "@/pages/ManageCategories";
+import ManageLeagues from "@/pages/ManageLeagues";
+import ManageTeams from "@/pages/ManageTeams";
 import Portfolio from "@/pages/Portfolio";
 import Profile from "@/pages/Profile";
 import SignUpForm from "@/pages/SignUpForm";
+import Users from "@/pages/Users";
 import Wallet from "@/pages/Wallet";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
@@ -17,52 +63,6 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import BannedUsers from "../components/BannedUsers";
-import WithBalance from "../components/WithBalance";
-import AllBettors from "../components/AllBettors";
-import SendNotifcations from "../components/SendNotifcations";
-import ManageLeagues from "@/pages/ManageLeagues";
-import ManageTeams from "./ManageTeams";
-import ActiveUsers from "./ActiveUsers";
-import ManageCategories from "./ManageCategories";
-import RunningGamesParent from "@/components/RunningGamesParent";
-import RunningGames from "@/components/RunningGames";
-import EndedGames from "@/components/EndedGames";
-import UpcommingGames from "@/components/UpcommingGames";
-import AllGames from "@/components/AllGames";
-import BetParent from "@/components/BetParent";
-import PendingBets from "@/components/PendingBets";
-import WonBets from "@/components/WonBets";
-import LoseBets from "@/components/LoseBets";
-import RefundedBets from "@/components/RefundedBets";
-import AllBets from "@/components/AllBets";
-import OutcomesParent from "@/components/OutcomesParent";
-import DecalredOutcomes from "@/components/DecalredOutcomes";
-import PendingOutcomes from "@/components/PendingOutcomes";
-import DepositParent from "@/components/DepositParent";
-import ApprovedDeposits from "@/components/ApprovedDeposits";
-import PendingDeposits from "@/components/PendingDeposits";
-import SuccessfulDeposits from "@/components/SuccessfulDeposits";
-import RejectedDeposits from "@/components/RejectedDeposits";
-import InitiatedDeposits from "@/components/InitiatedDeposits";
-import AllDeposits from "@/components/AllDeposits";
-import WithDrawlParent from "@/components/WithDrawlParent";
-import PendingWithdrawls from "@/components/PendingWithdrawls";
-import ApprovedWithdrawls from "@/components/ApprovedWithdrawls";
-import RejectedWithdrawls from "@/components/RejectedWithdrawls";
-import AllWithdrawls from "@/components/AllWithdrawls";
-import SupportTicketParent from "@/components/SupportTicketParent";
-import PendingTicket from "@/components/PendingTicket";
-import ClosedTicket from "@/components/ClosedTicket";
-import AnswerTicket from "@/components/AnswerTicket";
-import AllTicket from "@/components/AllTicket";
-import ReportParent from "@/components/ReportParent";
-import TransactionReport from "@/components/TransactionReport";
-import ReportLoginHistory from "@/components/ReportLoginHistory";
-import ReportNotificationHistory from "@/components/ReportNotificationHistory";
-import ReportReferalCommission from "@/components/ReportReferalCommission";
-import SystemSettings from "@/components/SystemSettings";
-import RequestReportIssues from "@/components/RequestReportIssues";
 
 const router = createBrowserRouter([
   {
@@ -331,11 +331,11 @@ const router = createBrowserRouter([
       },
       {
         path: "system-settings",
-        element: <SystemSettings/>,
+        element: <SystemSettings />,
       },
       {
         path: "request-report",
-        element: <RequestReportIssues/>,
+        element: <RequestReportIssues />,
       },
     ],
   },

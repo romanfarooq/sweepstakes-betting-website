@@ -13,16 +13,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  BarElement,
-  CategoryScale,
   Chart as ChartJS,
-  Filler,
-  Legend,
-  LinearScale,
   LineElement,
   PointElement,
+  LinearScale,
+  CategoryScale,
   Title,
   Tooltip,
+  Legend,
 } from "chart.js";
 import {
   addDays,
@@ -32,22 +30,21 @@ import {
   isSameMonth,
   subDays,
 } from "date-fns";
-import { useEffect, useState } from "react";
-import { Bar } from "react-chartjs-2";
+import { useEffect, useRef, useState } from "react";
+import { Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
-  PointElement,
   LineElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
-  Filler,
 );
 
-export default function DashboardCharts() {
+export default function TransactionsReportChart() {
+  const chartRef = useRef(null);
   const [chartLabels, setChartLabels] = useState([]);
   const [filteredData, setFilteredData] = useState({
     deposits: [],
@@ -146,18 +143,48 @@ export default function DashboardCharts() {
     }
   };
 
-  const barData = {
+  const lineData = {
     labels: chartLabels,
     datasets: [
       {
         label: "Deposited",
-        backgroundColor: "rgba(75, 192, 192, 1)",
+        borderColor: "rgba(75, 192, 192, 1)",
         data: filteredData.deposits,
+        fill: true,
+        backgroundColor: (context) => {
+          const chart = context.chart;
+          const { ctx, chartArea } = chart;
+
+          if (!chartArea) {
+            // Prevent initialization if the chart area isn't available
+            return null;
+          }
+
+          const gradient = ctx.createLinearGradient(0, 0, 0, chartArea.bottom);
+          gradient.addColorStop(0, "rgba(75, 192, 192, 0.5)"); // Semi-transparent at the top
+          gradient.addColorStop(1, "rgba(75, 192, 192, 0)");   // Fully transparent at the bottom
+          return gradient;
+        },
       },
       {
         label: "Withdrawn",
-        backgroundColor: "rgba(255, 99, 132, 1)",
+        borderColor: "rgba(255, 99, 132, 1)",
         data: filteredData.withdrawals,
+        fill: true,
+        backgroundColor: (context) => {
+          const chart = context.chart;
+          const { ctx, chartArea } = chart;
+
+          if (!chartArea) {
+            // Prevent initialization if the chart area isn't available
+            return null;
+          }
+
+          const gradient = ctx.createLinearGradient(0, 0, 0, chartArea.bottom);
+          gradient.addColorStop(0, "rgba(255, 99, 132, 0.5)"); // Semi-transparent at the top
+          gradient.addColorStop(1, "rgba(255, 99, 132, 0)");   // Fully transparent at the bottom
+          return gradient;
+        },
       },
     ],
   };
@@ -165,9 +192,7 @@ export default function DashboardCharts() {
   return (
     <>
       <div className="w-full rounded-lg bg-white p-4 shadow-lg lg:w-1/2">
-        <h2 className="mb-4 text-lg font-semibold">
-          Deposit & Withdraw Report
-        </h2>
+        <h2 className="mb-4 text-lg font-semibold">Transactions Report</h2>
         <div className="mb-4 flex items-center justify-between">
           <Select onValueChange={(value) => filterDataByRange(value)}>
             <SelectTrigger className="w-[200px]">
@@ -186,26 +211,27 @@ export default function DashboardCharts() {
           <Popover>
             <PopoverTrigger asChild>
               <Button
-                id="date"
                 variant="outline"
                 className="font-normal hover:bg-white"
               >
                 Choose Custom Range
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start" side="right">
+            <PopoverContent className="w-auto p-0" align="start" side="left">
               <Calendar
                 initialFocus
                 mode="range"
                 defaultMonth={date?.from}
                 selected={date}
+                toDate={new Date()}
                 onSelect={handleDateSelect}
               />
             </PopoverContent>
           </Popover>
         </div>
-        <Bar
-          data={barData}
+        <Line
+          ref={chartRef}
+          data={lineData}
           options={{
             scales: {
               y: {

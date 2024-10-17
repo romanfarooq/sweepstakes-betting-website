@@ -104,7 +104,7 @@ const ReportAccordionLinks = {
 
 export default function SideNavigationBar() {
   return (
-    <div className="custom-scrollbar fixed left-0 top-0 hidden h-screen w-1/5 xl:w-1/6 flex-col items-start gap-4 overflow-y-auto bg-indigo-950 text-white lg:flex">
+    <div className="custom-scrollbar fixed left-0 top-0 hidden h-screen w-1/5 2xl:w-1/6 flex-col items-start gap-4 overflow-y-auto bg-indigo-950 text-white lg:flex">
       <div className="px-3 py-6">
         <Logo href="/admin/dashboard" />
       </div>

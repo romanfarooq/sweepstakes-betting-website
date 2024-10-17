@@ -13,14 +13,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
+  BarElement,
+  CategoryScale,
   Chart as ChartJS,
+  Filler,
+  Legend,
+  LinearScale,
   LineElement,
   PointElement,
-  LinearScale,
-  CategoryScale,
   Title,
   Tooltip,
-  Legend,
 } from "chart.js";
 import {
   addDays,
@@ -31,19 +33,21 @@ import {
   subDays,
 } from "date-fns";
 import { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  LineElement,
+  BarElement,
   PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
+  Filler,
 );
 
-export default function TransactionsReport() {
+export default function DepositAndWithdrawReportChart() {
   const [chartLabels, setChartLabels] = useState([]);
   const [filteredData, setFilteredData] = useState({
     deposits: [],
@@ -142,22 +146,18 @@ export default function TransactionsReport() {
     }
   };
 
-  const lineData = {
+  const barData = {
     labels: chartLabels,
     datasets: [
       {
         label: "Deposited",
-        backgroundColor: "rgba(75, 192, 192, 0.5)",
-        borderColor: "rgba(75, 192, 192, 1)",
+        backgroundColor: "rgba(75, 192, 192, 1)",
         data: filteredData.deposits,
-        fill: true,
       },
       {
         label: "Withdrawn",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-        borderColor: "rgba(255, 99, 132, 1)",
+        backgroundColor: "rgba(255, 99, 132, 1)",
         data: filteredData.withdrawals,
-        fill: true,
       },
     ],
   };
@@ -165,7 +165,9 @@ export default function TransactionsReport() {
   return (
     <>
       <div className="w-full rounded-lg bg-white p-4 shadow-lg lg:w-1/2">
-        <h2 className="mb-4 text-lg font-semibold">Transactions Report</h2>
+        <h2 className="mb-4 text-lg font-semibold">
+          Deposit & Withdraw Report
+        </h2>
         <div className="mb-4 flex items-center justify-between">
           <Select onValueChange={(value) => filterDataByRange(value)}>
             <SelectTrigger className="w-[200px]">
@@ -184,26 +186,26 @@ export default function TransactionsReport() {
           <Popover>
             <PopoverTrigger asChild>
               <Button
-                id="date"
                 variant="outline"
                 className="font-normal hover:bg-white"
               >
                 Choose Custom Range
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start" side="left">
+            <PopoverContent className="w-auto p-0" align="start" side="right">
               <Calendar
                 initialFocus
                 mode="range"
                 defaultMonth={date?.from}
                 selected={date}
+                toDate={new Date()}
                 onSelect={handleDateSelect}
               />
             </PopoverContent>
           </Popover>
         </div>
-        <Line
-          data={lineData}
+        <Bar
+          data={barData}
           options={{
             scales: {
               y: {

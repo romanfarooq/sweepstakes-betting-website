@@ -60,8 +60,8 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
                   className={cn(
                     "group flex-1 items-center justify-center rounded-sm py-6 text-base",
                     selectedBet === "yes"
-                      ? "bg-[#22c55e] text-white"
-                      : "bg-gray-700 text-gray-400",
+                      ? "bg-[#22c55e] text-white hover:bg-[#22c55e]"
+                      : "bg-gray-700 text-gray-400 hover:bg-gray-700/85",
                   )}
                   onClick={() => setSelectedBet("yes")}
                 >
@@ -71,8 +71,8 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
                   className={cn(
                     "group flex-1 items-center justify-center rounded-sm py-6 text-base",
                     selectedBet === "no"
-                      ? "bg-red-600 text-white"
-                      : "bg-gray-700 text-gray-400",
+                      ? "bg-red-600 text-white hover:bg-red-600"
+                      : "bg-gray-700 text-gray-400 hover:bg-gray-700/85",
                   )}
                   onClick={() => setSelectedBet("no")}
                 >
@@ -85,7 +85,7 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
               <Label className="text-base">Amount</Label>
               <div className="flex w-full items-center">
                 <Button
-                  className="h-12 rounded-r-none bg-gray-700"
+                  className="h-12 rounded-r-none bg-gray-700 hover:bg-gray-700/85"
                   onClick={() =>
                     setAmount((prevAmount) => Math.max(0, prevAmount - 10))
                   }
@@ -102,7 +102,7 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
                   />
                 </div>
                 <Button
-                  className="h-12 rounded-l-none bg-slate-700"
+                  className="h-12 rounded-l-none bg-slate-700 hover:bg-slate-700/85"
                   onClick={() => setAmount((prevAmount) => prevAmount + 10)}
                 >
                   +
@@ -110,7 +110,7 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
               </div>
             </div>
 
-            <Button className="mb-4 w-full bg-blue-500 py-5 text-base text-white">
+            <Button className="mb-4 w-full bg-blue-500 py-5 text-base text-white hover:bg-blue-600">
               Log In
             </Button>
             <div className="text-center text-slate-400 md:text-sm xl:text-base">
@@ -142,8 +142,8 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
                   className={cn(
                     "group flex-1 items-center justify-center rounded-sm py-6 text-base",
                     selectedBet === "yes"
-                      ? "bg-[#22c55e] text-white"
-                      : "bg-gray-700 text-gray-400",
+                      ? "bg-[#22c55e] text-white hover:bg-[#22c55e]"
+                      : "bg-gray-700 text-gray-400 hover:bg-gray-700/85",
                   )}
                   onClick={() => setSelectedBet("yes")}
                 >
@@ -153,8 +153,8 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
                   className={cn(
                     "group flex-1 items-center justify-center rounded-sm py-6 text-base",
                     selectedBet === "no"
-                      ? "bg-red-600 text-white"
-                      : "bg-gray-700 text-gray-400",
+                      ? "bg-red-600 text-white hover:bg-red-600"
+                      : "bg-gray-700 text-gray-400 hover:bg-gray-700/85",
                   )}
                   onClick={() => setSelectedBet("no")}
                 >
@@ -167,7 +167,7 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
               <Label className="text-base">Shares</Label>
               <div className="flex w-full items-center">
                 <Button
-                  className="h-12 rounded-r-none bg-gray-700"
+                  className="h-12 rounded-r-none bg-gray-700 hover:bg-gray-700/85"
                   onClick={() =>
                     setAmount((prevAmount) => Math.max(0, prevAmount - 10))
                   }
@@ -183,7 +183,7 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
                   />
                 </div>
                 <Button
-                  className="h-12 rounded-l-none bg-slate-700"
+                  className="h-12 rounded-l-none bg-slate-700 hover:bg-slate-700/85"
                   onClick={() => setAmount((prevAmount) => prevAmount + 10)}
                 >
                   +
@@ -191,7 +191,7 @@ export default function TradeCard({ latestData: { yes, no }, bet }) {
               </div>
             </div>
 
-            <Button className="mb-4 w-full bg-blue-500 py-5 text-base text-white">
+            <Button className="mb-4 w-full bg-blue-500 py-5 text-base text-white hover:bg-blue-600">
               Log In
             </Button>
             <div className="text-center text-slate-400 md:text-sm xl:text-base">

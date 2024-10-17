@@ -12,7 +12,6 @@ import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { LuFileSpreadsheet } from "react-icons/lu";
 import { PiVirus } from "react-icons/pi";
 
-
 const ManageBettersAccordionLinks = {
   title: "Manage Betters",
   items: [
@@ -80,7 +79,6 @@ const WithdrawlsAccordionLinks = {
     { name: "Approved Withdrwals", href: "withdrawl/approved" },
     { name: "Rejected Withdrwals", href: "withdrawl/rejected" },
     { name: "All Withdrwals", href: "withdrawl/all" },
-    
   ],
 };
 const SupportTicketAccordionLinks = {
@@ -104,7 +102,7 @@ const ReportAccordionLinks = {
 
 export default function SideNavigationBar() {
   return (
-    <div className="custom-scrollbar fixed left-0 top-0 hidden h-screen w-1/5 2xl:w-1/6 flex-col items-start gap-4 overflow-y-auto bg-indigo-950 text-white lg:flex">
+    <div className="custom-scrollbar fixed left-0 top-0 hidden h-screen w-1/5 flex-col items-start gap-4 overflow-y-auto bg-indigo-950 text-white lg:flex 2xl:w-1/6">
       <div className="px-3 py-6">
         <Logo href="/admin/dashboard" />
       </div>
@@ -114,7 +112,7 @@ export default function SideNavigationBar() {
           to="dashboard"
           className={({ isActive }) =>
             cn(
-              "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
+              "flex w-full items-center gap-3 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
               {
                 "border-indigo-400 bg-indigo-800": isActive,
               },
@@ -122,7 +120,7 @@ export default function SideNavigationBar() {
           }
         >
           <IoHomeOutline className="h-5 w-5" />
-          <span className="text-sm">Dashboard</span>
+          <span className="text-sm font-semibold">Dashboard</span>
         </NavLink>
 
         <div className="w-full">
@@ -204,39 +202,38 @@ export default function SideNavigationBar() {
         </div>
       </div>
 
-      <div className="w-full mb-14">
+      <div className="mb-14 w-full">
         <p className="p-3 text-xs font-semibold text-indigo-200">SETTINGS</p>
         <div className="flex w-full flex-col items-start text-white">
-        <NavLink
-          to="system-settings"
-          className={({ isActive }) =>
-            cn(
-              "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
-              {
-                "border-indigo-400 bg-indigo-800": isActive,
-              },
-            )
-          }
-        >
-          <IoSettingsOutline className="h-5 w-5" />
-          <span className="text-sm">System Settings</span>
-        </NavLink>
-        <NavLink
-          to="request-report"
-          className={({ isActive }) =>
-            cn(
-              "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
-              {
-                "border-indigo-400 bg-indigo-800": isActive,
-              },
-            )
-          }
-        >
-          <PiVirus className="h-5 w-5" />
-          <span className="text-sm">Report & Request</span>
-        </NavLink>
-
-      </div>
+          <NavLink
+            to="system-settings"
+            className={({ isActive }) =>
+              cn(
+                "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
+                {
+                  "border-indigo-400 bg-indigo-800": isActive,
+                },
+              )
+            }
+          >
+            <IoSettingsOutline className="h-5 w-5" />
+            <span className="text-sm">System Settings</span>
+          </NavLink>
+          <NavLink
+            to="request-report"
+            className={({ isActive }) =>
+              cn(
+                "flex w-full items-center gap-2 border-l-4 border-transparent p-3 text-white hover:bg-indigo-600",
+                {
+                  "border-indigo-400 bg-indigo-800": isActive,
+                },
+              )
+            }
+          >
+            <PiVirus className="h-5 w-5" />
+            <span className="text-sm">Report & Request</span>
+          </NavLink>
+        </div>
       </div>
     </div>
   );

@@ -55,6 +55,7 @@ import Portfolio from "@/pages/Portfolio";
 import Profile from "@/pages/Profile";
 import SignUpForm from "@/pages/SignUpForm";
 import Users from "@/pages/Users";
+import UsersDetails from "@/pages/UsersDetails";
 import Wallet from "@/pages/Wallet";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
@@ -115,7 +116,7 @@ const router = createBrowserRouter([
         path: "users",
         element: <Users />,
         children: [
-          { index: true, element: <Navigate to="active" replace={true} /> },
+          { index: true, element: <Navigate to="all-betters" replace={true} /> },
           {
             path: "active",
             element: <ActiveUsers />,
@@ -136,6 +137,10 @@ const router = createBrowserRouter([
             path: "send-nofiications",
             element: <SendNotifcations />,
           },
+          {
+            path: "details/:id",
+            element: <UsersDetails />,
+          }
         ],
       },
       {

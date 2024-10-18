@@ -1,4 +1,5 @@
 import NumbersCardDetails from "@/components/NumbersCardDetails";
+import SelectCountry from "@/components/SelectCountry";
 import { BsBank2 } from "react-icons/bs";
 import { FaHandHoldingDollar } from "react-icons/fa6";
 import { GrCurrency } from "react-icons/gr";
@@ -21,6 +22,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import { Select } from "@/components/ui/select";
 
 export default function UsersDetails() {
   const { id } = useParams();
@@ -253,6 +255,119 @@ export default function UsersDetails() {
             </DialogFooter>
           </DialogContent>
         </Dialog>
+      </div>
+
+      <div className="w-full rounded-lg bg-white p-6 shadow-md">
+        <h2 className="mb-6 text-xl font-bold">Information of {id}</h2>
+
+        <div className="mb-4 grid grid-cols-2 gap-4">
+          <div className="flex flex-col">
+            <Label htmlFor="firstName" className="mb-2 text-sm font-semibold">
+              First Name <span className="text-red-500">*</span>
+            </Label>
+            <Input
+              id="firstName"
+              type="text"
+              placeholder="First Name"
+              className="rounded-sm border border-gray-300 p-2"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <Label htmlFor="lastName" className="mb-2 text-sm font-semibold">
+              Last Name <span className="text-red-500">*</span>
+            </Label>
+            <Input
+              id="lastName"
+              type="text"
+              placeholder="Last Name"
+              className="rounded-sm border border-gray-300 p-2"
+              required
+            />
+          </div>
+        </div>
+
+        <div className="mb-4 grid grid-cols-2 gap-4">
+          <div className="flex flex-col">
+            <Label htmlFor="email" className="mb-2 text-sm font-semibold">
+              Email <span className="text-red-500">*</span>
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="Email"
+              className="rounded-sm border border-gray-300 p-2"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <Label htmlFor="mobile" className="mb-2 text-sm font-semibold">
+              Mobile Number <span className="text-red-500">*</span>
+            </Label>
+            <div className="flex items-center">
+              <span className="flex h-9 items-center rounded-md rounded-r-none border border-gray-300 bg-gray-200 px-2">
+                USD
+              </span>
+              <Input
+                id="mobile"
+                type="tel"
+                placeholder="Mobile Number"
+                className="w-full rounded-sm rounded-l-none border border-gray-300 p-2 focus-visible:ring-0"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="mb-4">
+          <Label htmlFor="address" className="mb-2 text-sm font-semibold">
+            Address
+          </Label>
+          <Input
+            id="address"
+            type="text"
+            placeholder="Address"
+            className="w-full rounded-sm border border-gray-300 p-2"
+          />
+        </div>
+
+        <div className="mb-4 grid grid-cols-4 gap-4">
+          <Input
+            id="city"
+            placeholder="City"
+            className="rounded-sm border border-gray-300 p-2"
+          />
+          <Input
+            id="state"
+            placeholder="State"
+            className="rounded-sm border border-gray-300 p-2"
+          />
+          <Input
+            id="zip"
+            placeholder="Zip/Postal"
+            className="rounded-sm border border-gray-300 p-2"
+          />
+          <SelectCountry />
+        </div>
+
+        <div className="mb-4 grid grid-cols-4 gap-4">
+          <Button className="rounded-sm bg-green-500 text-white">
+            Verified
+          </Button>
+          <Button className="rounded-sm bg-green-500 text-white">
+            Verified
+          </Button>
+          <Button className="rounded-sm bg-red-500 text-white">Disable</Button>
+          <Button className="rounded-sm bg-green-500 text-white">
+            Verified
+          </Button>
+        </div>
+
+        <Button className="w-full rounded-sm bg-blue-600 py-2 text-white">
+          Submit
+        </Button>
       </div>
     </div>
   );

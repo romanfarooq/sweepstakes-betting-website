@@ -260,7 +260,7 @@ export default function UsersDetails() {
       <div className="w-full rounded-lg bg-white p-6 shadow-md">
         <h2 className="mb-6 text-xl font-bold">Information of {id}</h2>
 
-        <div className="mb-4 grid grid-cols-2 gap-4">
+        <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col">
             <Label htmlFor="firstName" className="mb-2 text-sm font-semibold">
               First Name <span className="text-red-500">*</span>
@@ -288,7 +288,7 @@ export default function UsersDetails() {
           </div>
         </div>
 
-        <div className="mb-4 grid grid-cols-2 gap-4">
+        <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col">
             <Label htmlFor="email" className="mb-2 text-sm font-semibold">
               Email <span className="text-red-500">*</span>
@@ -307,8 +307,8 @@ export default function UsersDetails() {
               Mobile Number <span className="text-red-500">*</span>
             </Label>
             <div className="flex items-center">
-              <span className="flex h-9 items-center rounded-md rounded-r-none border border-gray-300 bg-gray-200 px-2">
-                USD
+              <span className="flex h-9 items-center rounded-md rounded-r-none border border-gray-300 bg-gray-200 px-4 text-lg">
+                +
               </span>
               <Input
                 id="mobile"
@@ -333,23 +333,46 @@ export default function UsersDetails() {
           />
         </div>
 
-        <div className="mb-4 grid grid-cols-4 gap-4">
-          <Input
-            id="city"
-            placeholder="City"
-            className="rounded-sm border border-gray-300 p-2"
-          />
-          <Input
-            id="state"
-            placeholder="State"
-            className="rounded-sm border border-gray-300 p-2"
-          />
-          <Input
-            id="zip"
-            placeholder="Zip/Postal"
-            className="rounded-sm border border-gray-300 p-2"
-          />
-          <SelectCountry />
+        <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-col">
+            <Label htmlFor="email" className="mb-2 text-sm font-semibold">
+              City
+            </Label>
+            <Input
+              id="city"
+              placeholder="City"
+              className="rounded-sm border border-gray-300 p-2"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <Label htmlFor="email" className="mb-2 text-sm font-semibold">
+              State
+            </Label>
+            <Input
+              id="state"
+              placeholder="State"
+              className="rounded-sm border border-gray-300 p-2"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <Label htmlFor="email" className="mb-2 text-sm font-semibold">
+              Zip/Postal
+            </Label>
+            <Input
+              id="zip"
+              placeholder="Zip/Postal"
+              className="rounded-sm border border-gray-300 p-2"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <Label htmlFor="email" className="mb-2 text-sm font-semibold">
+              Country <span className="text-red-500">*</span>
+            </Label>
+            <SelectCountry />
+          </div>
         </div>
 
         <div className="mb-4 grid grid-cols-4 gap-4">

@@ -1,4 +1,3 @@
-// import React from 'react'
 import TableContainer from "@/components/TableContainer";
 import { Input } from "@/components/ui/input";
 import { IoIosSearch } from "react-icons/io";
@@ -183,11 +182,10 @@ const TableData = {
 };
 
 export default function ActiveUsers() {
-
-  const getSearchTermsFunction=(e)=>{
+  const getSearchTermsFunction = (e) => {
     console.log(e.target.value);
-  }
-  
+  };
+
   return (
     <div className="space-y-10 px-6 py-12">
       <div className="flex items-center justify-between">

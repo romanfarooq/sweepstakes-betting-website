@@ -24,7 +24,7 @@ function TableContainer({ tableHeader, tableRows, pagination }) {
 
   // Function to update query params
   const handleSetQueryParams = (pageNo) => {
-    const newParams = { page: pageNo};
+    const newParams = { page: pageNo };
     setSearchParams(newParams);
     navigate(`?page=${pageNo}`);
   };
@@ -37,14 +37,14 @@ function TableContainer({ tableHeader, tableRows, pagination }) {
     console.log("Search:", search); // Logs the search term from query params
   };
 
-
-
   function handlePrev() {
     console.log("prev");
   }
+
   function handleNext() {
     console.log("next");
   }
+
   return (
     <div className="overflow-hidden rounded-md border">
       <Table className="cursor-pointer">
@@ -73,7 +73,10 @@ function TableContainer({ tableHeader, tableRows, pagination }) {
                 ${row.balance}
               </TableCell>
               <TableCell>
-                <button className="rounded border border-indigo-600 px-4 py-1 text-indigo-600 hover:bg-indigo-600 hover:text-white">
+                <button
+                  className="rounded border border-indigo-600 px-4 py-1 text-indigo-600 hover:bg-indigo-600 hover:text-white"
+                  onClick={() => navigate(`/admin/users/details/${row.bettor}`)}
+                >
                   {row.action}
                 </button>
               </TableCell>
@@ -94,24 +97,23 @@ function TableContainer({ tableHeader, tableRows, pagination }) {
         <div>
           <Pagination>
             <PaginationContent className="space-x-4">
-              <PaginationItem className="rounded-sm border">
+              <PaginationItem className="cursor-pointer rounded-sm border">
                 <PaginationPrevious onClick={handlePrev} />
               </PaginationItem>
               {Array.from({ length: pagination.totalPages }, (_, index) =>
                 index + 1 > 7 ? null : (
-                  <PaginationItem className="rounded-sm border" key={index}>
-                    <PaginationLink
-                    >
-                      {index + 1}
-                    </PaginationLink>
+                  <PaginationItem
+                    className="cursor-pointer rounded-sm border"
+                    key={index}
+                  >
+                    <PaginationLink>{index + 1}</PaginationLink>
                   </PaginationItem>
                 ),
               )}
-
               <PaginationItem>
                 <PaginationEllipsis />
               </PaginationItem>
-              <PaginationItem className="border">
+              <PaginationItem className="cursor-pointer border">
                 <PaginationNext onClick={handleNext} />
               </PaginationItem>
             </PaginationContent>

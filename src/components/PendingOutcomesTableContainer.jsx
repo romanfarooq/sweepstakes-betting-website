@@ -1,0 +1,191 @@
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import { splitIntoChunks } from "@/lib/utils";
+
+export function PendingOutcomesTableContainer({ data, rowsPerPage }) {
+  const [pageNo, setPageNo] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const Navigate = useNavigate();
+
+  console.log(data);
+
+  useEffect(() => {
+    const currentPage = parseInt(searchParams.get("page"), 10) || 1;
+    setPageNo(currentPage);
+  }, [searchParams]);
+
+  const totalTableRowsLength = data?.tableRows?.length || 0;
+  const perPageData = splitIntoChunks(data?.tableRows || [], rowsPerPage);
+  const currentData = perPageData[pageNo - 1] || [];
+  console.log(currentData);
+
+  // RESULTS TO SHOW IN TABLE
+  const startResult = (pageNo - 1) * rowsPerPage + 1;
+  const endResult = Math.min(totalTableRowsLength, pageNo * rowsPerPage);
+
+  function setPageNoParams(newPageNo) {
+    if (newPageNo < 1 || newPageNo > perPageData.length) return;
+    setPageNo(newPageNo);
+    setSearchParams({
+      page: newPageNo.toString(),
+      search: searchParams.get("search") || "",
+    });
+  }
+
+  const generatePaginationItems = () => {
+    const totalPages = perPageData.length;
+    const paginationItems = [];
+
+    let startPage = Math.max(1, pageNo - 3);
+    let endPage = Math.min(totalPages, pageNo + 3);
+
+    if (endPage - startPage < 6) {
+      if (startPage === 1) {
+        endPage = Math.min(7, totalPages);
+      } else {
+        startPage = Math.max(1, endPage - 6);
+      }
+    }
+
+    if (startPage > 1) {
+      paginationItems.push(1);
+      if (startPage > 2) {
+        paginationItems.push("...");
+      }
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      paginationItems.push(i);
+    }
+
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        paginationItems.push("...");
+      }
+      paginationItems.push(totalPages);
+    }
+
+    return paginationItems;
+  };
+  return (
+    <div className="overflow-hidden rounded-md border">
+      <Table className="cursor-pointer">
+        <TableHeader className="h-16">
+          <TableRow className="bg-indigo-600 hover:bg-indigo-500">
+            {data?.tableHeader?.map((header, index) => (
+              <TableHead
+                key={index}
+                className="h-14 pl-4 font-semibold text-white"
+              >
+                {header}
+              </TableHead>
+            ))}
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {currentData.map((row, index) => (
+            <TableRow key={index} className="h-16 border-b last:border-b-0">
+              <TableCell className="pl-4 font-medium">
+                <p className="font-semibold text-gray-500">{row.market}</p>
+              </TableCell>
+              <TableCell className="flex pl-4 gap-2 font-medium">
+                <div className="flex flex-col justify-center gap-1 items-center">
+                  <p>🎯</p>
+                  <p className="font-semibold text-gray-500 text-sm">
+                    {row.match.team1}
+                  </p>
+                </div>
+                <p className="font-bold text-gray-700">VS</p>
+                <div className="flex flex-col justify-center gap-1 items-center">
+                  <p>🎯</p>
+                  <p className="font-semibold text-gray-500 text-sm">
+                    {row.match.team2}
+                  </p>
+                </div>
+              </TableCell>
+
+              <TableCell className="space-y-2">
+                {" "}
+                <p className="font-semibold text-gray-600">{row.betEndTime}</p>
+                <p>{row.timeLeft}</p>
+              </TableCell>
+              <TableCell>{row.betPlaced}</TableCell>
+              <TableCell className="flex gap-2 items-center">
+                <p className="hover:text-white hover:bg-indigo-700 text-indigo-600 border-inidigo-600 transition-all px-3 py-1 border border-indigo-500 rounded-sm">{row.action[0]}</p>
+                <p className="hover:text-white hover:bg-sky-800 transition-all text-sky-600 px-3 py-1 border border-sky-600 rounded-sm">{row.action[1]}</p>
+                <p className="hover:text-white hover:bg-gray-800 transition-all border-white-600 px-3 py-1 border border-black rounded-sm">{row.action[2]}</p>
+             </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+
+      <div className="flex w-full items-center justify-between px-10 py-10">
+        <p className="text-sm">
+          Showing{" "}
+          <span className="text-md font-bold text-gray-500">
+            {startResult}{" "}
+          </span>
+          to{" "}
+          <span className="text-md font-bold text-gray-500">{endResult}</span>{" "}
+          of{" "}
+          <span className="text-md font-bold text-gray-500">
+            {totalTableRowsLength}
+          </span>{" "}
+          results
+        </p>
+        <div>
+          <Pagination className="cursor-pointer">
+            <PaginationContent className="space-x-4">
+              <PaginationItem
+                className="rounded-sm border"
+                onClick={() => setPageNoParams(pageNo - 1)}
+                disabled={pageNo === 1}
+              >
+                <PaginationPrevious />
+              </PaginationItem>
+              {generatePaginationItems().map((item, index) => (
+                <PaginationItem
+                  className={`rounded-sm border ${item === pageNo ? "bg-indigo-600 text-white" : ""}`}
+                  key={index}
+                >
+                  {typeof item === "number" ? (
+                    <PaginationLink onClick={() => setPageNoParams(item)}>
+                      {item}
+                    </PaginationLink>
+                  ) : (
+                    <PaginationEllipsis />
+                  )}
+                </PaginationItem>
+              ))}
+              <PaginationItem
+                className={`rounded-sm border ${pageNo >= perPageData.length ? "cursor-not-allowed opacity-50" : ""}`}
+                onClick={() => setPageNoParams(pageNo + 1)}
+                disabled={pageNo >= perPageData.length}
+              >
+                <PaginationNext />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 
-export default function Users() {
+export default function UsersParent() {
   return (
-    <div>
+    <div className="">
       <Outlet />
     </div>
   );

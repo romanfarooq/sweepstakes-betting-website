@@ -34,29 +34,17 @@ export function convertToAmPm(timeString) {
   });
 }
 
-
-  export function splitIntoChunks(data, rowsPerPage) {
+export function splitIntoChunks(data, rowsPerPage) {
   const chunks = [];
-  let numFullPages = Math.floor(data.length / rowsPerPage); 
-  let remainder = data.length % rowsPerPage; 
 
-  
-  for (let i = 0; i < numFullPages; i++) {
-    chunks.push(data.slice(i * rowsPerPage, (i + 1) * rowsPerPage));
+  // If rowsPerPage is greater than or equal to data length, return the whole data as a single chunk
+  if (rowsPerPage >= data.length) {
+    return [data];
   }
 
-  
-  if (remainder > 0) {
-    const extraRowsPerPage = Math.ceil(remainder / numFullPages);
-    for (let i = 0; i < numFullPages; i++) {
-      const extraRowsStart = numFullPages * rowsPerPage + i * extraRowsPerPage;
-      const extraRowsEnd = extraRowsStart + extraRowsPerPage;
-
-      
-      if (extraRowsStart < data.length) {
-        chunks[i] = [...chunks[i], ...data.slice(extraRowsStart, extraRowsEnd)];
-      }
-    }
+  // Iterate through data and slice it into chunks of the specified size
+  for (let i = 0; i < data.length; i += rowsPerPage) {
+    chunks.push(data.slice(i, i + rowsPerPage));
   }
 
   return chunks;

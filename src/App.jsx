@@ -31,7 +31,7 @@ import ReportReferalCommission from "@/components/ReportReferalCommission";
 import RequestReportIssues from "@/components/RequestReportIssues";
 import RunningGames from "@/components/RunningGames";
 import RunningGamesParent from "@/components/RunningGamesParent";
-import SendNotifcations from "@/components/SendNotifcations";
+import SendNotifications from "@/components/SendNotifications";
 import SuccessfulDeposits from "@/components/SuccessfulDeposits";
 import SupportTicketParent from "@/components/SupportTicketParent";
 import SystemSettings from "@/components/SystemSettings";
@@ -54,7 +54,7 @@ import ManageTeams from "@/pages/ManageTeams";
 import Portfolio from "@/pages/Portfolio";
 import Profile from "@/pages/Profile";
 import SignUpForm from "@/pages/SignUpForm";
-import Users from "@/pages/Users";
+import UsersParent from "@/pages/Users";
 import UsersDetails from "@/pages/UsersDetails";
 import Wallet from "@/pages/Wallet";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -114,7 +114,7 @@ const router = createBrowserRouter([
       },
       {
         path: "users",
-        element: <Users />,
+        element: <UsersParent />,
         children: [
           { index: true, element: <Navigate to="all-betters" replace={true} /> },
           {
@@ -134,8 +134,8 @@ const router = createBrowserRouter([
             element: <AllBettors />,
           },
           {
-            path: "send-nofiications",
-            element: <SendNotifcations />,
+            path: "send-notifications",
+            element: <SendNotifications />,
           },
           {
             path: "details/:id",

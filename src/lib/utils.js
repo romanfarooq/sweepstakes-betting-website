@@ -33,3 +33,31 @@ export function convertToAmPm(timeString) {
     hour12: true,
   });
 }
+
+
+  export function splitIntoChunks(data, rowsPerPage) {
+  const chunks = [];
+  let numFullPages = Math.floor(data.length / rowsPerPage); 
+  let remainder = data.length % rowsPerPage; 
+
+  
+  for (let i = 0; i < numFullPages; i++) {
+    chunks.push(data.slice(i * rowsPerPage, (i + 1) * rowsPerPage));
+  }
+
+  
+  if (remainder > 0) {
+    const extraRowsPerPage = Math.ceil(remainder / numFullPages);
+    for (let i = 0; i < numFullPages; i++) {
+      const extraRowsStart = numFullPages * rowsPerPage + i * extraRowsPerPage;
+      const extraRowsEnd = extraRowsStart + extraRowsPerPage;
+
+      
+      if (extraRowsStart < data.length) {
+        chunks[i] = [...chunks[i], ...data.slice(extraRowsStart, extraRowsEnd)];
+      }
+    }
+  }
+
+  return chunks;
+}

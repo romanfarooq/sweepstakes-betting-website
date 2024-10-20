@@ -26,11 +26,11 @@ export default function UsersDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   return (
-    <div className="space-y-10 p-4 lg:p-8">
-      <h2 className="text-xl font-semibold text-indigo-950">
+    <div className="space-y-10 p-4 lg:p-8 min-h-screen">
+      <h2 className="text-xl font-bold 2xl:text-2xl text-gray-700 ">
         Better Details - {id}
       </h2>
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 2xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 2xl:grid-cols-2">
         <NumbersCardDetails
           title="Balance"
           totalAmount="$0.00"

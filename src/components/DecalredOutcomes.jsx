@@ -43,7 +43,7 @@ export default function PendingOutcomes() {
   return (
     <div className="space-y-10 px-6 py-12">
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-bold text-gray-700">Pending Outcomes</h3>
+        <h3 className="text-xl font-bold text-gray-700">Decalared Outcomes</h3>
         <div className="relative flex h-11 w-3/12 pr-4">
           <Input
             type="text"

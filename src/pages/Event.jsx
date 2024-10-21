@@ -189,7 +189,7 @@ const transformData = (data) => {
 
     // If the variation is within 1 day or spans less than 8 points, show time
     if (totalDays === 0 || data.length <= 8) {
-      label = format(date, "d MMM yyyy, p"); // 'p' gives you time in 12-hour format
+      label = format(date, "p"); // 'p' gives you time in 12-hour format
     }
     // If variations span multiple days but less than a month, show date + time
     else if (totalMonths === 0) {

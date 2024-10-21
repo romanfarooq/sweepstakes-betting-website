@@ -33,3 +33,19 @@ export function convertToAmPm(timeString) {
     hour12: true,
   });
 }
+
+export function splitIntoChunks(data, rowsPerPage) {
+  const chunks = [];
+
+  // If rowsPerPage is greater than or equal to data length, return the whole data as a single chunk
+  if (rowsPerPage >= data.length) {
+    return [data];
+  }
+
+  // Iterate through data and slice it into chunks of the specified size
+  for (let i = 0; i < data.length; i += rowsPerPage) {
+    chunks.push(data.slice(i, i + rowsPerPage));
+  }
+
+  return chunks;
+}

@@ -17,11 +17,11 @@ export default function UsersDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   return (
-    <div className="space-y-10 p-4 lg:p-8">
-      <h2 className="text-xl font-semibold text-indigo-950">
+    <div className="min-h-screen space-y-10 p-4 lg:p-8">
+      <h2 className="text-xl font-bold text-gray-700 2xl:text-2xl">
         Better Details - {id}
       </h2>
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 2xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 2xl:grid-cols-2">
         <NumbersCardDetails
           title="Balance"
           totalAmount="$0.00"
@@ -66,20 +66,19 @@ export default function UsersDetails() {
         />
       </div>
       <div className="flex w-full flex-wrap justify-between gap-2">
-
         <AddOrSubtractBalanceDialog type="Add" />
 
         <AddOrSubtractBalanceDialog type="Subtract" />
 
         <Button
           onClick={() => navigate("/admin/report/login/history")}
-          className="flex-grow transform rounded-sm bg-blue-500 py-5 text-base font-normal text-white shadow-none transition-transform duration-300 hover:-translate-y-[2px] hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/20"
+          className="flex-grow transform rounded-sm bg-blue-500 py-5 text-base font-normal text-white shadow-none transition-transform duration-300 hover:-translate-y-[2px] hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/20 2xl:h-16"
         >
           <UserIcon className="mt-[2px]" />
           Logins
         </Button>
 
-        <Button className="font- flex-grow transform rounded-sm bg-gray-500 py-5 text-base text-white shadow-none transition-transform duration-300 hover:-translate-y-[2px] hover:bg-gray-500 hover:shadow-lg hover:shadow-gray-500/20">
+        <Button className="font- flex-grow transform rounded-sm bg-gray-500 py-5 text-base text-white shadow-none transition-transform duration-300 hover:-translate-y-[2px] hover:bg-gray-500 hover:shadow-lg hover:shadow-gray-500/20 2xl:h-16">
           <BellIcon className="mt-[2px]" />
           Notifications
         </Button>

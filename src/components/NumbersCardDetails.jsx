@@ -22,8 +22,8 @@ export default function NumbersCard({
         }
       )}
     >
-      <div className="flex flex-col justify-between p-4">
-        <h3 className="text-white text-base font-medium">{title}</h3>
+      <div className="flex flex-col justify-between p-4 2xl:p-8">
+        <h3 className="text-white text-base font-medium 2xl:font-bold 2xl:text-lg">{title}</h3>
         <p className="text-white text-2xl font-bold">{totalAmount}</p>
       </div>
       <div className={cn("flex justify-center h-full items-center p-7", iconBgColor)}>

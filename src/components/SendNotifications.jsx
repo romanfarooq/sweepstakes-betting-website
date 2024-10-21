@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+
 import {
   Select,
   SelectContent,
@@ -11,7 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mail, Smartphone, Bell } from "lucide-react";
+import { Mail, Smartphone, Bell, Check } from "lucide-react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -20,8 +21,8 @@ const SendNotifications = () => {
   const [value, setValue] = useState("");
 
   return (
-    <div className="p-8 space-y-6">
-      <h3 className="text-gray-600 text-xl font-semibold">
+    <div className="space-y-6 p-8">
+      <h3 className="text-xl font-semibold text-gray-600">
         Notification to Verified Bettors
       </h3>
 
@@ -34,25 +35,34 @@ const SendNotifications = () => {
                 onValueChange={setSelectedTab}
                 className="w-1/2"
               >
-                <TabsList className="mb-4 grid min-h-40 w-full grid-cols-3">
+                <TabsList className="mb-4 grid min-h-28 w-full grid-cols-3 gap-3 bg-white">
                   <TabsTrigger
                     value="email"
-                    className="flex h-full items-center justify-center py-2"
+                    className={`relative flex h-full items-center justify-center border-2 border-gray-300 bg-gray-200 py-2 ${selectedTab === "email" ? "border-4 border-indigo-500" : null}`}
                   >
+                    {selectedTab === "email" && (
+                      <Check className="absolute -right-2 top-0 mr-2 w-6 rounded-bl-lg bg-indigo-600 text-white" />
+                    )}
                     <Mail className="mr-2" />
                     Send Via Email
                   </TabsTrigger>
                   <TabsTrigger
                     value="sms"
-                    className="flex h-full items-center justify-center py-2"
+                    className={`relative flex h-full items-center justify-center border-2 border-gray-300 bg-gray-200 py-2 ${selectedTab === "sms" ? "border-4 border-indigo-500" : null}`}
                   >
+                    {selectedTab === "sms" && (
+                      <Check className="absolute -right-2 top-0 mr-2 w-6 rounded-bl-lg bg-indigo-600 text-white" />
+                    )}
                     <Smartphone className="mr-2" />
                     Send Via SMS
                   </TabsTrigger>
                   <TabsTrigger
                     value="firebase"
-                    className="flex h-full items-center justify-center py-2"
+                    className={`relative flex h-full items-center justify-center border-2 border-gray-300 bg-gray-200 py-2 ${selectedTab === "firebase" ? "border-4 border-indigo-500" : null}`}
                   >
+                    {selectedTab === "firebase" && (
+                      <Check className="absolute -right-2 top-0 mr-2 w-6 rounded-bl-lg bg-indigo-600 text-white" />
+                    )}
                     <Bell className="mr-2" />
                     Send Via Firebase
                   </TabsTrigger>
@@ -62,7 +72,7 @@ const SendNotifications = () => {
               <div className="space-y-6">
                 <div>
                   <Label htmlFor="beingSentTo">Being Sent To *</Label>
-                  <Select className="h-14 focus:ring-2 focus:ring-indigo-500 focus:border-none">
+                  <Select className="h-14 focus:border-none focus:ring-2 focus:ring-indigo-500">
                     <SelectTrigger>
                       <SelectValue placeholder="Select recipients" />
                     </SelectTrigger>
@@ -79,7 +89,7 @@ const SendNotifications = () => {
                   <Input
                     id="subject"
                     placeholder="Subject / Title"
-                    className="h-14 focus:ring-2 focus:ring-indigo-500 focus:border-none"
+                    className="h-14 focus:border-none focus:ring-2 focus:ring-indigo-500"
                   />
                 </div>
 
@@ -91,7 +101,7 @@ const SendNotifications = () => {
                       theme="snow"
                       value={value}
                       onChange={setValue}
-                      className="h-64 focus:ring-2 focus:ring-indigo-500 focus:border-none"
+                      className="h-64 focus:border-none focus:ring-2 focus:ring-indigo-500"
                     />
                   </div>
                 </div>
@@ -102,7 +112,7 @@ const SendNotifications = () => {
                     <Input
                       id="startForm"
                       placeholder="Start from user id. e.g. 1"
-                      className="h-14 focus:ring-2 focus:ring-indigo-500 focus:border-none"
+                      className="h-14 focus:border-none focus:ring-2 focus:ring-indigo-500"
                     />
                   </div>
                   <div>
@@ -111,7 +121,7 @@ const SendNotifications = () => {
                       <Input
                         id="perBatch"
                         placeholder="How many users"
-                        className="flex-grow h-14 focus:ring-2 focus:ring-indigo-500 focus:border-none"
+                        className="h-14 flex-grow focus:border-none focus:ring-2 focus:ring-indigo-500"
                       />
                       <span className="flex items-center justify-center rounded-r bg-gray-100 px-3">
                         User
@@ -124,7 +134,7 @@ const SendNotifications = () => {
                       <Input
                         id="coolingPeriod"
                         placeholder="Waiting time"
-                        className="flex-grow h-14 focus:ring-2 focus:ring-indigo-500 focus:border-none"
+                        className="h-14 flex-grow focus:border-none focus:ring-2 focus:ring-indigo-500"
                       />
                       <span className="flex items-center justify-center rounded-r bg-gray-100 px-3">
                         Seconds

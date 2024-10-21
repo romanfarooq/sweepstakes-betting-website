@@ -17,13 +17,12 @@ import { Button } from "@/components/ui/button";
 
 export default function ManageCategories() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredData, setFilteredData] = useState(ManageCategoriesData); // Default data is the full data
+  const [filteredData, setFilteredData] = useState(ManageCategoriesData); 
 
   function handleSearchChange(e) {
     const newSearchTerm = e.target.value;
     setSearchTerm(newSearchTerm);
 
-    // If search term is empty, display all data; otherwise, filter
     if (newSearchTerm.trim() === "") {
       setFilteredData(ManageCategoriesData);
     } else {
@@ -36,7 +35,6 @@ export default function ManageCategories() {
 
   function handleKeyPressEvent(event) {
     if (event.key === "Enter") {
-      // If search term is empty, show all data
       if (searchTerm.trim() === "") {
         setFilteredData(ManageCategoriesData);
       }
@@ -55,7 +53,6 @@ export default function ManageCategories() {
   };
 
   const handleSubmit = () => {
-    // Handle the form submit logic here
     console.log(formData);
   };
 
@@ -77,7 +74,7 @@ export default function ManageCategories() {
               className="absolute right-4 h-full w-12 rounded-r-md bg-indigo-600 p-2 text-3xl text-white"
               onClick={() => {
                 if (searchTerm.trim() === "") {
-                  setFilteredData(ManageCategoriesData); // Reset data when search is empty
+                  setFilteredData(ManageCategoriesData); 
                 }
               }}
             />

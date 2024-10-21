@@ -27,7 +27,7 @@ const ProfileSettings = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-800 p-4 sm:p-8 lg:p-10">
+    <div className="bg-gray-800 p-4 sm:p-8 lg:p-10">
       <div className="mx-auto max-w-5xl">
         <Card className="border-gray-700 bg-gray-900 text-white">
           <CardHeader>

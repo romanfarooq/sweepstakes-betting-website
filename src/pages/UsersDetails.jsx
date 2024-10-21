@@ -1,28 +1,17 @@
+import AddOrSubtractBalanceDialog from "@/components/AddOrSubtractBalanceDialog";
+import BanBetterDialog from "@/components/BanBetterDialog";
 import NumbersCardDetails from "@/components/NumbersCardDetails";
 import SelectCountry from "@/components/SelectCountry";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { BellIcon, UserIcon } from "lucide-react";
 import { BsBank2 } from "react-icons/bs";
 import { FaHandHoldingDollar } from "react-icons/fa6";
 import { GrCurrency } from "react-icons/gr";
 import { IoGameControllerOutline, IoWalletOutline } from "react-icons/io5";
 import { LuArrowLeftRight } from "react-icons/lu";
-import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { BellIcon, UserIcon, BanIcon } from "lucide-react";
-import { FiPlusCircle, FiMinusCircle } from "react-icons/fi";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
-import { Textarea } from "@/components/ui/textarea";
-import { Select } from "@/components/ui/select";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function UsersDetails() {
   const { id } = useParams();
@@ -77,125 +66,10 @@ export default function UsersDetails() {
         />
       </div>
       <div className="flex w-full flex-wrap justify-between gap-2">
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button className="flex-grow transform rounded-sm bg-green-500 py-5 text-base font-normal text-white shadow-none transition-transform duration-300 hover:-translate-y-[2px] hover:bg-green-500 hover:shadow-lg hover:shadow-green-500/20">
-              <FiPlusCircle className="mt-[2px]" />
-              Balance
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="px-0 py-4 sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle className="px-6 text-gray-700">
-                Add Balance
-              </DialogTitle>
-            </DialogHeader>
-            <Separator />
-            <div className="grid gap-4 px-6 py-4">
-              <div className="flex items-center">
-                <Label htmlFor="amount" className="text-right">
-                  Amount <span className="text-red-500">*</span>
-                </Label>
-              </div>
-              <div className="flex w-full items-center">
-                <Input
-                  id="amount"
-                  type="number"
-                  min="0"
-                  required
-                  placeholder="Please enter positive amount"
-                  className="h-10 w-full rounded-r-none focus-visible:ring-0"
-                />
-                <span className="flex h-10 items-center rounded-md rounded-l-none border border-gray-300 bg-gray-200 px-2">
-                  USD
-                </span>
-              </div>
-              <div className="flex items-center">
-                <Label htmlFor="remarks" className="text-right">
-                  Remarks <span className="text-red-500">*</span>
-                </Label>
-              </div>
-              <div>
-                <Textarea
-                  id="remarks"
-                  rows="4"
-                  required
-                  placeholder="Enter remarks here"
-                  className="w-full rounded-md border p-2 focus-visible:ring-0"
-                />
-              </div>
-            </div>
-            <Separator />
-            <DialogFooter className="px-6">
-              <Button
-                type="submit"
-                className="flex-grow bg-blue-700 py-5 hover:bg-blue-600"
-              >
-                Submit
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
 
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button className="flex-grow transform rounded-sm bg-red-500 py-5 text-base font-normal text-white shadow-none transition-transform duration-300 hover:-translate-y-[2px] hover:bg-red-500 hover:shadow-lg hover:shadow-red-500/20">
-              <FiMinusCircle className="mt-[2px]" />
-              Balance
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="px-0 py-4 sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle className="px-6 text-gray-700">
-                Subtract Balance
-              </DialogTitle>
-            </DialogHeader>
-            <Separator />
-            <div className="grid gap-4 px-6 py-4">
-              <div className="flex items-center">
-                <Label htmlFor="amount" className="text-right">
-                  Amount <span className="text-red-500">*</span>
-                </Label>
-              </div>
-              <div className="flex w-full items-center">
-                <Input
-                  id="amount"
-                  type="number"
-                  min="0"
-                  required
-                  placeholder="Please enter positive amount"
-                  className="h-10 w-full rounded-r-none focus-visible:ring-0"
-                />
-                <span className="flex h-10 items-center rounded-md rounded-l-none border border-gray-300 bg-gray-200 px-2">
-                  USD
-                </span>
-              </div>
-              <div className="flex items-center">
-                <Label htmlFor="remarks" className="text-right">
-                  Remarks <span className="text-red-500">*</span>
-                </Label>
-              </div>
-              <div>
-                <Textarea
-                  id="remarks"
-                  rows="4"
-                  required
-                  placeholder="Enter remarks here"
-                  className="w-full rounded-md border p-2 focus-visible:ring-0"
-                />
-              </div>
-            </div>
-            <Separator />
-            <DialogFooter className="px-6">
-              <Button
-                type="submit"
-                className="flex-grow bg-blue-700 py-5 hover:bg-blue-600"
-              >
-                Submit
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+        <AddOrSubtractBalanceDialog type="Add" />
+
+        <AddOrSubtractBalanceDialog type="Subtract" />
 
         <Button
           onClick={() => navigate("/admin/report/login/history")}
@@ -210,51 +84,7 @@ export default function UsersDetails() {
           Notifications
         </Button>
 
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button className="flex-grow transform rounded-sm bg-teal-500 py-5 text-base font-normal text-white shadow-none transition-transform duration-300 hover:-translate-y-[2px] hover:bg-teal-500 hover:shadow-lg hover:shadow-teal-500/20">
-              <BanIcon className="mt-[2px]" />
-              Ban Bettor
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="px-0 py-4 sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle className="px-6 text-gray-700">
-                Ban Bettor
-              </DialogTitle>
-            </DialogHeader>
-            <Separator />
-            <DialogDescription className="px-6 font-semibold text-gray-700">
-              If you ban this bettor he/she won't able to access his/her
-              dashboard.
-            </DialogDescription>
-            <div className="grid gap-4 px-6 pb-4">
-              <div className="flex items-center">
-                <Label htmlFor="remarks" className="text-right">
-                  Remarks <span className="text-red-500">*</span>
-                </Label>
-              </div>
-              <div>
-                <Textarea
-                  id="remarks"
-                  rows="4"
-                  required
-                  placeholder="Enter remarks here"
-                  className="w-full rounded-md border p-2 focus-visible:ring-0"
-                />
-              </div>
-            </div>
-            <Separator />
-            <DialogFooter className="px-6">
-              <Button
-                type="submit"
-                className="flex-grow bg-blue-700 py-5 hover:bg-blue-600"
-              >
-                Submit
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+        <BanBetterDialog />
       </div>
 
       <div className="w-full rounded-lg bg-white p-6 shadow-md">
@@ -375,20 +205,7 @@ export default function UsersDetails() {
           </div>
         </div>
 
-        <div className="mb-4 grid grid-cols-4 gap-4">
-          <Button className="rounded-sm bg-green-500 text-white">
-            Verified
-          </Button>
-          <Button className="rounded-sm bg-green-500 text-white">
-            Verified
-          </Button>
-          <Button className="rounded-sm bg-red-500 text-white">Disable</Button>
-          <Button className="rounded-sm bg-green-500 text-white">
-            Verified
-          </Button>
-        </div>
-
-        <Button className="w-full rounded-sm bg-blue-600 py-2 text-white">
+        <Button className="w-full rounded-sm bg-blue-600 py-2 text-base text-white hover:bg-blue-700">
           Submit
         </Button>
       </div>

@@ -1,7 +1,6 @@
 import EventInformationSection from "@/components/EventInformationSection";
 import TradeCard from "@/components/TradeCard";
 import { Skeleton } from "@/components/ui/skeleton";
-import { convertToAmPm } from "@/lib/utils";
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -11,6 +10,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { format, differenceInDays, differenceInMonths } from "date-fns";
 import { Line } from "react-chartjs-2";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { LuClock4 } from "react-icons/lu";
@@ -34,6 +34,7 @@ const match = {
   total_yes_bets: 3,
   total_no_bets: 3,
   variation: [
+    // Day 1
     {
       timestamp: "2024-10-09 20:52:53.382354",
       yes: 25.0,
@@ -59,67 +60,109 @@ const match = {
       yes: 50.0,
       no: 50.0,
     },
+  //   // Day 2
+  //   {
+  //     timestamp: "2024-10-10 10:15:03.389712",
+  //     yes: 40.0,
+  //     no: 60.0,
+  //   },
+  //   {
+  //     timestamp: "2024-10-10 12:30:45.129843",
+  //     yes: 60.0,
+  //     no: 40.0,
+  //   },
+  //   {
+  //     timestamp: "2024-10-10 15:45:32.948765",
+  //     yes: 70.0,
+  //     no: 30.0,
+  //   },
+  //   {
+  //     timestamp: "2024-10-10 18:10:23.112945",
+  //     yes: 65.0,
+  //     no: 35.0,
+  //   },
+  //   // Day 3
+  //   {
+  //     timestamp: "2024-10-11 09:00:15.382354",
+  //     yes: 55.0,
+  //     no: 45.0,
+  //   },
+  //   {
+  //     timestamp: "2024-10-11 14:30:50.126738",
+  //     yes: 45.0,
+  //     no: 55.0,
+  //   },
+  //   {
+  //     timestamp: "2024-10-11 19:12:33.846298",
+  //     yes: 75.0,
+  //     no: 25.0,
+  //   },
+  //   // Day 4
+  //   {
+  //     timestamp: "2024-10-12 08:25:42.328491",
+  //     yes: 80.0,
+  //     no: 20.0,
+  //   },
+  //   {
+  //     timestamp: "2024-10-12 14:45:29.126874",
+  //     yes: 90.0,
+  //     no: 10.0,
+  //   },
+  //   {
+  //     timestamp: "2024-10-12 17:12:19.394876",
+  //     yes: 95.0,
+  //     no: 5.0,
+  //   },
+  //   // Day 5
+  //   {
+  //     timestamp: "2024-10-13 11:30:45.986543",
+  //     yes: 85.0,
+  //     no: 15.0,
+  //   },
+  //   {
+  //     timestamp: "2024-10-13 18:45:59.138742",
+  //     yes: 80.0,
+  //     no: 20.0,
+  //   },
+  //   {
+  //     timestamp: "2024-10-13 23:59:59.123456",
+  //     yes: 75.0,
+  //     no: 25.0,
+  //   },
+  //   // November variations
+  //   {
+  //     timestamp: "2024-11-05 13:15:30.567432",
+  //     yes: 50.0,
+  //     no: 50.0,
+  //   },
+  //   {
+  //     timestamp: "2024-11-15 09:00:12.678432",
+  //     yes: 60.0,
+  //     no: 40.0,
+  //   },
+  //   {
+  //     timestamp: "2024-11-25 18:45:45.987654",
+  //     yes: 70.0,
+  //     no: 30.0,
+  //   },
+  //   // December variations
+  //   {
+  //     timestamp: "2024-12-01 10:12:34.564789",
+  //     yes: 55.0,
+  //     no: 45.0,
+  //   },
+  //   {
+  //     timestamp: "2024-12-15 21:15:15.234098",
+  //     yes: 65.0,
+  //     no: 35.0,
+  //   },
+  //   {
+  //     timestamp: "2024-12-31 23:59:59.999999",
+  //     yes: 90.0,
+  //     no: 10.0,
+  //   },
   ],
 };
-
-// const variation = [
-//   { timestamp: "2024-11-01T00:00:00", yes: 75, no: 25 },
-//   { timestamp: "2024-11-01T03:00:00", yes: 60, no: 40 },
-//   { timestamp: "2024-11-01T06:00:00", yes: 45, no: 55 },
-//   { timestamp: "2024-11-01T09:00:00", yes: 34, no: 66 },
-//   { timestamp: "2024-11-01T12:00:00", yes: 34, no: 66 },
-//   { timestamp: "2024-11-01T15:00:00", yes: 50, no: 50 },
-//   { timestamp: "2024-11-01T18:00:00", yes: 48, no: 52 },
-//   { timestamp: "2024-11-01T21:00:00", yes: 62, no: 38 },
-//   { timestamp: "2024-11-02T00:00:00", yes: 80, no: 20 },
-//   { timestamp: "2024-11-02T03:00:00", yes: 75, no: 25 },
-//   { timestamp: "2024-11-02T06:00:00", yes: 70, no: 30 },
-//   { timestamp: "2024-11-02T09:00:00", yes: 55, no: 45 },
-//   { timestamp: "2024-11-02T12:00:00", yes: 40, no: 60 },
-//   { timestamp: "2024-11-02T15:00:00", yes: 30, no: 70 },
-//   { timestamp: "2024-11-02T18:00:00", yes: 20, no: 80 },
-//   { timestamp: "2024-11-02T21:00:00", yes: 10, no: 90 },
-//   { timestamp: "2024-11-03T00:00:00", yes: 65, no: 35 },
-//   { timestamp: "2024-11-03T03:00:00", yes: 70, no: 30 },
-//   { timestamp: "2024-11-03T06:00:00", yes: 75, no: 25 },
-//   { timestamp: "2024-11-03T09:00:00", yes: 60, no: 40 },
-//   { timestamp: "2024-11-03T12:00:00", yes: 55, no: 45 },
-//   { timestamp: "2024-11-03T15:00:00", yes: 50, no: 50 },
-//   { timestamp: "2024-11-03T18:00:00", yes: 45, no: 55 },
-//   { timestamp: "2024-11-03T21:00:00", yes: 40, no: 60 },
-//   { timestamp: "2024-11-04T00:00:00", yes: 80, no: 20 },
-//   { timestamp: "2024-11-04T03:00:00", yes: 70, no: 30 },
-//   { timestamp: "2024-11-04T06:00:00", yes: 60, no: 40 },
-//   { timestamp: "2024-11-04T09:00:00", yes: 50, no: 50 },
-//   { timestamp: "2024-11-04T12:00:00", yes: 55, no: 45 },
-//   { timestamp: "2024-11-04T15:00:00", yes: 65, no: 35 },
-//   { timestamp: "2024-11-04T18:00:00", yes: 70, no: 30 },
-//   { timestamp: "2024-11-04T21:00:00", yes: 75, no: 25 },
-//   { timestamp: "2024-11-05T00:00:00", yes: 55, no: 45 },
-//   { timestamp: "2024-11-05T03:00:00", yes: 60, no: 40 },
-//   { timestamp: "2024-11-05T06:00:00", yes: 50, no: 50 },
-//   { timestamp: "2024-11-05T09:00:00", yes: 40, no: 60 },
-//   { timestamp: "2024-11-05T12:00:00", yes: 30, no: 70 },
-//   { timestamp: "2024-11-05T15:00:00", yes: 20, no: 80 },
-//   { timestamp: "2024-11-05T18:00:00", yes: 10, no: 90 },
-//   { timestamp: "2024-11-05T21:00:00", yes: 5, no: 95 },
-//   { timestamp: "2024-11-06T00:00:00", yes: 70, no: 30 },
-//   { timestamp: "2024-11-06T03:00:00", yes: 65, no: 35 },
-//   { timestamp: "2024-11-06T06:00:00", yes: 75, no: 25 },
-//   { timestamp: "2024-11-06T09:00:00", yes: 80, no: 20 },
-//   { timestamp: "2024-11-06T12:00:00", yes: 85, no: 15 },
-//   { timestamp: "2024-11-06T15:00:00", yes: 90, no: 10 },
-//   { timestamp: "2024-11-06T18:00:00", yes: 95, no: 5 },
-//   { timestamp: "2024-11-06T21:00:00", yes: 100, no: 0 },
-//   { timestamp: "2024-11-07T00:00:00", yes: 75, no: 25 },
-//   { timestamp: "2024-11-07T03:00:00", yes: 60, no: 40 },
-//   { timestamp: "2024-11-07T06:00:00", yes: 50, no: 50 },
-//   { timestamp: "2024-11-07T09:00:00", yes: 40, no: 60 },
-//   { timestamp: "2024-11-07T12:00:00", yes: 30, no: 70 },
-//   { timestamp: "2024-11-07T15:00:00", yes: 20, no: 80 },
-//   { timestamp: "2024-11-07T18:00:00", yes: 0, no: 100 },
-//   { timestamp: "2024-11-07T21:00:00", yes: 5, no: 95 },
-// ];
 
 // Helper function to calculate percentage change
 const calculatePercentageChange = (current, previous) => {
@@ -134,21 +177,30 @@ const transformData = (data) => {
   const yesData = [];
   const noData = [];
 
+  // Get the first and last timestamps to calculate the time span
+  const firstDate = new Date(data[0].timestamp);
+  const lastDate = new Date(data[data.length - 1].timestamp);
+  const totalDays = differenceInDays(lastDate, firstDate);
+  const totalMonths = differenceInMonths(lastDate, firstDate);
+
   data.forEach((item) => {
     const date = new Date(item.timestamp);
-    const timeLabel = date.toLocaleTimeString("en-US", {
-      hour: "numeric",
-      hour12: true,
-    });
-    const dateLabel = date.toLocaleDateString("en-GB", {
-      month: "short",
-      day: "numeric",
-    });
+    let label;
 
-    console.log(dateLabel, timeLabel);
+    // If the variation is within 1 day or spans less than 8 points, show time
+    if (totalDays === 0 || data.length <= 8) {
+      label = format(date, "d MMM yyyy, p"); // 'p' gives you time in 12-hour format
+    }
+    // If variations span multiple days but less than a month, show date + time
+    else if (totalMonths === 0) {
+      label = format(date, "MMM d, p"); // 'MMM d' gives date like "Oct 9", 'p' gives time
+    }
+    // If variations span multiple months, show only month and day
+    else {
+      label = format(date, "MMM yyyy"); // 'MMM yyyy' gives month and year like "Oct 2024"
+    }
 
-    // Combine date and time for full label (e.g., "Nov 1, 12 AM")
-    labels.push(`${dateLabel}, ${timeLabel}`);
+    labels.push(label);
     yesData.push(item.yes);
     noData.push(item.no);
   });
@@ -294,13 +346,7 @@ export default function Event() {
         x: {
           ticks: {
             autoSkip: false,
-            callback: (value, index) => {
-              if (data.labels.length <= 8) {
-                return data.labels[index].split(",")[1];
-              } else {
-                return index % 8 === 0 ? data.labels[index].split(",")[0] : "";
-              }
-            },
+            data: data.labels,
             maxRotation: 0,
             minRotation: 0,
           },

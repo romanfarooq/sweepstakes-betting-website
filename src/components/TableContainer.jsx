@@ -23,6 +23,7 @@ function TableContainer({ data, rowsPerPage }) {
   const [pageNo, setPageNo] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
   const Navigate = useNavigate();
+  console.log("Data from the child:", data)
 
   useEffect(() => {
     const currentPage = parseInt(searchParams.get("page"), 10) || 1;
@@ -32,6 +33,9 @@ function TableContainer({ data, rowsPerPage }) {
     const totalTableRowsLength = data?.tableRows?.length || 0;
     const perPageData = splitIntoChunks(data?.tableRows || [], rowsPerPage);
     const currentData = perPageData[pageNo - 1] || [];
+
+
+    console.log("The current Data is: ", currentData)
 
 
   // RESULTS TO SHOW IN TABLE

@@ -2,47 +2,51 @@ import TableContainer from "@/components/TableContainer";
 import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
-import { TableData } from "@/lib/data";
 import { useSearchParams } from "react-router-dom";
+import axios from "@/api/axiosInstance";
+import { useQuery } from "@tanstack/react-query";
+import { TableData as d } from "@/lib/data";
 
 export default function ActiveUsers() {
+  const { data: TableData, error, isLoading, isError } = useQuery({
+    queryKey: ["bettors"],
+    queryFn: () => axios.get("/bettors").then((res) => res.data),
+  });
+  console.log("The data fetched from server: ", TableData);
+  console.log("The dummy data is: ", d)
+  
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchedData, setSearchedData] = useState(TableData);
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // Update search term and filter data when searchParams change
   useEffect(() => {
     const currentSearch = searchParams.get("search") || "";
     setSearchTerm(currentSearch);
-    handleSearchedData(currentSearch);
-  }, [searchParams]); 
+  }, [searchParams]);
 
-  function handleSearchedData(currentSearch) {
-    const searchTerm = currentSearch.toLowerCase();
-    const searched = TableData.tableRows.filter((row) => {
-      return (
-        row.bettor.toLowerCase().includes(searchTerm) ||
-        row.email.toLowerCase().includes(searchTerm)
-      );
-    });
-
-    setSearchedData({
-      ...TableData,
-      tableRows: searched,
-    });
-  }
+  // Filter table data based on search term
+  const filteredData = TableData?.tableRows?.filter((row) => {
+    const search = searchTerm.toLowerCase();
+    return (
+      row.bettor.toLowerCase().includes(search) ||
+      row.email.toLowerCase().includes(search)
+    );
+  });
 
   function handleSearchChange(e) {
     const newSearchTerm = e.target.value;
     setSearchTerm(newSearchTerm);
-    setSearchParams({ search: newSearchTerm, page: "1" }); 
+    setSearchParams({ search: newSearchTerm, page: "1" });
   }
 
   function handleKeyPressEvent(event) {
     if (event.key === "Enter") {
-      handleSearchedData(searchTerm);
+      setSearchParams({ search: searchTerm, page: "1" });
     }
   }
 
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error loading data</div>;
 
   return (
     <div className="space-y-10 px-6 py-12">
@@ -59,13 +63,14 @@ export default function ActiveUsers() {
           />
           <IoIosSearch
             className="absolute right-4 h-full w-12 rounded-r-md bg-indigo-600 p-2 text-3xl text-white"
-            onClick={() => handleSearchedData(searchTerm)}
+            onClick={() => setSearchParams({ search: searchTerm, page: "1" })}
           />
         </div>
       </div>
+
       <div className="bg-white">
         <TableContainer
-          data={searchedData && searchedData.tableRows.length > 0 ? searchedData : TableData}
+          data={filteredData?.length > 0 ? filteredData : TableData.tableRows}
           rowsPerPage={15}
         />
       </div>

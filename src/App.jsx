@@ -59,6 +59,8 @@ import UsersDetails from "@/pages/UsersDetails";
 import Wallet from "@/pages/Wallet";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 import {
   createBrowserRouter,
   Navigate,
@@ -351,7 +353,9 @@ const router = createBrowserRouter([
   },
 ]);
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  staleTime: 0
+});
 
 export default function App() {
   return (
@@ -360,6 +364,7 @@ export default function App() {
         <RouterProvider router={router} />
         <Toaster position="top-right" />
       </AuthProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

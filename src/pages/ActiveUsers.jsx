@@ -12,26 +12,25 @@ export default function ActiveUsers() {
     queryKey: ["bettors"],
     queryFn: () => axios.get("/bettors").then((res) => res.data),
   });
-  console.log("The data fetched from server: ", TableData);
-  console.log("The dummy data is: ", d)
-  
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Update search term and filter data when searchParams change
   useEffect(() => {
     const currentSearch = searchParams.get("search") || "";
     setSearchTerm(currentSearch);
   }, [searchParams]);
 
-  // Filter table data based on search term
-  const filteredData = TableData?.tableRows?.filter((row) => {
-    const search = searchTerm.toLowerCase();
-    return (
-      row.bettor.toLowerCase().includes(search) ||
-      row.email.toLowerCase().includes(search)
-    );
-  });
+  const filteredData = {
+    ...TableData,
+    tableRows: TableData?.tableRows?.filter((row) => {
+      const search = searchTerm.toLowerCase();
+      return (
+        row.bettor.toLowerCase().includes(search) ||
+        row.email.toLowerCase().includes(search)
+      );
+    }),
+  };
 
   function handleSearchChange(e) {
     const newSearchTerm = e.target.value;
@@ -45,8 +44,11 @@ export default function ActiveUsers() {
     }
   }
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading data</div>;
+  // Show loading spinner when loading
+  if (isLoading) return <div className="flex justify-center py-20"><span className="loader">Loading...</span></div>;
+  
+  // Show error message when there is an error
+  if (isError) return <div className="flex justify-center py-20 text-red-500">Error loading data: {error.message}</div>;
 
   return (
     <div className="space-y-10 px-6 py-12">
@@ -70,8 +72,8 @@ export default function ActiveUsers() {
 
       <div className="bg-white">
         <TableContainer
-          data={filteredData?.length > 0 ? filteredData : TableData.tableRows}
-          rowsPerPage={15}
+          data={filteredData?.tableRows?.length > 0 ? filteredData : TableData}
+          rowsPerPage={10}
         />
       </div>
     </div>

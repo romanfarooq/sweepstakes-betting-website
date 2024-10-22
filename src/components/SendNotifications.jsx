@@ -3,8 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea"
-
+import { Textarea } from "@/components/ui/textarea";
 
 import {
   Select,
@@ -86,41 +85,72 @@ const SendNotifications = () => {
                   </Select>
                 </div>
 
-                {selectedTab === "email" && <div>
-                  <Label htmlFor="subject">Subject *</Label>
-                  <Input
-                    id="subject"
-                    placeholder="Subject / Title"
-                    className="h-14 focus:border-none focus:ring-2 focus:ring-indigo-500"
-                  />
-                </div>}
+                {(selectedTab === "email" || selectedTab === "firebase") && (
+                  <div>
+                    <Label htmlFor="subject">Subject *</Label>
+                    <Input
+                      id="subject"
+                      placeholder="Subject / Title"
+                      className="h-14 focus:border-none focus:ring-2 focus:ring-indigo-500"
+                    />
+                  </div>
+                )}
 
-               {
-                selectedTab === "email" &&  <div className="mb-6">
-                  <Label htmlFor="message">Message *</Label>
-                  <div className="mb-24">
-                    <ReactQuill
+                {selectedTab === "firebase" && (
+                  <div>
+                    <Label
+                      className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                      htmlFor="file_input"
+                    >
+                      Upload file
+                    </Label>
+                    <div className="relative rounded-md border border-gray-200 bg-gray-100">
+                      <input
+                        className="absolute inset-0 h-14 w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 opacity-0"
+                        aria-describedby="file_input_help"
+                        id="file_input"
+                        type="file"
+                        accept=".svg,.png,.jpg,.gif"
+                      />
+                      <Button className="flex h-14 items-center justify-center rounded-lg border border-gray-300 bg-gray-200 px-4 text-gray-900 hover:bg-gray-300">
+                        Choose File
+                      </Button>
+                    </div>
+
+                    <p
+                      className="mt-1 text-sm text-gray-500 dark:text-gray-300"
+                      id="file_input_help"
+                    >
+                      SVG, PNG, JPG or GIF (MAX. 800x400px).
+                    </p>
+                  </div>
+                )}
+
+                {selectedTab === "email" && (
+                  <div className="mb-6">
+                    <Label htmlFor="message">Message *</Label>
+                    <div className="mb-24">
+                      <ReactQuill
+                        id="message"
+                        theme="snow"
+                        value={value}
+                        onChange={setValue}
+                        className="h-64 focus:border-none focus:ring-2 focus:ring-indigo-500"
+                      />
+                    </div>
+                  </div>
+                )}
+                {selectedTab !== "email" && (
+                  <div>
+                    <Label htmlFor="message">Message *</Label>
+                    <Textarea
                       id="message"
-                      theme="snow"
-                      value={value}
-                      onChange={setValue}
+                      placeholder="Message"
+                      cols="30"
                       className="h-64 focus:border-none focus:ring-2 focus:ring-indigo-500"
                     />
                   </div>
-                </div>
-
-               }
-               {
-                selectedTab !== "email" &&  <div>
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Message"
-                    cols="30"
-                    className="h-64 focus:border-none focus:ring-2 focus:ring-indigo-500"
-                  />
-                </div>
-               }
+                )}
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                   <div>
                     <Label htmlFor="startForm">Start Form *</Label>

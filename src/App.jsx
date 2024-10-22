@@ -118,7 +118,10 @@ const router = createBrowserRouter([
         path: "users",
         element: <UsersParent />,
         children: [
-          { index: true, element: <Navigate to="all-betters" replace={true} /> },
+          {
+            index: true,
+            element: <Navigate to="all-betters" replace={true} />,
+          },
           {
             path: "active",
             element: <ActiveUsers />,
@@ -142,7 +145,7 @@ const router = createBrowserRouter([
           {
             path: "details/:id",
             element: <UsersDetails />,
-          }
+          },
         ],
       },
       {

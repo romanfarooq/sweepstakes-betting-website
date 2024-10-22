@@ -61,7 +61,7 @@ export default function ActiveUsers() {
             value={searchTerm}
             onChange={handleSearchChange}
             onKeyDown={handleKeyPressEvent}
-            className="placeholder:text-gray-500 tracking-wide h-full min-w-full border-none bg-gray-100 outline-none ring-1 ring-gray-300 transition duration-300 focus:shadow-[0_0_15px_rgba(99,102,241,0.6)] focus:outline-none focus:ring-0 focus:ring-indigo-600"
+            className="h-full min-w-full border-none bg-gray-100 tracking-wide outline-none ring-1 ring-gray-300 transition duration-300 placeholder:text-gray-500 focus:shadow-[0_0_15px_rgba(99,102,241,0.6)] focus:outline-none focus:ring-0 focus:ring-indigo-600"
           />
           <IoIosSearch
             className="absolute right-4 h-full w-12 rounded-r-md bg-indigo-600 p-2 text-3xl text-white"

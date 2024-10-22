@@ -1,3 +1,6 @@
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { cn, splitIntoChunks } from "@/lib/utils";
 import {
   Table,
   TableBody,
@@ -6,8 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import {
   Pagination,
   PaginationContent,
@@ -17,7 +18,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { splitIntoChunks } from "@/lib/utils";
 
 function TableContainer({ data, rowsPerPage }) {
   const [pageNo, setPageNo] = useState(1);
@@ -30,10 +30,9 @@ function TableContainer({ data, rowsPerPage }) {
     setPageNo(currentPage);
   }, [searchParams]);
 
-    const totalTableRowsLength = data?.tableRows?.length || 0;
-    const perPageData = splitIntoChunks(data?.tableRows || [], rowsPerPage);
-    const currentData = perPageData[pageNo - 1] || [];
-
+  const totalTableRowsLength = data?.tableRows?.length || 0;
+  const perPageData = splitIntoChunks(data?.tableRows || [], rowsPerPage);
+  const currentData = perPageData[pageNo - 1] || [];
 
     console.log("The current Data is -----------------------: ", currentData)
 
@@ -86,96 +85,104 @@ function TableContainer({ data, rowsPerPage }) {
 
     return paginationItems;
   };
-    return (
-      <div className="overflow-hidden rounded-md border">
-        <Table className="cursor-pointer">
-          <TableHeader className="h-16">
-            <TableRow className="bg-indigo-600 hover:bg-indigo-500">
-              {data?.tableHeader?.map((header, index) => (
-                <TableHead
-                  key={index}
-                  className="h-14 pl-4 font-semibold text-white"
-                >
-                  {header}
-                </TableHead>
-              ))}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {currentData.map((row, index) => (
-              <TableRow key={index} className="h-16 border-b last:border-b-0">
-                <TableCell className="pl-4 font-medium">{row.bettor}</TableCell>
-                <TableCell>{row.email}</TableCell>
-                <TableCell className="font-bold text-gray-600">
-                  {row.country}
-                </TableCell>
-                <TableCell>{row.joinedAt}</TableCell>
-                <TableCell className="font-bold text-gray-600">
-                  ${row.balance}
-                </TableCell>
-                <TableCell
-                  onClick={() => Navigate(`/admin/users/details/${index + 1}`)}
-                >
-                  <button className="rounded border border-indigo-600 px-4 py-1 text-indigo-600 hover:bg-indigo-600 hover:text-white">
-                    {row.action}
-                  </button>
-                </TableCell>
-              </TableRow>
+  return (
+    <div className="overflow-hidden rounded-md border">
+      <Table className="cursor-pointer">
+        <TableHeader className="h-16">
+          <TableRow className="text-nowrap bg-indigo-600 hover:bg-indigo-500">
+            {data?.tableHeader?.map((header, index) => (
+              <TableHead
+                key={index}
+                className="h-14 pl-4 font-semibold text-white"
+              >
+                {header}
+              </TableHead>
             ))}
-          </TableBody>
-        </Table>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {currentData.map((row, index) => (
+            <TableRow
+              key={index}
+              className="h-16 text-nowrap border-b last:border-b-0"
+            >
+              <TableCell className="pl-4 font-medium">{row.bettor}</TableCell>
+              <TableCell>{row.email}</TableCell>
+              <TableCell className="font-bold text-gray-600">
+                {row.country}
+              </TableCell>
+              <TableCell>{row.joinedAt}</TableCell>
+              <TableCell className="font-bold text-gray-600">
+                ${row.balance}
+              </TableCell>
+              <TableCell
+                onClick={() => Navigate(`/admin/users/details/${index + 1}`)}
+              >
+                <button className="rounded border border-indigo-600 px-4 py-1 text-indigo-600 hover:bg-indigo-600 hover:text-white">
+                  {row.action}
+                </button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
 
-        <div className="flex w-full items-center justify-between px-10 py-10">
-          <p className="text-sm">
-            Showing{" "}
-            <span className="text-md font-bold text-gray-500">
-              {startResult}{" "}
-            </span>
-            to{" "}
-            <span className="text-md font-bold text-gray-500">{endResult}</span>{" "}
-            of{" "}
-            <span className="text-md font-bold text-gray-500">
-              {totalTableRowsLength}
-            </span>{" "}
-            results
-          </p>
-          <div>
-            <Pagination className="cursor-pointer">
-              <PaginationContent className="space-x-4">
-                <PaginationItem
-                  className="rounded-sm border"
-                  onClick={() => setPageNoParams(pageNo - 1)}
-                  disabled={pageNo === 1}
-                >
-                  <PaginationPrevious />
+      <div className="flex w-full items-center justify-between px-10 py-10">
+        <p className="text-sm">
+          Showing{" "}
+          <span className="text-md font-bold text-gray-500">
+            {startResult}{" "}
+          </span>
+          to{" "}
+          <span className="text-md font-bold text-gray-500">{endResult}</span>{" "}
+          of{" "}
+          <span className="text-md font-bold text-gray-500">
+            {totalTableRowsLength}
+          </span>{" "}
+          results
+        </p>
+        <div>
+          <Pagination className="cursor-pointer">
+            <PaginationContent className="space-x-4">
+              <PaginationItem
+                className="rounded-sm border"
+                onClick={() => setPageNoParams(pageNo - 1)}
+                disabled={pageNo === 1}
+              >
+                <PaginationPrevious />
+              </PaginationItem>
+              {generatePaginationItems().map((item, index) => (
+                <PaginationItem key={index}>
+                  {typeof item === "number" ? (
+                    <PaginationLink
+                      className={cn("rounded-sm border", {
+                        "bg-indigo-600 text-white hover:bg-indigo-600 hover:text-white":
+                          item === pageNo,
+                      })}
+                      onClick={() => setPageNoParams(item)}
+                    >
+                      {item}
+                    </PaginationLink>
+                  ) : (
+                    <PaginationEllipsis />
+                  )}
                 </PaginationItem>
-                {generatePaginationItems().map((item, index) => (
-                  <PaginationItem
-                    className={`rounded-sm border ${item === pageNo ? "bg-indigo-600 text-white" : ""}`}
-                    key={index}
-                  >
-                    {typeof item === "number" ? (
-                      <PaginationLink onClick={() => setPageNoParams(item)}>
-                        {item}
-                      </PaginationLink>
-                    ) : (
-                      <PaginationEllipsis />
-                    )}
-                  </PaginationItem>
-                ))}
-                <PaginationItem
-                  className={`rounded-sm border ${pageNo >= perPageData.length ? "cursor-not-allowed opacity-50" : ""}`}
-                  onClick={() => setPageNoParams(pageNo + 1)}
-                  disabled={pageNo >= perPageData.length}
-                >
-                  <PaginationNext />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
-          </div>
+              ))}
+              <PaginationItem
+                className={cn("rounded-sm border", {
+                  "cursor-not-allowed opacity-50": pageNo >= perPageData.length,
+                })}
+                onClick={() => setPageNoParams(pageNo + 1)}
+                disabled={pageNo >= perPageData.length}
+              >
+                <PaginationNext />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 export default TableContainer;

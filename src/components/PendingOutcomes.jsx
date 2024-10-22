@@ -1,9 +1,9 @@
+import PendingOutcomesTableContainer from "@/components/PendingOutcomesTableContainer";
 import { Input } from "@/components/ui/input";
+import { PendingOutcomesData } from "@/lib/data";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
-import { PendingOutcomesData } from "@/lib/data";
 import { useSearchParams } from "react-router-dom";
-import { PendingOutcomesTableContainer } from "./PendingOutcomesTableContainer";
 
 export default function PendingOutcomes() {
   const [searchTerm, setSearchTerm] = useState("");

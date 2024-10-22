@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { twMerge } from "tailwind-merge"
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -16,7 +16,7 @@ export function calculateBetPercentages(match) {
   return {
     total_bets,
     yes_percentage: yes_percentage.toFixed(1),
-    no_percentage: no_percentage.toFixed(1)   
+    no_percentage: no_percentage.toFixed(1),
   };
 }
 

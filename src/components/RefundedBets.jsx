@@ -1,9 +1,9 @@
+import ManageBetsTableContainer from "@/components/ManageBetsTableContainer";
 import { Input } from "@/components/ui/input";
+import { ManageBetsData } from "@/lib/data";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
-import { ManageBetsData } from "@/lib/data";
 import { useSearchParams } from "react-router-dom";
-import ManageBetsTableContainer from "./ManageBetsTableContainer";
 
 export default function RefundedBets() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,14 +14,12 @@ export default function RefundedBets() {
     const currentSearch = searchParams.get("search") || "";
     setSearchTerm(currentSearch);
     handleSearchedData(currentSearch);
-  }, [searchParams]); 
+  }, [searchParams]);
 
   function handleSearchedData(currentSearch) {
     const searchTerm = currentSearch.toLowerCase();
     const searched = ManageBetsData.tableRows.filter((row) => {
-      return (
-        row.betNumber.toLowerCase().includes(searchTerm)
-      );
+      return row.betNumber.toLowerCase().includes(searchTerm);
     });
 
     setSearchedData({
@@ -33,7 +31,7 @@ export default function RefundedBets() {
   function handleSearchChange(e) {
     const newSearchTerm = e.target.value;
     setSearchTerm(newSearchTerm);
-    setSearchParams({ search: newSearchTerm, page: "1" }); 
+    setSearchParams({ search: newSearchTerm, page: "1" });
   }
 
   function handleKeyPressEvent(event) {
@@ -41,7 +39,6 @@ export default function RefundedBets() {
       handleSearchedData(searchTerm);
     }
   }
-
 
   return (
     <div className="space-y-10 px-6 py-12">
@@ -64,7 +61,11 @@ export default function RefundedBets() {
       </div>
       <div className="bg-white">
         <ManageBetsTableContainer
-          data={searchedData && searchedData.tableRows.length > 0 ? searchedData : ManageBetsData}
+          data={
+            searchedData && searchedData.tableRows.length > 0
+              ? searchedData
+              : ManageBetsData
+          }
           rowsPerPage={10}
         />
       </div>

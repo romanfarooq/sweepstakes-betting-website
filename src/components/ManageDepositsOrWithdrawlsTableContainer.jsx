@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { cn, splitIntoChunks } from "@/lib/utils";
 import {
   Table,
@@ -19,12 +19,14 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
+export default function ManageDepositsOrWithdrawlsTableContainer({
+  data,
+  rowsPerPage,
+  type,
+}) {
   const [pageNo, setPageNo] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
   const Navigate = useNavigate();
-
-  console.log(data);
 
   useEffect(() => {
     const currentPage = parseInt(searchParams.get("page"), 10) || 1;
@@ -34,7 +36,6 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
   const totalTableRowsLength = data?.tableRows?.length || 0;
   const perPageData = splitIntoChunks(data?.tableRows || [], rowsPerPage);
   const currentData = perPageData[pageNo - 1] || [];
-  console.log(currentData);
 
   // RESULTS TO SHOW IN TABLE
   const startResult = (pageNo - 1) * rowsPerPage + 1;
@@ -84,6 +85,7 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
 
     return paginationItems;
   };
+
   return (
     <div className="overflow-hidden rounded-md border">
       <Table className="cursor-pointer">
@@ -92,9 +94,7 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
             {data?.tableHeader?.map((header, index) => (
               <TableHead
                 key={index}
-                className={cn("h-14 pl-4 font-semibold text-white", {
-                  "text-center": index !== 0,
-                })}
+                className="h-14 text-center font-semibold text-white"
               >
                 {header}
               </TableHead>
@@ -107,40 +107,64 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
               key={index}
               className="h-16 text-nowrap border-b last:border-b-0"
             >
-              <TableCell className="pl-4 font-medium">
-                <p className="font-semibold text-gray-500">{row.market}</p>
-              </TableCell>
-              <TableCell className="flex gap-2 pl-4 font-medium">
-                <div className="flex flex-col items-center justify-center gap-1">
-                  <p>🎯</p>
-                  <p className="text-sm font-semibold text-gray-500">
-                    {row.match.team1}
-                  </p>
-                </div>
-                <p className="font-bold text-gray-700">VS</p>
-                <div className="flex flex-col items-center justify-center gap-1">
-                  <p>🎯</p>
-                  <p className="text-sm font-semibold text-gray-500">
-                    {row.match.team2}
-                  </p>
+              <TableCell>
+                <div className="flex flex-col items-start gap-2 pl-4 font-medium">
+                  <p className="font-bold text-blue-500">{row.transaction}</p>
+                  <p className="text-gray-500">{row.transactionID}</p>
                 </div>
               </TableCell>
-
-              <TableCell className="space-y-2 text-center">
-                <p className="font-semibold text-gray-600">{row.betEndTime}</p>
-                <p>{row.timeLeft}</p>
+              <TableCell>
+                <div className="flex flex-col items-center gap-2 font-medium">
+                  <p className="text-gray-500">{row.initiated}</p>
+                  <p className="text-gray-500">{row.timeAgo}</p>
+                </div>
               </TableCell>
-              <TableCell className="text-center">{row.betPlaced}</TableCell>
-              <TableCell className="flex items-center gap-2">
-                <p className="border-inidigo-600 rounded-sm border border-indigo-500 px-3 py-1 text-indigo-600 transition-all hover:bg-indigo-700 hover:text-white">
-                  {row.action[0]}
-                </p>
-                <p className="rounded-sm border border-sky-600 px-3 py-1 text-sky-600 transition-all hover:bg-sky-800 hover:text-white">
-                  {row.action[1]}
-                </p>
-                <p className="border-white-600 rounded-sm border border-black px-3 py-1 transition-all hover:bg-gray-800 hover:text-white">
-                  {row.action[2]}
-                </p>
+              <TableCell>
+                <div className="flex flex-col items-center gap-2 font-medium">
+                  <p className="font-bold text-gray-500">{row.userName}</p>
+                  <p className="text-blue-500">{row.userId}</p>
+                </div>
+              </TableCell>
+              <TableCell>
+                <div className="flex flex-col items-center gap-2 font-medium">
+                  {type === "deposit" ? (
+                    <p className="text-gray-500">
+                      {`$${row.lastAmount.toFixed(2)} + `}
+                      <span className="text-green-500">{`$${row.addAmount.toFixed(2)}`}</span>
+                    </p>
+                  ) : (
+                    <p className="text-gray-500">
+                      {`$${row.lastAmount.toFixed(2)} - `}
+                      <span className="text-red-500">{`$${row.subtractAmount.toFixed(2)}`}</span>
+                    </p>
+                  )}
+                  <p className="font-bold text-gray-500">{`$${row.totalAmount.toFixed(2)}`}</p>
+                </div>
+              </TableCell>
+              <TableCell>
+                <div className="flex flex-col items-center gap-2 font-medium">
+                  <p className="text-gray-500">{row.conversion}</p>
+                  <p className="font-bold text-gray-500">{`${row.totalAmount.toFixed(2)} USD`}</p>
+                </div>
+              </TableCell>
+              <TableCell className="font-bold text-gray-600">
+                <span
+                  className={cn("text-xsm rounded-full px-3 py-[0.5px]", {
+                    "border border-orange-600 bg-orange-100 text-orange-800":
+                      row.status.toLowerCase() === "pending",
+                    "border border-indigo-600 bg-indigo-100 text-indigo-800":
+                      row.status.toLowerCase() === "approved",
+                    "border border-red-600 bg-red-100 text-red-800":
+                      row.status.toLowerCase() === "rejected",
+                  })}
+                >
+                  {row.status}
+                </span>
+              </TableCell>
+              <TableCell className="font-semibold text-gray-600">
+                <span className="rounded-sm border border-indigo-500 px-3 py-1 text-indigo-500 hover:bg-indigo-500 hover:text-white">
+                  {row.action}
+                </span>
               </TableCell>
             </TableRow>
           ))}
@@ -175,10 +199,10 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
                 <PaginationItem key={index}>
                   {typeof item === "number" ? (
                     <PaginationLink
-                      className={cn("rounded-sm border", {
-                        "bg-indigo-600 text-white hover:bg-indigo-600 hover:text-white":
-                          item === pageNo,
-                      })}
+                    className={cn("rounded-sm border", {
+                      "bg-indigo-600 text-white hover:bg-indigo-600 hover:text-white":
+                        item === pageNo,
+                    })}
                       onClick={() => setPageNoParams(item)}
                     >
                       {item}

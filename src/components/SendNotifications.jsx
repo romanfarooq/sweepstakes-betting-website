@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Mail, Smartphone, Bell, Check } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
   SelectContent,
@@ -12,8 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mail, Smartphone, Bell, Check } from "lucide-react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -34,12 +35,15 @@ const SendNotifications = () => {
               <Tabs
                 value={selectedTab}
                 onValueChange={setSelectedTab}
-                className="w-1/2"
+                className="w-full 2xl:w-1/2"
               >
                 <TabsList className="mb-4 grid min-h-28 w-full grid-cols-3 gap-3 bg-white">
                   <TabsTrigger
                     value="email"
-                    className={`relative flex h-full items-center justify-center border-2 border-gray-300 bg-gray-200 py-2 ${selectedTab === "email" ? "border-4 border-indigo-500" : null}`}
+                    className={cn(
+                      "relative flex h-full items-center justify-center border-2 border-gray-300 bg-gray-200 py-2",
+                      { "border-4 border-indigo-500": selectedTab === "email" },
+                    )}
                   >
                     {selectedTab === "email" && (
                       <Check className="absolute -right-2 top-0 mr-2 w-6 rounded-bl-lg bg-indigo-600 text-white" />
@@ -49,7 +53,10 @@ const SendNotifications = () => {
                   </TabsTrigger>
                   <TabsTrigger
                     value="sms"
-                    className={`relative flex h-full items-center justify-center border-2 border-gray-300 bg-gray-200 py-2 ${selectedTab === "sms" ? "border-4 border-indigo-500" : null}`}
+                    className={cn(
+                      "relative flex h-full items-center justify-center border-2 border-gray-300 bg-gray-200 py-2",
+                      { "border-4 border-indigo-500": selectedTab === "sms" },
+                    )}
                   >
                     {selectedTab === "sms" && (
                       <Check className="absolute -right-2 top-0 mr-2 w-6 rounded-bl-lg bg-indigo-600 text-white" />
@@ -59,7 +66,13 @@ const SendNotifications = () => {
                   </TabsTrigger>
                   <TabsTrigger
                     value="firebase"
-                    className={`relative flex h-full items-center justify-center border-2 border-gray-300 bg-gray-200 py-2 ${selectedTab === "firebase" ? "border-4 border-indigo-500" : null}`}
+                    className={cn(
+                      "relative flex h-full items-center justify-center border-2 border-gray-300 bg-gray-200 py-2",
+                      {
+                        "border-4 border-indigo-500":
+                          selectedTab === "firebase",
+                      },
+                    )}
                   >
                     {selectedTab === "firebase" && (
                       <Check className="absolute -right-2 top-0 mr-2 w-6 rounded-bl-lg bg-indigo-600 text-white" />

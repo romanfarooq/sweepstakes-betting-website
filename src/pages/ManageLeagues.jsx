@@ -1,4 +1,3 @@
-
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
@@ -85,7 +84,7 @@ export default function ManageLeagues() {
           </div>
           <Dialog>
             <DialogTrigger asChild>
-              <div className="flex cursor-pointer items-center space-x-2 text-nowrap rounded-sm border border-indigo-500 p-2 text-indigo-500 hover:text-white hover:bg-indigo-600">
+              <div className="flex cursor-pointer items-center space-x-2 text-nowrap rounded-sm border border-indigo-500 p-2 text-indigo-500 hover:bg-indigo-600 hover:text-white">
                 <FiPlus />
                 <span className="">Add New</span>
               </div>
@@ -153,4 +152,3 @@ export default function ManageLeagues() {
     </div>
   );
 }
-

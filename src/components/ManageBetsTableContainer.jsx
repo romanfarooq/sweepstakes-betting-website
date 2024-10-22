@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { cn, splitIntoChunks } from "@/lib/utils";
 import {
   Table,
   TableBody,
@@ -6,8 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import {
   Pagination,
   PaginationContent,
@@ -17,7 +18,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { splitIntoChunks } from "@/lib/utils";
 
 function ManageBetsTableContainer({ data, rowsPerPage }) {
   const [pageNo, setPageNo] = useState(1);
@@ -86,7 +86,7 @@ function ManageBetsTableContainer({ data, rowsPerPage }) {
     <div className="overflow-hidden rounded-md border">
       <Table className="cursor-pointer">
         <TableHeader className="h-16">
-          <TableRow className="bg-indigo-600 hover:bg-indigo-500">
+          <TableRow className="text-nowrap bg-indigo-600 hover:bg-indigo-500">
             {data?.tableHeader?.map((header, index) => (
               <TableHead
                 key={index}
@@ -99,14 +99,22 @@ function ManageBetsTableContainer({ data, rowsPerPage }) {
         </TableHeader>
         <TableBody>
           {currentData.map((row, index) => (
-            <TableRow key={index} className="h-16 border-b last:border-b-0">
+            <TableRow
+              key={index}
+              className="h-16 text-nowrap border-b last:border-b-0"
+            >
               <TableCell className="flex flex-col justify-center gap-2 pl-4 font-medium">
                 <p className="font-semibold text-gray-500">{row.betNumber}</p>
                 <p className="text-indigo-500">{row.user}</p>
               </TableCell>
               <TableCell>
                 <span
-                  className={`text-xsm rounded-full px-3 py-[0.5px] ${row.type.toLowerCase() === "multi" ? "border border-violet-600 bg-violet-100 text-violet-800" : "border border-teal-700 bg-teal-100 text-teal-800"}`}
+                  className={cn(
+                    "text-xsm rounded-full px-3 py-[0.5px]",
+                    row.type.toLowerCase() === "multi"
+                      ? "border border-violet-600 bg-violet-100 text-violet-800"
+                      : "border border-teal-700 bg-teal-100 text-teal-800",
+                  )}
                 >
                   {row.type}
                 </span>
@@ -117,13 +125,18 @@ function ManageBetsTableContainer({ data, rowsPerPage }) {
               <TableCell>{row.return}</TableCell>
               <TableCell className="font-bold text-gray-600">
                 <span
-                  className={`text-xsm rounded-full px-3 py-[0.5px] ${row.status.toLowerCase() === "pending" ? "border border-orange-600 bg-orange-100 text-orange-800" : ""}`}
+                  className={cn("text-xsm rounded-full px-3 py-[0.5px]", {
+                    "border border-orange-600 bg-orange-100 text-orange-800":
+                      row.status.toLowerCase() === "pending",
+                  })}
                 >
                   {row.status}
                 </span>
               </TableCell>
               <TableCell className="font-semibold text-gray-600">
-                <span className="px-3 py-1 border rounded-sm border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white">{row.action}</span>
+                <span className="rounded-sm border border-indigo-500 px-3 py-1 text-indigo-500 hover:bg-indigo-500 hover:text-white">
+                  {row.action}
+                </span>
               </TableCell>
             </TableRow>
           ))}
@@ -155,12 +168,15 @@ function ManageBetsTableContainer({ data, rowsPerPage }) {
                 <PaginationPrevious />
               </PaginationItem>
               {generatePaginationItems().map((item, index) => (
-                <PaginationItem
-                  className={`rounded-sm border ${item === pageNo ? "bg-indigo-600 text-white" : ""}`}
-                  key={index}
-                >
+                <PaginationItem key={index}>
                   {typeof item === "number" ? (
-                    <PaginationLink onClick={() => setPageNoParams(item)}>
+                    <PaginationLink
+                      className={cn("rounded-sm border", {
+                        "bg-indigo-600 text-white hover:bg-indigo-600 hover:text-white":
+                          item === pageNo,
+                      })}
+                      onClick={() => setPageNoParams(item)}
+                    >
                       {item}
                     </PaginationLink>
                   ) : (
@@ -169,7 +185,9 @@ function ManageBetsTableContainer({ data, rowsPerPage }) {
                 </PaginationItem>
               ))}
               <PaginationItem
-                className={`rounded-sm border ${pageNo >= perPageData.length ? "cursor-not-allowed opacity-50" : ""}`}
+                className={cn("rounded-sm border", {
+                  "cursor-not-allowed opacity-50": pageNo >= perPageData.length,
+                })}
                 onClick={() => setPageNoParams(pageNo + 1)}
                 disabled={pageNo >= perPageData.length}
               >

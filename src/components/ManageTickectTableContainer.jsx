@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { cn, splitIntoChunks } from "@/lib/utils";
 import {
   Table,
@@ -19,12 +19,10 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
+function ManageTicketTableContainer({ data, rowsPerPage }) {
   const [pageNo, setPageNo] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
   const Navigate = useNavigate();
-
-  console.log(data);
 
   useEffect(() => {
     const currentPage = parseInt(searchParams.get("page"), 10) || 1;
@@ -92,9 +90,7 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
             {data?.tableHeader?.map((header, index) => (
               <TableHead
                 key={index}
-                className={cn("h-14 pl-4 font-semibold text-white", {
-                  "text-center": index !== 0,
-                })}
+                className="h-14 pl-4 font-semibold text-white"
               >
                 {header}
               </TableHead>
@@ -107,40 +103,43 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
               key={index}
               className="h-16 text-nowrap border-b last:border-b-0"
             >
-              <TableCell className="pl-4 font-medium">
-                <p className="font-semibold text-gray-500">{row.market}</p>
+              <TableCell className="gap-2 pl-4 font-bold text-blue-500">
+                {`[${row.ticketId}] ${row.subject}`}
               </TableCell>
-              <TableCell className="flex gap-2 pl-4 font-medium">
-                <div className="flex flex-col items-center justify-center gap-1">
-                  <p>🎯</p>
-                  <p className="text-sm font-semibold text-gray-500">
-                    {row.match.team1}
-                  </p>
-                </div>
-                <p className="font-bold text-gray-700">VS</p>
-                <div className="flex flex-col items-center justify-center gap-1">
-                  <p>🎯</p>
-                  <p className="text-sm font-semibold text-gray-500">
-                    {row.match.team2}
-                  </p>
-                </div>
+              <TableCell className="gap-2 pl-4 font-bold text-blue-500">
+                {row.submittedBy}
               </TableCell>
-
-              <TableCell className="space-y-2 text-center">
-                <p className="font-semibold text-gray-600">{row.betEndTime}</p>
-                <p>{row.timeLeft}</p>
+              <TableCell>
+                <span
+                  className={cn("text-xsm rounded-full px-3 py-[0.5px]", {
+                    "border border-orange-600 bg-orange-100 text-orange-800":
+                      row.status.toLowerCase() === "customer reply",
+                    "border border-teal-700 bg-teal-100 text-teal-800":
+                      row.status.toLowerCase() === "open",
+                  })}
+                >
+                  {row.status}
+                </span>
               </TableCell>
-              <TableCell className="text-center">{row.betPlaced}</TableCell>
-              <TableCell className="flex items-center gap-2">
-                <p className="border-inidigo-600 rounded-sm border border-indigo-500 px-3 py-1 text-indigo-600 transition-all hover:bg-indigo-700 hover:text-white">
-                  {row.action[0]}
-                </p>
-                <p className="rounded-sm border border-sky-600 px-3 py-1 text-sky-600 transition-all hover:bg-sky-800 hover:text-white">
-                  {row.action[1]}
-                </p>
-                <p className="border-white-600 rounded-sm border border-black px-3 py-1 transition-all hover:bg-gray-800 hover:text-white">
-                  {row.action[2]}
-                </p>
+              <TableCell className="font-bold text-gray-600">
+                <span
+                  className={cn("text-xsm rounded-full px-3 py-[0.5px]", {
+                    "border border-orange-600 bg-orange-100 text-orange-800":
+                      row.priority.toLowerCase() === "medium",
+                    "border border-red-600 bg-red-100 text-red-800":
+                      row.priority.toLowerCase() === "high",
+                  })}
+                >
+                  {row.status}
+                </span>
+              </TableCell>
+              <TableCell className="font-bold text-gray-600">
+                {row.lastReply}
+              </TableCell>
+              <TableCell className="font-semibold text-gray-600">
+                <span className="rounded-sm border border-indigo-500 px-3 py-1 text-indigo-500 hover:bg-indigo-500 hover:text-white">
+                  {row.action}
+                </span>
               </TableCell>
             </TableRow>
           ))}
@@ -204,3 +203,5 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
     </div>
   );
 }
+
+export default ManageTicketTableContainer;

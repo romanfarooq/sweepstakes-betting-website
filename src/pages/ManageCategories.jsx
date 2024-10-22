@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ManageCategories() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredData, setFilteredData] = useState(ManageCategoriesData); 
+  const [filteredData, setFilteredData] = useState(ManageCategoriesData);
 
   function handleSearchChange(e) {
     const newSearchTerm = e.target.value;
@@ -75,76 +75,76 @@ export default function ManageCategories() {
               className="absolute right-4 h-full w-12 rounded-r-md bg-indigo-600 p-2 text-3xl text-white"
               onClick={() => {
                 if (searchTerm.trim() === "") {
-                  setFilteredData(ManageCategoriesData); 
+                  setFilteredData(ManageCategoriesData);
                 }
               }}
             />
           </div>
           <Dialog>
-  <DialogTrigger asChild>
-    <div className="flex cursor-pointer items-center space-x-2 text-nowrap rounded-sm border border-indigo-500 p-2 text-indigo-500 hover:text-white hover:bg-indigo-600">
-      <FiPlus />
-      <span className="">Add New</span>
-    </div>
-  </DialogTrigger>
-  <DialogContent>
-    <DialogHeader>
-      <DialogTitle className="border-b">Add New Category</DialogTitle>
-      <DialogClose aria-label="Close" />
-    </DialogHeader>
-    <div className="space-y-6 p-6">
-      <div className="flex flex-col space-y-2">
-        <Label htmlFor="name" className="text-sm font-medium">
-          Name *
-        </Label>
-        <Input
-          id="name"
-          name="name"
-          placeholder="Enter category name"
-          value={formData.name}
-          onChange={handleChange}
-          className="h-14 focus:ring-2 focus:ring-indigo-500 focus:border-none"
-          required
-        />
-      </div>
-      <div className="flex flex-col space-y-2">
-        <Label htmlFor="slug" className="text-sm font-medium">
-          Slug *
-        </Label>
-        <Input
-          id="slug"
-          name="slug"
-          placeholder="Enter category slug"
-          value={formData.slug}
-          onChange={handleChange}
-          className="h-14 focus:ring-2 focus:ring-indigo-500 focus:border-none"
-          required
-        />
-        <p className="text-sm text-red-500">Spaces are not allowed</p>
-      </div>
-      <div className="flex flex-col space-y-2">
-        <Label htmlFor="icon" className="text-sm font-medium">
-          Icon *
-        </Label>
-        <Input
-          id="icon"
-          name="icon"
-          placeholder="Enter category icon"
-          value={formData.icon}
-          onChange={handleChange}
-          className="h-14 focus:ring-2 focus:ring-indigo-500 focus:border-none"
-          required
-        />
-      </div>
-      <Button
-        onClick={handleSubmit}
-        className="h-12 w-full bg-indigo-600 text-white hover:bg-indigo-700"
-      >
-        Submit
-      </Button>
-    </div>
-  </DialogContent>
-</Dialog>
+            <DialogTrigger asChild>
+              <div className="flex cursor-pointer items-center space-x-2 text-nowrap rounded-sm border border-indigo-500 p-2 text-indigo-500 hover:bg-indigo-600 hover:text-white">
+                <FiPlus />
+                <span className="">Add New</span>
+              </div>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle className="border-b">Add New Category</DialogTitle>
+                <DialogClose aria-label="Close" />
+              </DialogHeader>
+              <div className="space-y-6 p-6">
+                <div className="flex flex-col space-y-2">
+                  <Label htmlFor="name" className="text-sm font-medium">
+                    Name *
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="Enter category name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="h-14 focus:border-none focus:ring-2 focus:ring-indigo-500"
+                    required
+                  />
+                </div>
+                <div className="flex flex-col space-y-2">
+                  <Label htmlFor="slug" className="text-sm font-medium">
+                    Slug *
+                  </Label>
+                  <Input
+                    id="slug"
+                    name="slug"
+                    placeholder="Enter category slug"
+                    value={formData.slug}
+                    onChange={handleChange}
+                    className="h-14 focus:border-none focus:ring-2 focus:ring-indigo-500"
+                    required
+                  />
+                  <p className="text-sm text-red-500">Spaces are not allowed</p>
+                </div>
+                <div className="flex flex-col space-y-2">
+                  <Label htmlFor="icon" className="text-sm font-medium">
+                    Icon *
+                  </Label>
+                  <Input
+                    id="icon"
+                    name="icon"
+                    placeholder="Enter category icon"
+                    value={formData.icon}
+                    onChange={handleChange}
+                    className="h-14 focus:border-none focus:ring-2 focus:ring-indigo-500"
+                    required
+                  />
+                </div>
+                <Button
+                  onClick={handleSubmit}
+                  className="h-12 w-full bg-indigo-600 text-white hover:bg-indigo-700"
+                >
+                  Submit
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
       <div className="bg-white">

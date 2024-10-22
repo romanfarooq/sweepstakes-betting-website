@@ -270,7 +270,6 @@ const data = [
       },
     ],
   },
-  
   {
     id: 11,
     home_team: "Washington Wizards",
@@ -1286,7 +1285,7 @@ export default function Home() {
                   <FaAngleDoubleDown className="group-hover:animate-bounce-updown" />
                 </Button>
               </div>
-              <div className="flex mt-2 justify-between text-xs text-gray-400">
+              <div className="mt-2 flex justify-between text-xs text-gray-400">
                 <p className="flex items-center space-x-1">
                   <LuClock4 />
                   <span>Oct 4, 2024</span>

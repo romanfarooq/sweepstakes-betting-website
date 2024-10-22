@@ -14,7 +14,7 @@ export default function BannedUsers() {
     const currentSearch = searchParams.get("search") || "";
     setSearchTerm(currentSearch);
     handleSearchedData(currentSearch);
-  }, [searchParams]); 
+  }, [searchParams]);
 
   function handleSearchedData(currentSearch) {
     const searchTerm = currentSearch.toLowerCase();
@@ -34,7 +34,7 @@ export default function BannedUsers() {
   function handleSearchChange(e) {
     const newSearchTerm = e.target.value;
     setSearchTerm(newSearchTerm);
-    setSearchParams({ search: newSearchTerm, page: "1" }); 
+    setSearchParams({ search: newSearchTerm, page: "1" });
   }
 
   function handleKeyPressEvent(event) {
@@ -64,7 +64,11 @@ export default function BannedUsers() {
       </div>
       <div className="bg-white">
         <TableContainer
-          data={searchedData && searchedData.tableRows.length > 0 ? searchedData : TableData}
+          data={
+            searchedData && searchedData.tableRows.length > 0
+              ? searchedData
+              : TableData
+          }
           rowsPerPage={15}
         />
       </div>

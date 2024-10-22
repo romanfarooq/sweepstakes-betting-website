@@ -74,7 +74,29 @@
   .custom-scrollbar::-webkit-scrollbar-track {
     background-color: #1f2937; /* Track color */
   }
-  
+
+  /* Custom light gray scrollbar styles */
+  .select-scrollbar {
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    scrollbar-color: #d1d5db #f3f4f6; /* Thumb and track colors */
+    scrollbar-width: thin; /* Make the scrollbar width very thin */
+  }
+
+  .select-scrollbar::-webkit-scrollbar {
+    width: 5px; /* Make the scrollbar width very thin */
+    height: 5px; /* Make the horizontal scrollbar height very thin */
+  }
+
+  .select-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #9ca3af; /* Light gray thumb color */
+    border-radius: 0.25rem; /* Rounded corners */
+  }
+
+  .select-scrollbar::-webkit-scrollbar-track {
+    background-color: #e5e7eb; /* Light gray track color */
+  }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;

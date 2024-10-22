@@ -1,12 +1,12 @@
+import { NavLink } from "react-router-dom";
+import { FaRegCircleDot } from "react-icons/fa6";
+import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import { NavLink } from "react-router-dom";
-import { FaRegCircleDot } from "react-icons/fa6";
-import { cn } from "@/lib/utils";
 
 const ResueableAccordion = ({
   title,
@@ -47,7 +47,7 @@ const ResueableAccordion = ({
                 }
                 style={{ textDecoration: "none" }}
               >
-                <FaRegCircleDot className="h-3 w-3 ml-2 2xl:ml-5" />
+                <FaRegCircleDot className="ml-2 h-3 w-3 2xl:ml-5" />
                 <span>{item.name}</span>
               </NavLink>
             ))}

@@ -89,7 +89,7 @@ function GamesContainerTable({ data, rowsPerPage }) {
     <div className="overflow-hidden rounded-md border">
       <Table className="cursor-pointer">
         <TableHeader className="h-16">
-          <TableRow className="bg-indigo-600 hover:bg-indigo-500">
+          <TableRow className="text-nowrap bg-indigo-600 hover:bg-indigo-500">
             {data?.tableHeader?.map((header, index) => (
               <TableHead
                 key={index}
@@ -102,7 +102,10 @@ function GamesContainerTable({ data, rowsPerPage }) {
         </TableHeader>
         <TableBody>
           {currentData.map((row, index) => (
-            <TableRow key={index} className="h-16 border-b last:border-b-0">
+            <TableRow
+              key={index}
+              className="h-16 text-nowrap border-b text-center last:border-b-0"
+            >
               <TableCell className="pl-4 font-medium">
                 <div className="flex items-center gap-5">
                   <div className="flex flex-col items-center">
@@ -205,14 +208,15 @@ function GamesContainerTable({ data, rowsPerPage }) {
                 <PaginationPrevious />
               </PaginationItem>
               {generatePaginationItems().map((item, index) => (
-                <PaginationItem
-                  className={cn("rounded-sm border", {
-                    "bg-indigo-600 text-white": item === pageNo,
-                  })}
-                  key={index}
-                >
+                <PaginationItem key={index}>
                   {typeof item === "number" ? (
-                    <PaginationLink onClick={() => setPageNoParams(item)}>
+                    <PaginationLink
+                      className={cn("rounded-sm border", {
+                        "bg-indigo-600 text-white hover:bg-indigo-600 hover:text-white":
+                          item === pageNo,
+                      })}
+                      onClick={() => setPageNoParams(item)}
+                    >
                       {item}
                     </PaginationLink>
                   ) : (

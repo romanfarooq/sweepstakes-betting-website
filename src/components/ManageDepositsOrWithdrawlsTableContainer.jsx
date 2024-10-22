@@ -36,7 +36,6 @@ export default function ManageDepositsOrWithdrawlsTableContainer({
   const totalTableRowsLength = data?.tableRows?.length || 0;
   const perPageData = splitIntoChunks(data?.tableRows || [], rowsPerPage);
   const currentData = perPageData[pageNo - 1] || [];
-  console.log(currentData);
 
   // RESULTS TO SHOW IN TABLE
   const startResult = (pageNo - 1) * rowsPerPage + 1;
@@ -91,7 +90,7 @@ export default function ManageDepositsOrWithdrawlsTableContainer({
     <div className="overflow-hidden rounded-md border">
       <Table className="cursor-pointer">
         <TableHeader className="h-16">
-          <TableRow className="bg-indigo-600 hover:bg-indigo-500">
+          <TableRow className="text-nowrap bg-indigo-600 hover:bg-indigo-500">
             {data?.tableHeader?.map((header, index) => (
               <TableHead
                 key={index}
@@ -197,14 +196,15 @@ export default function ManageDepositsOrWithdrawlsTableContainer({
                 <PaginationPrevious />
               </PaginationItem>
               {generatePaginationItems().map((item, index) => (
-                <PaginationItem
-                  className={cn("rounded-sm border", {
-                    "bg-indigo-600 text-white": item === pageNo,
-                  })}
-                  key={index}
-                >
+                <PaginationItem key={index}>
                   {typeof item === "number" ? (
-                    <PaginationLink onClick={() => setPageNoParams(item)}>
+                    <PaginationLink
+                    className={cn("rounded-sm border", {
+                      "bg-indigo-600 text-white hover:bg-indigo-600 hover:text-white":
+                        item === pageNo,
+                    })}
+                      onClick={() => setPageNoParams(item)}
+                    >
                       {item}
                     </PaginationLink>
                   ) : (

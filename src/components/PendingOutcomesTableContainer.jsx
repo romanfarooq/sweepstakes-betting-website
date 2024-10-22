@@ -88,11 +88,13 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
     <div className="overflow-hidden rounded-md border">
       <Table className="cursor-pointer">
         <TableHeader className="h-16">
-          <TableRow className="bg-indigo-600 hover:bg-indigo-500">
+          <TableRow className="text-nowrap bg-indigo-600 hover:bg-indigo-500">
             {data?.tableHeader?.map((header, index) => (
               <TableHead
                 key={index}
-                className="h-14 pl-4 font-semibold text-white"
+                className={cn("h-14 pl-4 font-semibold text-white", {
+                  "text-center": index !== 0,
+                })}
               >
                 {header}
               </TableHead>
@@ -101,7 +103,10 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
         </TableHeader>
         <TableBody>
           {currentData.map((row, index) => (
-            <TableRow key={index} className="h-16 border-b last:border-b-0">
+            <TableRow
+              key={index}
+              className="h-16 text-nowrap border-b last:border-b-0"
+            >
               <TableCell className="pl-4 font-medium">
                 <p className="font-semibold text-gray-500">{row.market}</p>
               </TableCell>
@@ -122,11 +127,10 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
               </TableCell>
 
               <TableCell className="space-y-2">
-                {" "}
                 <p className="font-semibold text-gray-600">{row.betEndTime}</p>
                 <p>{row.timeLeft}</p>
               </TableCell>
-              <TableCell>{row.betPlaced}</TableCell>
+              <TableCell className="text-center">{row.betPlaced}</TableCell>
               <TableCell className="flex items-center gap-2">
                 <p className="border-inidigo-600 rounded-sm border border-indigo-500 px-3 py-1 text-indigo-600 transition-all hover:bg-indigo-700 hover:text-white">
                   {row.action[0]}
@@ -168,14 +172,15 @@ export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
                 <PaginationPrevious />
               </PaginationItem>
               {generatePaginationItems().map((item, index) => (
-                <PaginationItem
-                  className={cn("rounded-sm border", {
-                    "bg-indigo-600 text-white": item === pageNo,
-                  })}
-                  key={index}
-                >
+                <PaginationItem key={index}>
                   {typeof item === "number" ? (
-                    <PaginationLink onClick={() => setPageNoParams(item)}>
+                    <PaginationLink
+                      className={cn("rounded-sm border", {
+                        "bg-indigo-600 text-white hover:bg-indigo-600 hover:text-white":
+                          item === pageNo,
+                      })}
+                      onClick={() => setPageNoParams(item)}
+                    >
                       {item}
                     </PaginationLink>
                   ) : (

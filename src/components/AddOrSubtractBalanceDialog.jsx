@@ -27,7 +27,7 @@ export default function AddOrSubtractBalanceDialog({ type }) {
       <DialogTrigger asChild>
         <Button
           className={cn(
-            "flex-grow transform rounded-sm py-5 text-base font-normal text-white shadow-none transition-transform duration-300 hover:-translate-y-[2px] hover:shadow-lg",
+            "flex-grow transform rounded-sm py-5 text-base font-normal text-white shadow-none transition-transform duration-300 hover:-translate-y-[2px] hover:shadow-lg 2xl:h-16",
             {
               "bg-green-500 hover:bg-green-500 hover:shadow-green-500/20":
                 type === "Add",

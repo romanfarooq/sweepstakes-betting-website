@@ -185,10 +185,7 @@ export default function DepositAndWithdrawReportChart() {
           </Select>
           <Popover>
             <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                className="font-normal hover:bg-white"
-              >
+              <Button variant="outline" className="font-normal hover:bg-white">
                 Choose Custom Range
               </Button>
             </PopoverTrigger>

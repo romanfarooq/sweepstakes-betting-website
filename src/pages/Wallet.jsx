@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { CreditCard, RefreshCw, Info, Copy, Check } from "lucide-react";
+import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { CreditCard, RefreshCw, Info, Copy, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const Wallet = () => {
   const [address] = useState("0x3538F7B63F30C82fC4aAb3aA2401D4AD0bf9ICB1");

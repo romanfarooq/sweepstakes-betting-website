@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { cn, splitIntoChunks } from "@/lib/utils";
 import {
   Table,
   TableBody,
@@ -6,8 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import {
   Pagination,
   PaginationContent,
@@ -17,9 +18,8 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { splitIntoChunks } from "@/lib/utils";
 
-export function PendingOutcomesTableContainer({ data, rowsPerPage }) {
+export default function PendingOutcomesTableContainer({ data, rowsPerPage }) {
   const [pageNo, setPageNo] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
   const Navigate = useNavigate();
@@ -105,17 +105,17 @@ export function PendingOutcomesTableContainer({ data, rowsPerPage }) {
               <TableCell className="pl-4 font-medium">
                 <p className="font-semibold text-gray-500">{row.market}</p>
               </TableCell>
-              <TableCell className="flex pl-4 gap-2 font-medium">
-                <div className="flex flex-col justify-center gap-1 items-center">
+              <TableCell className="flex gap-2 pl-4 font-medium">
+                <div className="flex flex-col items-center justify-center gap-1">
                   <p>🎯</p>
-                  <p className="font-semibold text-gray-500 text-sm">
+                  <p className="text-sm font-semibold text-gray-500">
                     {row.match.team1}
                   </p>
                 </div>
                 <p className="font-bold text-gray-700">VS</p>
-                <div className="flex flex-col justify-center gap-1 items-center">
+                <div className="flex flex-col items-center justify-center gap-1">
                   <p>🎯</p>
-                  <p className="font-semibold text-gray-500 text-sm">
+                  <p className="text-sm font-semibold text-gray-500">
                     {row.match.team2}
                   </p>
                 </div>
@@ -127,11 +127,17 @@ export function PendingOutcomesTableContainer({ data, rowsPerPage }) {
                 <p>{row.timeLeft}</p>
               </TableCell>
               <TableCell>{row.betPlaced}</TableCell>
-              <TableCell className="flex gap-2 items-center">
-                <p className="hover:text-white hover:bg-indigo-700 text-indigo-600 border-inidigo-600 transition-all px-3 py-1 border border-indigo-500 rounded-sm">{row.action[0]}</p>
-                <p className="hover:text-white hover:bg-sky-800 transition-all text-sky-600 px-3 py-1 border border-sky-600 rounded-sm">{row.action[1]}</p>
-                <p className="hover:text-white hover:bg-gray-800 transition-all border-white-600 px-3 py-1 border border-black rounded-sm">{row.action[2]}</p>
-             </TableCell>
+              <TableCell className="flex items-center gap-2">
+                <p className="border-inidigo-600 rounded-sm border border-indigo-500 px-3 py-1 text-indigo-600 transition-all hover:bg-indigo-700 hover:text-white">
+                  {row.action[0]}
+                </p>
+                <p className="rounded-sm border border-sky-600 px-3 py-1 text-sky-600 transition-all hover:bg-sky-800 hover:text-white">
+                  {row.action[1]}
+                </p>
+                <p className="border-white-600 rounded-sm border border-black px-3 py-1 transition-all hover:bg-gray-800 hover:text-white">
+                  {row.action[2]}
+                </p>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -163,7 +169,9 @@ export function PendingOutcomesTableContainer({ data, rowsPerPage }) {
               </PaginationItem>
               {generatePaginationItems().map((item, index) => (
                 <PaginationItem
-                  className={`rounded-sm border ${item === pageNo ? "bg-indigo-600 text-white" : ""}`}
+                  className={cn("rounded-sm border", {
+                    "bg-indigo-600 text-white": item === pageNo,
+                  })}
                   key={index}
                 >
                   {typeof item === "number" ? (
@@ -176,7 +184,9 @@ export function PendingOutcomesTableContainer({ data, rowsPerPage }) {
                 </PaginationItem>
               ))}
               <PaginationItem
-                className={`rounded-sm border ${pageNo >= perPageData.length ? "cursor-not-allowed opacity-50" : ""}`}
+                className={cn("rounded-sm border", {
+                  "cursor-not-allowed opacity-50": pageNo >= perPageData.length,
+                })}
                 onClick={() => setPageNoParams(pageNo + 1)}
                 disabled={pageNo >= perPageData.length}
               >

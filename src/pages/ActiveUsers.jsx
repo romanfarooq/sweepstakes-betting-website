@@ -14,7 +14,7 @@ export default function ActiveUsers() {
     const currentSearch = searchParams.get("search") || "";
     setSearchTerm(currentSearch);
     handleSearchedData(currentSearch);
-  }, [searchParams]); 
+  }, [searchParams]);
 
   function handleSearchedData(currentSearch) {
     const searchTerm = currentSearch.toLowerCase();
@@ -34,7 +34,7 @@ export default function ActiveUsers() {
   function handleSearchChange(e) {
     const newSearchTerm = e.target.value;
     setSearchTerm(newSearchTerm);
-    setSearchParams({ search: newSearchTerm, page: "1" }); 
+    setSearchParams({ search: newSearchTerm, page: "1" });
   }
 
   function handleKeyPressEvent(event) {
@@ -54,7 +54,7 @@ export default function ActiveUsers() {
             value={searchTerm}
             onChange={handleSearchChange}
             onKeyDown={handleKeyPressEvent}
-            className="placeholder:text-gray-500 tracking-wide h-full min-w-full border-none bg-gray-100 outline-none ring-1 ring-gray-300 transition duration-300 focus:shadow-[0_0_15px_rgba(99,102,241,0.6)] focus:outline-none focus:ring-0 focus:ring-indigo-600"
+            className="h-full min-w-full border-none bg-gray-100 tracking-wide outline-none ring-1 ring-gray-300 transition duration-300 placeholder:text-gray-500 focus:shadow-[0_0_15px_rgba(99,102,241,0.6)] focus:outline-none focus:ring-0 focus:ring-indigo-600"
           />
           <IoIosSearch
             className="absolute right-4 h-full w-12 rounded-r-md bg-indigo-600 p-2 text-3xl text-white"
@@ -64,7 +64,11 @@ export default function ActiveUsers() {
       </div>
       <div className="bg-white">
         <TableContainer
-          data={searchedData && searchedData.tableRows.length > 0 ? searchedData : TableData}
+          data={
+            searchedData && searchedData.tableRows.length > 0
+              ? searchedData
+              : TableData
+          }
           rowsPerPage={15}
         />
       </div>

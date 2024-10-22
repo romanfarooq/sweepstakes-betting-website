@@ -162,7 +162,7 @@ export default function TransactionsReportChart() {
 
           const gradient = ctx.createLinearGradient(0, 0, 0, chartArea.bottom);
           gradient.addColorStop(0, "rgba(75, 192, 192, 0.5)"); // Semi-transparent at the top
-          gradient.addColorStop(1, "rgba(75, 192, 192, 0)");   // Fully transparent at the bottom
+          gradient.addColorStop(1, "rgba(75, 192, 192, 0)"); // Fully transparent at the bottom
           return gradient;
         },
       },
@@ -182,7 +182,7 @@ export default function TransactionsReportChart() {
 
           const gradient = ctx.createLinearGradient(0, 0, 0, chartArea.bottom);
           gradient.addColorStop(0, "rgba(255, 99, 132, 0.5)"); // Semi-transparent at the top
-          gradient.addColorStop(1, "rgba(255, 99, 132, 0)");   // Fully transparent at the bottom
+          gradient.addColorStop(1, "rgba(255, 99, 132, 0)"); // Fully transparent at the bottom
           return gradient;
         },
       },
@@ -210,10 +210,7 @@ export default function TransactionsReportChart() {
           </Select>
           <Popover>
             <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                className="font-normal hover:bg-white"
-              >
+              <Button variant="outline" className="font-normal hover:bg-white">
                 Choose Custom Range
               </Button>
             </PopoverTrigger>

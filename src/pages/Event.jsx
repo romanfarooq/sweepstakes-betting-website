@@ -364,7 +364,7 @@ export default function Event() {
         x: {
           ticks: {
             autoSkip: false,
-            callback: (value, index) => data.xLabels[index],  // Use xLabels for x-axis
+            callback: (value, index) => data.xLabels[index], // Use xLabels for x-axis
             maxRotation: 0,
             minRotation: 0,
           },

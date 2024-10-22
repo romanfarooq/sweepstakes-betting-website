@@ -1,11 +1,10 @@
 import LoggedInButtons from "@/components/LoggedInButtons";
 import LoggedOutButtons from "@/components/LoggedOutButtons";
 import NavLinkList from "@/components/NavLinkList";
+import Logo from "@/components/Logo";
 import { useAuth } from "@/contexts/AuthContext";
 import { doSignInWithGoogle, doSignOut } from "@/firebase/auth";
-import { BadgeDollarSign } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import Logo from "./Logo";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const { userLoggedIn } = useAuth();

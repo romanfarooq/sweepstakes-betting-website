@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom";
 import MobileSideNavigationBar from "@/components/MobileSideNavigationBar";
 import SideNavigationBar from "@/components/SideNavigationBar";
 import UpperNavigationBar from "@/components/UpperNavigationBar";
+import { Outlet } from "react-router-dom";
 
 export default function AdminLayout() {
   return (

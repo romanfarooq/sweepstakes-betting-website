@@ -121,7 +121,7 @@ function ManageTicketTableContainer({ data, rowsPerPage }) {
                   {row.status}
                 </span>
               </TableCell>
-              <TableCell className="font-bold text-gray-600">
+              <TableCell>
                 <span
                   className={cn("text-xsm rounded-full px-3 py-[0.5px]", {
                     "border border-orange-600 bg-orange-100 text-orange-800":
@@ -130,7 +130,7 @@ function ManageTicketTableContainer({ data, rowsPerPage }) {
                       row.priority.toLowerCase() === "high",
                   })}
                 >
-                  {row.status}
+                  {row.priority}
                 </span>
               </TableCell>
               <TableCell className="font-bold text-gray-600">

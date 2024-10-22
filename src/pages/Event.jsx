@@ -30,7 +30,7 @@ const match = {
   id: 1,
   home_team: "Washington Wizards",
   away_team: "New York Knicks",
-  match_time: "04:40:00",
+  match_time: "2024-10-09 20:52:53.382354",
   total_yes_bets: 3,
   total_no_bets: 3,
   variation: [
@@ -190,7 +190,7 @@ const transformData = (data) => {
   data.forEach((item) => {
     const date = new Date(item.timestamp);
 
-    // If the variation is within 1 day or spans less than 8 points, show time
+    // If the variation is within 1 day, show time
     if (totalDays === 0) {
       labels.push(format(date, "p")); // 'p' gives you time in 12-hour format
       xLabels.push(format(date, "p"));

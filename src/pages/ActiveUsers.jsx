@@ -3,15 +3,15 @@ import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { useSearchParams } from "react-router-dom";
-import axios from "@/api/axiosInstance";
-import { useQuery } from "@tanstack/react-query";
-import { TableData as d } from "@/lib/data";
+// import axios from "@/api/axiosInstance";
+// import { useQuery } from "@tanstack/react-query";
+import { TableData } from "@/lib/data";
 
 export default function ActiveUsers() {
-  const { data: TableData, error, isLoading, isError } = useQuery({
-    queryKey: ["bettors"],
-    queryFn: () => axios.get("/bettors").then((res) => res.data),
-  });
+  // const { data: TableData, error, isLoading, isError } = useQuery({
+  //   queryKey: ["bettors"],
+  //   queryFn: () => axios.get("/bettors").then((res) => res.data),
+  // });
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
@@ -45,10 +45,10 @@ export default function ActiveUsers() {
   }
 
   // Show loading spinner when loading
-  if (isLoading) return <div className="flex justify-center py-20"><span className="loader">Loading...</span></div>;
+  // if (isLoading) return <div className="flex justify-center py-20"><span className="loader">Loading...</span></div>;
   
   // Show error message when there is an error
-  if (isError) return <div className="flex justify-center py-20 text-red-500">Error loading data: {error.message}</div>;
+  // if (isError) return <div className="flex justify-center py-20 text-red-500">Error loading data: {error.message}</div>;
 
   return (
     <div className="space-y-10 px-6 py-12">

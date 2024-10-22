@@ -60,107 +60,107 @@ const match = {
       yes: 50.0,
       no: 50.0,
     },
-  //   // Day 2
-  //   {
-  //     timestamp: "2024-10-10 10:15:03.389712",
-  //     yes: 40.0,
-  //     no: 60.0,
-  //   },
-  //   {
-  //     timestamp: "2024-10-10 12:30:45.129843",
-  //     yes: 60.0,
-  //     no: 40.0,
-  //   },
-  //   {
-  //     timestamp: "2024-10-10 15:45:32.948765",
-  //     yes: 70.0,
-  //     no: 30.0,
-  //   },
-  //   {
-  //     timestamp: "2024-10-10 18:10:23.112945",
-  //     yes: 65.0,
-  //     no: 35.0,
-  //   },
-  //   // Day 3
-  //   {
-  //     timestamp: "2024-10-11 09:00:15.382354",
-  //     yes: 55.0,
-  //     no: 45.0,
-  //   },
-  //   {
-  //     timestamp: "2024-10-11 14:30:50.126738",
-  //     yes: 45.0,
-  //     no: 55.0,
-  //   },
-  //   {
-  //     timestamp: "2024-10-11 19:12:33.846298",
-  //     yes: 75.0,
-  //     no: 25.0,
-  //   },
-  //   // Day 4
-  //   {
-  //     timestamp: "2024-10-12 08:25:42.328491",
-  //     yes: 80.0,
-  //     no: 20.0,
-  //   },
-  //   {
-  //     timestamp: "2024-10-12 14:45:29.126874",
-  //     yes: 90.0,
-  //     no: 10.0,
-  //   },
-  //   {
-  //     timestamp: "2024-10-12 17:12:19.394876",
-  //     yes: 95.0,
-  //     no: 5.0,
-  //   },
-  //   // Day 5
-  //   {
-  //     timestamp: "2024-10-13 11:30:45.986543",
-  //     yes: 85.0,
-  //     no: 15.0,
-  //   },
-  //   {
-  //     timestamp: "2024-10-13 18:45:59.138742",
-  //     yes: 80.0,
-  //     no: 20.0,
-  //   },
-  //   {
-  //     timestamp: "2024-10-13 23:59:59.123456",
-  //     yes: 75.0,
-  //     no: 25.0,
-  //   },
-  //   // November variations
-  //   {
-  //     timestamp: "2024-11-05 13:15:30.567432",
-  //     yes: 50.0,
-  //     no: 50.0,
-  //   },
-  //   {
-  //     timestamp: "2024-11-15 09:00:12.678432",
-  //     yes: 60.0,
-  //     no: 40.0,
-  //   },
-  //   {
-  //     timestamp: "2024-11-25 18:45:45.987654",
-  //     yes: 70.0,
-  //     no: 30.0,
-  //   },
-  //   // December variations
-  //   {
-  //     timestamp: "2024-12-01 10:12:34.564789",
-  //     yes: 55.0,
-  //     no: 45.0,
-  //   },
-  //   {
-  //     timestamp: "2024-12-15 21:15:15.234098",
-  //     yes: 65.0,
-  //     no: 35.0,
-  //   },
-  //   {
-  //     timestamp: "2024-12-31 23:59:59.999999",
-  //     yes: 90.0,
-  //     no: 10.0,
-  //   },
+    // Day 2
+    {
+      timestamp: "2024-10-10 10:15:03.389712",
+      yes: 40.0,
+      no: 60.0,
+    },
+    {
+      timestamp: "2024-10-10 12:30:45.129843",
+      yes: 60.0,
+      no: 40.0,
+    },
+    {
+      timestamp: "2024-10-10 15:45:32.948765",
+      yes: 70.0,
+      no: 30.0,
+    },
+    {
+      timestamp: "2024-10-10 18:10:23.112945",
+      yes: 65.0,
+      no: 35.0,
+    },
+    // Day 3
+    {
+      timestamp: "2024-10-11 09:00:15.382354",
+      yes: 55.0,
+      no: 45.0,
+    },
+    {
+      timestamp: "2024-10-11 14:30:50.126738",
+      yes: 45.0,
+      no: 55.0,
+    },
+    {
+      timestamp: "2024-10-11 19:12:33.846298",
+      yes: 75.0,
+      no: 25.0,
+    },
+    // Day 4
+    {
+      timestamp: "2024-10-12 08:25:42.328491",
+      yes: 80.0,
+      no: 20.0,
+    },
+    {
+      timestamp: "2024-10-12 14:45:29.126874",
+      yes: 90.0,
+      no: 10.0,
+    },
+    {
+      timestamp: "2024-10-12 17:12:19.394876",
+      yes: 95.0,
+      no: 5.0,
+    },
+    // Day 5
+    {
+      timestamp: "2024-10-13 11:30:45.986543",
+      yes: 85.0,
+      no: 15.0,
+    },
+    {
+      timestamp: "2024-10-13 18:45:59.138742",
+      yes: 80.0,
+      no: 20.0,
+    },
+    {
+      timestamp: "2024-10-13 23:59:59.123456",
+      yes: 75.0,
+      no: 25.0,
+    },
+    // // November variations
+    // {
+    //   timestamp: "2024-11-05 13:15:30.567432",
+    //   yes: 50.0,
+    //   no: 50.0,
+    // },
+    // {
+    //   timestamp: "2024-11-15 09:00:12.678432",
+    //   yes: 60.0,
+    //   no: 40.0,
+    // },
+    // {
+    //   timestamp: "2024-11-25 18:45:45.987654",
+    //   yes: 70.0,
+    //   no: 30.0,
+    // },
+    // // December variations
+    // {
+    //   timestamp: "2024-12-01 10:12:34.564789",
+    //   yes: 55.0,
+    //   no: 45.0,
+    // },
+    // {
+    //   timestamp: "2024-12-15 21:15:15.234098",
+    //   yes: 65.0,
+    //   no: 35.0,
+    // },
+    // {
+    //   timestamp: "2024-12-31 23:59:59.999999",
+    //   yes: 90.0,
+    //   no: 10.0,
+    // },
   ],
 };
 
@@ -174,6 +174,7 @@ const calculatePercentageChange = (current, previous) => {
 // Transform backend data to chart-friendly format
 const transformData = (data) => {
   const labels = [];
+  const xLabels = [];
   const yesData = [];
   const noData = [];
 
@@ -183,30 +184,47 @@ const transformData = (data) => {
   const totalDays = differenceInDays(lastDate, firstDate);
   const totalMonths = differenceInMonths(lastDate, firstDate);
 
+  let previousDay = null;
+  let previousMonth = null;
+
   data.forEach((item) => {
     const date = new Date(item.timestamp);
-    let label;
 
     // If the variation is within 1 day or spans less than 8 points, show time
-    if (totalDays === 0 || data.length <= 8) {
-      label = format(date, "p"); // 'p' gives you time in 12-hour format
+    if (totalDays === 0) {
+      labels.push(format(date, "p")); // 'p' gives you time in 12-hour format
+      xLabels.push(format(date, "p"));
     }
     // If variations span multiple days but less than a month, show date + time
     else if (totalMonths === 0) {
-      label = format(date, "MMM d, p"); // 'MMM d' gives date like "Oct 9", 'p' gives time
+      labels.push(format(date, "MMM d, p")); // 'MMM d' gives date like "Oct 9", 'p' gives time
+      const currentDay = format(date, "yyyy-MM-dd");
+      if (currentDay !== previousDay) {
+        xLabels.push(format(date, "MMM d")); // Show first label for each day
+        previousDay = currentDay;
+      } else {
+        xLabels.push(""); // Hide other labels for the same day
+      }
     }
     // If variations span multiple months, show only month and day
     else {
-      label = format(date, "MMM yyyy"); // 'MMM yyyy' gives month and year like "Oct 2024"
+      labels.push(format(date, "MMM d, yyyy, p")); // 'MMM yyyy' gives month and year like "Oct 9, 2024, 'p' gives time"
+      const currentMonth = format(date, "yyyy-MM");
+      if (currentMonth !== previousMonth) {
+        xLabels.push(format(date, "MMM yyyy")); // Show first label for each month
+        previousMonth = currentMonth;
+      } else {
+        xLabels.push(""); // Hide other labels for the same month
+      }
     }
 
-    labels.push(label);
     yesData.push(item.yes);
     noData.push(item.no);
   });
 
   return {
     labels,
+    xLabels,
     datasets: [
       {
         label: "YES",
@@ -346,7 +364,7 @@ export default function Event() {
         x: {
           ticks: {
             autoSkip: false,
-            data: data.labels,
+            callback: (value, index) => data.xLabels[index],  // Use xLabels for x-axis
             maxRotation: 0,
             minRotation: 0,
           },

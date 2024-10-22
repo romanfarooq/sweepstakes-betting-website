@@ -42,7 +42,6 @@ export default function UpperNavigationBar() {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                {" "}
                 <div className="relative">
                   <IoIosNotificationsOutline className="animate-swing" />
                   <div className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">
@@ -59,7 +58,6 @@ export default function UpperNavigationBar() {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                {" "}
                 <CiSettings />
               </TooltipTrigger>
               <TooltipContent className="bg-indigo-500 text-white">

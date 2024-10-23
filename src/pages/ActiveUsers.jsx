@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { useSearchParams } from "react-router-dom";
-// import axios from "@/api/axiosInstance";
+// import axios from "@/api/axios";
 // import { useQuery } from "@tanstack/react-query";
 import { TableData } from "@/lib/data";
 

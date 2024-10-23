@@ -1,4 +1,4 @@
-// import axios from "@/api/axiosInstance";
+// import axios from "@/api/axios";
 import CardSkeleton from "@/components/CardSkeleton";
 import HalfDoughnutChart from "@/components/HalfDoughnutChart";
 import { Button } from "@/components/ui/button";
